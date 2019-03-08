@@ -5,13 +5,19 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterUserComponent } from './components/users/register-user/register-user.component';
-import { RecovPasswordComponent } from './components/users/recov-password/recov-password.component';
+import { LogInComponent } from './components/users/log-in/log-in.component';
+import { NavbarUserComponent } from './components/users/navbar-user/navbar-user.component';
+import { AllEventsComponent } from './components/events/all-events/all-events.component';
+import { DetailsEventComponent } from './components/events/details-event/details-event.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterUserComponent,
-    RecovPasswordComponent,
+    LogInComponent,
+    NavbarUserComponent,
+    AllEventsComponent,
+    DetailsEventComponent
   ],
   imports: [
     BrowserModule,

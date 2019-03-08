@@ -1,0 +1,152 @@
+<!--<nav class="navbar navbar-light bg-light">
+  <form class="form-inline">
+    <button class="btn btn-sm btn-gray" type="button"><img src="http://capaciagro.com/inicio/wp-content/uploads/2017/02/Capaciagro-logo2.png"
+        height="50" width="100" alt=""></button>
+    <button class="btn btn-sm btn-green" type="button"><i class="fas fa-arrow-circle-left fa-3x"></i></button>
+    <button class="btn btn-sm btn-shopping" type="button"><i class="fas fa-shopping-bag "></i>Mis compras</button>
+    <button class="btn btn-sm btn-shopping" type="button"><i class="fas fa-shopping-cart"></i>Mi carrito</button>
+    <button class="btn btn-sm btn-shopping" type="button"><i class="fas fa-clipboard-list"></i>Datos de facturación</button>
+  </form>
+</nav>-->
+
+<nav class="navbar navbar-expand-lg navbar-light btn-gray">
+  <a class="navbar-brand btn-gray" href="#"><img src="http://capaciagro.com/inicio/wp-content/uploads/2017/02/Capaciagro-logo2.png"
+      height="50" width="100" alt=""></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item btn-green borderlist">
+        <a class="nav-link fas fa-arrow-circle-left fa-3x icon-col text-white" href="#"><span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item btn-green borderlist">
+        <a class="nav-link fas fa-shopping-bag btn-green text-white align" href="#">Mis compras</a>
+      </li>
+      <li class="nav-item btn-green borderlist">
+        <a class="nav-link fas fa-shopping-cart btn-green text-white align" href="#">Mi carrito</a>
+      </li>
+      <li class="nav-item btn-green borderlist">
+        <a class="nav-link fas fa-clipboard-list text-white align" href="#">Datos de facturación</a>
+      </li>
+      <li class="nav-item btn-gray">
+        <a class="nav-link text-white align" data-toggle="modal" data-target="#exampleModal">Editar perfil</a>
+      </li>
+      <li class="nav-item btn-gray">
+        <a class="nav-link fas fa-user-circle fa-3x icon-col text-white" href="#"></a>
+      </li>
+      <li class="nav-item btn-gray borderlist">
+        <a class="nav-link text-white align" href="#">¡Hola, bienvenido Rafael!</a>
+      </li>
+      <li class="nav-item btn-gray">
+        <a class="nav-link fas fa-power-off text-white align" href="#"><br>Salir</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <button type="button" class="close a-right" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <!--
+            <div class="modal-body">
+            ...
+          </div>
+          -->
+      <div class="text-green">
+        <label for="perfil">
+          <h3 class="text-green">Paso 2 de 2. Terminar su perfil</h3>
+        </label>
+      </div>
+      <div class="row">
+        <div class="col-sm-5">
+          <div class="image-upload">
+            <label for="file-input">
+              <img class="user-image" src="../../../../assets/user-image.png" />
+            </label>
+            <input id="file-input" type="file" />
+          </div>
+          <div>
+              <button class="btn btn-block btn-gray-img">Subir foto</button>
+          </div>
+        </div>
+        <div class="col-sm-7">
+          <div>
+            <h2 class="text-gray">Complete todo su perfil para poder continuar</h2>
+          </div>
+          <div class="hr-sect"></div>
+          <label for="name">Nombre(s):</label>
+          <div class="input-wrapper">
+            <input class="form-control" type="text" id="name" placeholder="Nombre(s)">
+            <label for="name" class="fa fa-user input-icon"></label>
+          </div>
+          <label for="last_nameF">Apellido paterno:</label>
+          <div class="input-wrapper">
+            <input class="form-control" type="text" id="last_nameF" placeholder="Apellido paterno">
+            <label for="last_nameF" class="fa fa-user input-icon"></label>
+          </div>
+          <label for="last_nameM">Apellido materno:</label>
+          <div class="input-wrapper">
+            <input class="form-control" type="text" id="last_nameM" placeholder="Apellido materno">
+            <label for="last_nameM" class="fa fa-user input-icon"></label>
+          </div>
+          <label for="country">Pais:</label>
+          <div class="input-wrapper">
+            <input class="form-control" type="text" id="country" placeholder="Pais">
+            <label for="country" class="fa fa-map-marker input-icon"></label>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <label for="state">Estado:</label>
+              <div class="input-wrapper">
+                <input class="form-control" type="text" id="state" placeholder="Estado">
+                <label for="state" class="fa fa-map-marker input-icon"></label>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <label for="city">Municipio:</label>
+              <div class="input-wrapper">
+                <input class="form-control" type="text" id="city" placeholder="Municipio">
+                <label for="city" class="fa fa-map-marker input-icon"></label>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <label for="city">Genero:</label>
+              <select class="form-control" name="gender" id="gender">
+                <option value="M">Masculino</option>
+                <option value="F">Femenino</option>
+              </select>
+            </div>
+          </div>
+          <label for="birthdate">Fecha de nacimiento: (DD/MM/AAAA)</label>
+          <div class="input-wrapper">
+            <input class="form-control" type="date" id="birthdate">
+          </div>
+          <label for="email">Correo electrónico:</label>
+          <div class="input-wrapper">
+            <input class="form-control" type="text" id="email" placeholder="Correo electrónico">
+            <label for="email" class="fa fa-letter input-icon"></label>
+          </div>
+          <label for="phone">Teléfono celular:</label>
+          <div class="input-wrapper">
+            <input type="number" id="phone" class="form-control" placeholder="Teléfono celular">
+            <label for="phone" class="fa fa-phone input-icon"></label>
+          </div>
+          <label for="company">Empresa en la que labora:</label>
+          <div class="input-wrapper">
+            <input type="text" id="company" class="form-control" placeholder="Empresa">
+            <label for="company" class="far fa-building input-icon"></label>
+          </div>
+          <div>
+            <button class="btn btn-block btn-enviar">Guardar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
