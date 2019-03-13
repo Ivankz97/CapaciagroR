@@ -1,0 +1,127 @@
+.contenedor{
+    width: 100%;
+    height: 1250px;
+    background-image: url('../../../assets/Background.png');
+}
+.new-admin{
+    margin-left: 25%;
+    width: 70%;
+    height: 1200px;
+    border: 1px solid rgb(224, 221, 221);;
+    background: rgb(255, 255, 255);
+}
+.color-text{
+    font-size: 25px;
+    color: #32362f;
+    font-weight: 800;
+}
+.color-text-2{
+    width: 100%;
+    color: #1a6b06;
+    font-size: 18px;
+}
+.hr-sect {
+	display: flex;
+	flex-basis: 80%;
+	align-items: center;
+    color: #000000;
+	margin: 8px 0px;
+}
+.hr-sect::after {
+	content: "";
+	flex-grow: 1;
+	background: #000000;
+	height: 1px;
+	font-size: 0px;
+	line-height: 0px;
+	margin: 0px 8px;
+}
+
+.form-control{
+    width: 80%;
+    border-radius: 20px;
+}
+
+
+.user{
+    margin-left: 1%;
+    margin-right: 26%;
+    display: inline;
+}
+.F-perfil{
+    width: 20%;
+    height: 100px;
+     float: left;
+}
+
+.btn-save{
+    width: 30%;
+    float: right;
+}
+.hr-sect {
+	display: flex;
+	flex-basis: 80%;
+	align-items: center;
+    color: #000000;
+    margin: 8px 0px;
+    
+}
+.hr-sect::after {
+	content: "";
+	flex-grow: 1;
+	background: #000000;
+	height: 1px;
+	font-size: 0px;
+	line-height: 0px;
+	margin: 0px 8px;
+}
+.L-admin{
+    width: 100%;
+    margin-top: 10%;
+}
+.contenedor-image{
+    width: 100%;
+    height: auto;
+}
+.table{
+    width: 75%;
+    margin-left: 25%;
+}
+.fas{
+    color: red;
+}
+.rounded{
+    float: left;
+}
+.rounded2{
+    float: right;
+}
+.save{
+    margin-bottom: 10px;
+}
+
+.table-register{
+    width: 70%;
+}
+.btn-lg{
+    margin-top: 3%;
+}
+
+@media screen and (max-width:800px){
+    .table{
+        margin: 0;
+        margin-left: 5%;
+        font-size: 10px;
+        width: 100%;
+    }
+    .form-control{
+        width: 100%;
+        
+    }
+    .new-admin{
+        width: 80%;
+    }
+    .table-register{
+        width: 80%;
+    }
+}

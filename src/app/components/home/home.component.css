@@ -1,8 +1,4 @@
-.contenedor{
-    margin: 0;
-    
-}
-.menu{
+/*.menu{
     width: 20%;
     float: left;
     background: #797575;
@@ -12,10 +8,12 @@
     font-size: 50px;
     color: #ffffff;
 }
+.texto{
+    width: 100%;
+}
 .image{
     width: 60%;
     height: 50%;
-    margin-left: 10%;
     border-radius: 120px;
 }
 .btn1{
@@ -44,6 +42,7 @@
 .home{  
     width: 80%;
     float: right;
+   
   
 }
 .contenedorhome{
@@ -56,23 +55,30 @@
     margin-left: 5%;
     margin-right: 5%;
     margin-top: 2%;
-    width: 40%;
+    width: 90%;
+    height: 150px;
+    background: #f8f0f0;
 }
+.message{
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: 5%;
+}
+
 .cuenta, .event{
-    font-size: 25px;
+    font-size: 18px;
     color: #0d6405;
-    font-weight: 800;
+    font-weight: 600;
 }
 .event{
-    margin-left: 10%;
+    margin-left: 5%;
+    margin-top: 2%;
 }
-.section2{
-    width: 40%;
-}
+
 .ref{
     width: 100%;
     margin-left: 10%;
-    background: #FAF8F8  ;
 }
 .site{
     margin-bottom: 5%;
@@ -87,4 +93,120 @@
 .claseB{
     width: 75%;
     float: right;
+}
+.section2{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.Image{
+    width: 90%;
+    background: #cccccc;
+    height: 200px;
+    background: #f8f0f0;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.col-sm{
+    width: 30%;
+    float: right;
+    margin-right: 15%;
+    background: #0d6405;
+}
+.row{
+width: 100%;  
+background: #0d6405;  
+}
+.sm-left{
+    width: 50%;
+    float: left;
+}
+.sm-rigth{
+    width: 50%;
+    float: right;
+}
+.table{
+    width: 100%;
+}
+.col-1{
+    width: 40%;
+    float: left;
+}
+.col-2{
+    float: right;
+    width: 60%;
+}
+.visitantes{
+    float: left;
+    width: 50%;
+}
+.visitas{
+    float: right;
+    width: 50%;
+    margin-top: 10%;
+}
+.g-user{
+    width: 70%;
+    height: 150px;
+    margin-left: 5%;
+    background: #f8f0f0;
+}
+.g-user-rigth{
+    float: left;
+    margin-left: 2%;
+}
+
+.next-page{
+    margin-left: 45%;
+}
+.next{
+    margin: 5px;
+    
+}
+.coputer{
+    width: 50px;
+}
+*/
+.img-computer{
+    width: 50%;
+}
+.contenedor{
+    background-image: url('../../../assets/Background.png');
+}
+.form{
+    background: #fbfbfb;
+    width: 75%;
+    margin-left: 23%;
+    padding: 3%;
+    
+}
+.background-div{
+    background: #f7e4e4;
+}
+.img-fluid{
+    width: 90%;
+    padding: 3%;
+    margin-left: 5%;
+}
+.table-route{
+    height: 170px;
+    padding: 3%;
+}
+.ref{
+    float: left;
+}
+.link{
+    float: right;
+    margin-right: 40%;
+}
+.table{
+    line-height: 5px;
+}
+.modal-footer{
+    margin: 0 auto;
+    margin-bottom: 20%;
+}
+.btn-primary{
+    background: none;
+    color: #000000;
+    border: 0;
 }

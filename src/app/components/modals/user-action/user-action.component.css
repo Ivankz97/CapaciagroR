@@ -1,0 +1,39 @@
+.hr-sect {
+	display: flex;
+	flex-basis: 80%;
+	align-items: center;
+	color: #000000;
+	margin: 8px 0px;
+}
+.hr-sect::after {
+	content: "";
+	flex-grow: 1;
+	background: #000000;
+	height: 1px;
+	font-size: 0px;
+	line-height: 0px;
+	margin: 0px 8px;
+}
+.thead{
+    border-bottom: 3px solid #000000;
+}
+.topic{
+    font-size: 12px;
+}
+.eye{
+    color:#2571c7;
+}
+.btn-light{
+    background: none;
+    border: 0;
+}
+.letter{
+    color: #b8d805;
+}
+.fa-eraser{
+    color: #d197cc;
+}
+.fa-times{
+    font-size: 20px;
+    color: #e05b5b;
+}

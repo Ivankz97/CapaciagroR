@@ -1,0 +1,26 @@
+.hr-sect {
+	display: flex;
+	flex-basis: 80%;
+	align-items: center;
+    color: #000000;
+	margin: 8px 0px;
+}
+.hr-sect::after {
+	content: "";
+	flex-grow: 1;
+	background: #000000;
+	height: 1px;
+	font-size: 0px;
+	line-height: 0px;
+	margin: 0px 8px;
+}
+.buttons{
+    width: 100%;
+    margin-top: 5%;
+}.btn-success{
+    width: 40%;
+}
+.btn-secondary{
+    width: 40%;
+    margin-right: 5%;
+}

@@ -1,0 +1,224 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+
+<app-menu></app-menu>
+<div class="contenedor">
+  <div>Alta de eventos</div>
+  <div>Dar de alta un evento al sistema</div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div>Nombre:</div>
+      <div>
+        <input type="text" class="form-control" placeholder="Nombre del evento" aria-label="Recipient's username"
+          aria-describedby="basic-addon2">
+      </div>
+      <div>Precio:</div>
+      <div>
+        <input type="text" class="form-control" placeholder="Precio" aria-label="Recipient's username" aria-describedby="basic-addon2">
+      </div>
+      <div>Horario (HH:MM):</div>
+      <div>
+        <input type="text" class="form-control" placeholder="--:--" aria-label="Recipient's username" aria-describedby="basic-addon2">
+      </div>
+      <div>Capacidad maxima del evento:</div>
+      <div>
+        <input type="text" class="form-control" placeholder="Capacidad" aria-label="Recipient's username"
+          aria-describedby="basic-addon2">
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div>Fecha del Evento:</div>
+      <div>
+        <input type="text" class="form-control" placeholder="correo electronico" aria-label="Recipient's username"
+          aria-describedby="basic-addon2">
+      </div>
+      <br>
+      <div>Descripción:</div>
+      <div>
+        <textarea name="" id="" cols="30" rows="3" placeholder="Inserte una descripcion"></textarea>
+      </div>
+      <div>Sede:</div>
+      <div>
+        <input type="text" class="form-control" placeholder="Ciudad del evento" aria-label="Recipient's username"
+          aria-describedby="basic-addon2">
+      </div>
+
+    </div>
+    <div class="col-sm-4">
+      <div>Decea que los usuarios visualizen este evento:</div>
+      <div>
+        <input type="radio">Si
+        <input type="radio">No
+      </div>
+      <div>Subir precentaciones:</div>
+      <div>
+        <button type="button" class="btn btn-primary">Cargar</button>
+      </div>
+    </div>
+  </div>
+  <div>Estilo de planilla</div>
+  <div class="hr-sect"></div>
+  <div class="row">
+    <div class="col-sm-4 pricipal">
+      <div class="stylePlantilla">
+        <div class="banner">Banner</div>
+        <div class="patrocinador">Patrocinadores</div>
+        <div class="area">Área de texto</div>
+        <div class="img-Table">Imagen (tabla de precios)</div>
+      </div>
+
+    </div>
+    <div class="col-sm-8">
+      <div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="row">
+              <div class="col-sm-3">
+                <div class="text">Banner:1500 x 289</div>
+
+                <button type="button" class="btn btn-primary">Cargar</button>
+              </div>
+              <div class="col-sm-3">
+                <div class="text">Tabla de precios: 1500 x 481</div>
+
+                <button type="button" class="btn btn-primary">Cargar</button>
+              </div>
+              <div class="col-sm-3">
+                <div class="text">(Px)Patrocinadores:1500 x</div>
+
+                <button type="button" class="btn btn-primary">Cargar</button>
+              </div>
+              <div class="col-sm-3">
+                <div class="text">Fondo:(1800 x 2800Px )</div>
+
+                <button type="button" class="btn btn-primary">Cargar</button>
+              </div>
+            </div>
+            <div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-sm-3 ">
+            <button type="button" class="btn btn-primary precios">alta precios</button>
+          </div>
+          <div class="col-sm-9">
+            <button type="button" class="btn btn-primary vista gray">Limpiar</button>
+            <button type="button" class="btn btn-primary vista orange">Previsualizar</button>
+            <button type="button" class="btn btn-primary vista green">Guardar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>Eventos creados</div>
+    <div class="hr-sect"></div>
+    <div class="row">
+      <div class="col-sm-12">
+
+      
+      <table class="table table-striped">
+          <thead>
+        <tr>
+          <td>#</td>
+          <td>Nombre</td>
+          <td>Fecha del evento</td>
+          <td>Hora</td>
+          <td>Precio</td>
+          <td>Capacidad del evento</td>
+          <td>Numero de incripciones</td>
+          <td>Visualizar</td>
+          <td>Usuarios y acciones</td>
+          <td>Editar</td>
+          <td>Exportar</td>
+          <td>Eliminar</td>
+        </tr>
+        </thead>
+     
+          <tr>
+              <td>41</td>
+              <td>Simposio de Nem</td>
+              <td>8/03/2019</td>
+              <td>8:00</td>
+              <td>$5343</td>
+              <td>120</td>
+              <td>15</td>
+              <td>Si</td>
+              <td><i class="fas fa-user"></i></td>
+              <td><i class="fas fa-eraser"></i></td>
+              <td><i class="fas fa-download"></i></td>
+              <td><i class="fas fa-times"></i></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><i class="fas fa-user"></i></td>
+                <td><i class="fas fa-eraser"></i></td>
+                <td><i class="fas fa-download"></i></td>
+                <td><i class="fas fa-times"></i></td>
+              </tr>  
+        <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><i class="fas fa-user"></i></td>
+              <td><i class="fas fa-eraser"></i></td>
+              <td><i class="fas fa-download"></i></td>
+              <td><i class="fas fa-times"></i></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><i class="fas fa-user"></i></td>
+                <td><i class="fas fa-eraser"></i></td>
+                <td><i class="fas fa-download"></i></td>
+                <td><i class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><i class="fas fa-user"></i></td>
+                  <td><i class="fas fa-eraser"></i></td>
+                  <td><i class="fas fa-download"></i></td>
+                  <td><i class="fas fa-times"></i></td>
+                </tr>
+      </table>
+    </div>
+    </div>
+  </div>
+</div>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<app-list-user-c-d></app-list-user-c-d>
