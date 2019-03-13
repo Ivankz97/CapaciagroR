@@ -74,14 +74,74 @@ img{
     color: #ffffff;
     padding-top: 5%;
     padding-right: 12%;
+    
     top: calc(50% - 0.5em); /* Keep icon in center of input, regardless of the input height */
 }
+
+input{
+    padding-left: 17px;
+    border-radius: 10px
+}
+
+.input-wrapper{
+    position: relative;
+}
+
+.input-icon2{
+    position: absolute;
+    color: gray;
+    padding-right: 12px;
+    top: calc(50% - 0.5em); /* Keep icon in center of input, regardless of the input height */
+}
+
+.input-icon3{
+    position: absolute;
+    color: gray;
+    padding-right: 12px;
+    top: calc(50% - 0.5em); /* Keep icon in center of input, regardless of the input height */
+}
+
 .size{
     margin: auto;
 }
+
+.size-input{
+    margin-left: 20px;
+}
+
 .subr{
     font-weight: bold;
 }
 .center-icon{
     text-align: center;
+}
+.text-center{
+    text-align: center;
+}
+.text-gray-strong{
+    color: rgb(54, 54, 54);
+    font-weight: bold;
+}
+
+.hr-sect {
+	display: flex;
+	flex-basis: 80%;
+	align-items: center;
+	color: #ffffff;
+	margin: 15px 0px;
+}
+.hr-sect::after {
+	content: "";
+	flex-grow: 1;
+	background: rgb(54, 54, 54);
+	height: 1px;
+	font-size: 0px;
+	line-height: 0px;
+	margin: 0px 100px;
+}
+
+.div-border{
+    border-color: gray;
+    border: solid;
+    border-style: ridge;
 }

@@ -9,6 +9,17 @@ import { LogInComponent } from './components/users/log-in/log-in.component';
 import { NavbarUserComponent } from './components/users/navbar-user/navbar-user.component';
 import { AllEventsComponent } from './components/events/all-events/all-events.component';
 import { DetailsEventComponent } from './components/events/details-event/details-event.component';
+import { MyEventsComponent } from './components/events/my-events/my-events.component';
+import { MyPurchasesComponent } from './components/users/my-purchases/my-purchases.component';
+import { ConfirmacionInscripcionComponent } from './components/modals/confirmacion-inscripcion/confirmacion-inscripcion.component';
+import { ScomprobantePagoComponent } from './components/modals/scomprobante-pago/scomprobante-pago.component';
+import { DfichaPagosLineaComponent } from './components/modals/dficha-pagos-linea/dficha-pagos-linea.component';
+import { FichaPreinscripcionComponent } from './components/events/ficha-preinscripcion/ficha-preinscripcion.component';
+import { DescargaFacturaComponent } from './components/modals/descarga-factura/descarga-factura.component';
+import { DatosFacturacionComponent } from './components/datos-facturacion/datos-facturacion.component';
+import { EditUserComponent } from './components/users/edit-user/edit-user.component';
+import { FinishProfileComponent } from './components/modals/finish-profile/finish-profile.component';
+import { VerConfirmacionPreinscripcionComponent } from './components/modals/ver-confirmacion-preinscripcion/ver-confirmacion-preinscripcion.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +28,18 @@ import { DetailsEventComponent } from './components/events/details-event/details
     LogInComponent,
     NavbarUserComponent,
     AllEventsComponent,
-    DetailsEventComponent
+    DetailsEventComponent,
+    MyEventsComponent,
+    MyPurchasesComponent,
+    ConfirmacionInscripcionComponent,
+    ScomprobantePagoComponent,
+    DfichaPagosLineaComponent,
+    FichaPreinscripcionComponent,
+    DescargaFacturaComponent,
+    DatosFacturacionComponent,
+    EditUserComponent,
+    FinishProfileComponent,
+    VerConfirmacionPreinscripcionComponent
   ],
   imports: [
     BrowserModule,
