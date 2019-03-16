@@ -57,7 +57,7 @@
   </div>
 </div>
 -->
-<form class="form">
+<form class="form" [formGroup]="valForm" class="form-validate mb-lg" role="form" name="loginForm" novalidate="" (submit)="submitForm($event)">
 
   <div class="font capaciagro">
     <img class="logo" src="https://1.bp.blogspot.com/-RHnJJzK3uoU/XHy-goox9pI/AAAAAAAAAJI/tvsuZr3tJ00Hy38iTdeF4QBwHlNveL5fwCLcBGAs/s320/Isotipo.jpg" />
@@ -70,14 +70,14 @@
     correo Electronico
   </div>
   <div class="correo">
-    <input type="text" class="correo" id="correo" placeholder="Ingresa tu correo electronico">
+    <input type="text" class="correo" id="correo" formControlName="email" required="" placeholder="Ingresa tu correo electronico">
   </div>
 
   <div class="font email ">
     contraseña
   </div>
   <div class="password ">
-    <input type="password" class="correo password" id="password" placeholder="Contraseña">
+    <input type="password" class="correo password" formControlName="password" required="" id="password" placeholder="Contraseña">
 
   </div>
   <div class="iniciar">
@@ -93,7 +93,7 @@
 <div class="recomendacion">
     <div class="no"> a un no eres usuario</div>
     <div class="registrate">
-      <button class="registrar no" routerLink="/register-user" type="submit">Registrate</button>
+      <button class="registrar no" type="submit">Registrate</button>
     </div>
     <div class="ul">
       <div class="ul li no">
@@ -108,7 +108,8 @@
   </div>
 
   <!-- Modal -->
-<div class="modal fade" id="recoverEmail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!--
+  <div class="modal fade" id="recoverEmail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
         <button type="button" class="close a-right" data-dismiss="modal" aria-label="Close">
@@ -117,11 +118,6 @@
       <div>
         <h5 class="modal-title text-green" id="exampleModalLabel">Recuperar contraseña</h5>
       </div>
-      <!--
-        <div class="modal-body">
-        ...
-      </div>
-      -->
       <div>
         <label class="text" for="email">Correo electrónico:</label>
       </div>
@@ -136,3 +132,4 @@
     </div>
   </div>
 </div>
+-->
