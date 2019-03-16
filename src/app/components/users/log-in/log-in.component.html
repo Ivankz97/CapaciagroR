@@ -1,0 +1,138 @@
+<!--
+<div class="pricipal">
+  <div class="contenedor">
+    <div class="uno">
+      <div class="dos">
+        <form class="form">
+
+          <div class="font capaciagro">
+            <img class="logo" src="https://1.bp.blogspot.com/-RHnJJzK3uoU/XHy-goox9pI/AAAAAAAAAJI/tvsuZr3tJ00Hy38iTdeF4QBwHlNveL5fwCLcBGAs/s320/Isotipo.jpg" />
+            Capaciagro
+          </div>
+          <div class="font sesion">
+            Iniciar Sesión
+          </div>
+          <div class="font email">
+            correo Electronico
+          </div>
+          <div class="correo">
+            <input type="text" class="correo" id="correo" placeholder="Ingresa tu correo electronico">
+          </div>
+
+          <div class="font email ">
+            contraseña
+          </div>
+          <div class="password ">
+            <input type="password" class="correo password" id="password" placeholder="Contraseña">
+
+          </div>
+          <div class="iniciar">
+            <button class="btn btn-large btn-color-green btn-block text-color" type="submit">Iniciar Sesión</button>
+
+          </div>
+          <div class="recuperar">
+            ¿Olvidaste tu contraseña? | <a href="#">recuperar contraseña</a>
+          </div>
+
+        </form>
+
+        <div class="recomendacion">
+          <div> a un no eres usuario</div>
+          <div class="registrate">
+            <button class="registrar" type="submit">Registrate</button>
+          </div>
+          <div class="ul">
+            <div class="ul li">
+              <ul>
+                <li>Sigue los eventos que te interesen.</li>
+              </ul>
+              <ul>
+                <li>Enterate de que esta hablando la gente.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+-->
+<form class="form">
+
+  <div class="font capaciagro">
+    <img class="logo" src="https://1.bp.blogspot.com/-RHnJJzK3uoU/XHy-goox9pI/AAAAAAAAAJI/tvsuZr3tJ00Hy38iTdeF4QBwHlNveL5fwCLcBGAs/s320/Isotipo.jpg" />
+    Capaciagro
+  </div>
+  <div class="font sesion">
+    Iniciar Sesión
+  </div>
+  <div class="font email">
+    correo Electronico
+  </div>
+  <div class="correo">
+    <input type="text" class="correo" id="correo" placeholder="Ingresa tu correo electronico">
+  </div>
+
+  <div class="font email ">
+    contraseña
+  </div>
+  <div class="password ">
+    <input type="password" class="correo password" id="password" placeholder="Contraseña">
+
+  </div>
+  <div class="iniciar">
+    <button class="btn btn-large btn-color-green btn-block text-color" type="submit">Iniciar Sesión</button>
+
+  </div>
+  <div class="recuperar">
+    ¿Olvidaste tu contraseña? | <a routerLink="/recov-password" data-toggle="modal" data-target="#recoverEmail"> recuperar contraseña</a>
+  </div>
+
+</form>
+
+<div class="recomendacion">
+    <div class="no"> a un no eres usuario</div>
+    <div class="registrate">
+      <button class="registrar no" routerLink="/register-user" type="submit">Registrate</button>
+    </div>
+    <div class="ul">
+      <div class="ul li no">
+        <ul>
+          <li>Sigue los eventos que te interesen.</li>
+        </ul>
+        <ul class="no">
+          <li>Enterate de que esta hablando la gente.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+<div class="modal fade" id="recoverEmail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <button type="button" class="close a-right" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+      <div>
+        <h5 class="modal-title text-green" id="exampleModalLabel">Recuperar contraseña</h5>
+      </div>
+      <!--
+        <div class="modal-body">
+        ...
+      </div>
+      -->
+      <div>
+        <label class="text" for="email">Correo electrónico:</label>
+      </div>
+      <div class="input-wrapper">
+        <input type="email" id="email" placeholder="Correo electrónico">
+        <label for="email" class="fa fa-envelope input-icon"></label>
+      </div>
+      <div>
+        <button type="button" class="btn btn-primary">Enviar</button>
+      </div>
+
+    </div>
+  </div>
+</div>

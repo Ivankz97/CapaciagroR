@@ -1,0 +1,147 @@
+
+.white-color{
+    margin-top: 15px;
+    background-color: #ffffff;
+    border-radius: 15px;
+}
+h3 {
+    text-align: center;
+}
+
+.image{
+    padding-top: 15px;
+    height:40em; background-size:cover; width:auto; height: auto;
+    background-image:url('../../../../assets/Background.png');
+    background-position:100% 100%;
+    width: auto;
+}
+.text-green{
+    color: #07520A;
+    font-weight: bold;
+}
+.green-color{
+    background-color: #07520A;
+    border-radius: 15px;
+    width: 60%;
+    margin: 0 auto;
+    color: white;
+    font-weight: bold;
+}
+
+.gray-color{
+    background-color: gray;
+    border-radius: 15px;
+    width: 70%;
+    margin: 0 auto;
+    color: white;
+    font-weight: bold;
+}
+
+.text-gray{
+    color: gray;
+    font-weight: bold;
+}
+.text-gray-low{
+    color: rgb(194, 196, 194);
+    font-size: 15px;
+}
+.text-size{
+    font-size: 15px;
+    justify-content: center;
+}
+.space-div{
+    margin-top: 10px;
+}
+img{
+    padding-right: 1px;
+    width: 240px;
+    height: auto;
+}
+
+.intense-gray{
+    background-color: rgb(83, 83, 83);
+    color: white;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.input-icon{
+    color: #ffffff;
+    padding-top: 5%;
+    padding-right: 12%;
+    
+    top: calc(50% - 0.5em); /* Keep icon in center of input, regardless of the input height */
+}
+
+input{
+    padding-left: 17px;
+    border-radius: 10px
+}
+
+.input-wrapper{
+    position: relative;
+}
+
+.input-icon2{
+    position: absolute;
+    color: gray;
+    padding-right: 12px;
+    top: calc(50% - 0.5em); /* Keep icon in center of input, regardless of the input height */
+}
+
+.input-icon3{
+    position: absolute;
+    color: gray;
+    padding-right: 12px;
+    top: calc(50% - 0.5em); /* Keep icon in center of input, regardless of the input height */
+}
+
+.size{
+    margin: auto;
+}
+
+.size-input{
+    margin-left: 20px;
+}
+
+.subr{
+    font-weight: bold;
+}
+.center-icon{
+    text-align: center;
+}
+.text-center{
+    text-align: center;
+}
+.text-gray-strong{
+    color: rgb(54, 54, 54);
+    font-weight: bold;
+}
+
+.hr-sect {
+	display: flex;
+	flex-basis: 80%;
+	align-items: center;
+	color: #ffffff;
+	margin: 15px 0px;
+}
+.hr-sect::after {
+	content: "";
+	flex-grow: 1;
+	background: rgb(54, 54, 54);
+	height: 1px;
+	font-size: 0px;
+	line-height: 0px;
+	margin: 0px 100px;
+}
+
+.div-border{
+    border-color: gray;
+    border: solid;
+    border-style: ridge;
+}

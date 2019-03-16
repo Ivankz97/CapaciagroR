@@ -1,0 +1,26 @@
+.center-text{
+    color: rgb(51, 50, 50);
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    /*margin-right: 10px;*/
+    /*margin-left: 50px;*/
+    display: block;
+}
+
+.hr-sect {
+	display: flex;
+	flex-basis: 80%;
+	align-items: center;
+	color: rgb(51, 50, 50);
+	margin: 8px 0px;
+}
+.hr-sect::after {
+	content: "";
+	flex-grow: 1;
+	background: rgb(51, 50, 50);
+	height: 1px;
+	font-size: 0px;
+	line-height: 0px;
+	margin: 0px 8px;
+}
