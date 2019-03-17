@@ -1,3 +1,4 @@
+import { EventService } from './services/event.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -56,7 +57,7 @@ import { VerConfirmacionPreinscripcionComponent } from './components/modals/ver-
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [AuthenticationService, UserService, ToasterService],
+  providers: [AuthenticationService, UserService, EventService, ToasterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

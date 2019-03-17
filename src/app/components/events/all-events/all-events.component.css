@@ -10,10 +10,11 @@ h3 {
 
 .image{
     padding-top: 15px;
-    height:40em; background-size:cover; width:auto; height: auto;
+    height:40em; background-size:cover;
     background-image:url('../../../../assets/Background.png');
     background-position:100% 100%;
     width: auto;
+    height: auto;
 }
 .text-green{
     color: #07520A;
