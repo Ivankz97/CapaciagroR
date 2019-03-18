@@ -4,12 +4,13 @@
 <app-menu></app-menu>
 <div class="contenedor">
   <div class="new-admin">
-    <div class="color-text">
+    <div class="color-text" *ngIf="!edit">
       Crear nuevo administrador
     </div>
     <div class="hr-sect "></div>
     <div class="color-text-2">Crea un nuevo usuario y añadelo a este sitio</div>
-    <div class="sm">
+    <div class="sm"> 
+      <form [formGroup]="valForm" role="form" name="loginForm" novalidate="" (submit)="save($event)">
         <table class="table-register">
             
         <tr>
@@ -18,8 +19,10 @@
         </tr>
     
         <tr>
-          <td><input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="@ Ingresa tu usuario"></td>
-          <td><input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="@ CorreoElectronico"></td>
+          <td><input type="text" class="form-control" name="name" autocomplete="off" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="@ Ingresa tu usuario" formControlName="name"></td>
+          <span class="text-danger" *ngIf="valForm.controls['name'].hasError('required') && (valForm.controls['name'].dirty || valForm.controls['name'].touched)">Este
+              campo es requerido</span>
+          <td><input class="form-control" type="text"  name="name" autocomplete="off" placeholder="@ CorreoElectronico" formControlName="email"></td>
         </tr>
         </table>
         <table class=" table-register">
@@ -29,8 +32,12 @@
           <td>Contraseña</td>
         </tr>
         <tr>
-          <td><input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="@ Ingresa tu usuario"></td>
-          <td><input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="@ CorreoElectronico"></td>
+          <td><input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="@ Ingresa tu nombre"></td>
+          <span class="text-danger" *ngIf="valForm.controls['lastname'].hasError('required') && (valForm.controls['lastname'].dirty || valForm.controls['lastname'].touched)">Este
+              campo es requerido</span>
+          <td><input class="form-control" type="text"  name="name" autocomplete="off" aria-describedby="emailHelp" placeholder="@ Contraseña"  formControlName="password"></td>
+          <span class="text-danger" *ngIf="valForm.controls['lastname'].hasError('required') && (valForm.controls['lastname'].dirty || valForm.controls['lastname'].touched)">Este
+              campo es requerido</span>
         </tr>
         </table>
         <table class="table-register">
@@ -41,8 +48,8 @@
         </tr>
         
         <tr>
-          <td><input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="@ Ingresa tu usuario"></td>
-          <td><input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="@ CorreoElectronico"></td>
+          <td><input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="@ Apellido paterno" formControlName="lastname"></td>
+          <td><input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="@ Coonfirmar contraseña" formControlName="password_confirmation"></td>
         </tr>
         </table>
         <table class=" table-register">
@@ -51,12 +58,12 @@
           <td>Facultades</td>
         </tr>
         <tr>
-          <td><input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="@ Ingresa tu usuario"></td>
-          <td><input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="@ CorreoElectronico"></td>
+          <td><input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="@ Apellido materno"></td>
+          <td><input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="@ Facultades"></td>
         </tr>
         </table>
  
-     
+     </form>
     </div>
     <div>
       <button class="btn btn-secondary btn-lg" type="submit">Limpiar</button>

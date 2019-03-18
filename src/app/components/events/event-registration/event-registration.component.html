@@ -1,41 +1,54 @@
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-
-
 <app-menu></app-menu>
 <div class="contenedor">
-  <div>Alta de eventos</div>
-  <div>Dar de alta un evento al sistema</div>
+  <div *ngIf="edit" >Alta de eventos</div>
+  <div *ngIf="!edit">Dar de alta un evento al sistema</div>
   <div class="row">
+    <form [formGroup]="valForm" role="form" name="loginForm" novalidate="" (submit)="save($event)">
     <div class="col-sm-4">
       <div>Nombre:</div>
       <div>
-        <input type="text" class="form-control" placeholder="Nombre del evento" aria-label="Recipient's username"
-          aria-describedby="basic-addon2">
+        <input type="text" class="form-control" name="name" placeholder="Nombre del evento" autocomplete="off"
+        formControlName="name">
+        <span class="text-danger" *ngIf="valForm.controls['name'].hasError('required') && (valForm.controls['name'].dirty || valForm.controls['name'].touched)">Este
+            campo es requerido</span>
       </div>
       <div>Precio:</div>
       <div>
-        <input type="text" class="form-control" placeholder="Precio" aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <input type="text" class="form-control" placeholder="Precio" autocomplete="off"
+        formControlName="price">
+        <span class="text-danger" *ngIf="valForm.controls['price'].hasError('required') && (valForm.controls['price'].dirty || valForm.controls['price'].touched)">Este
+            campo es requerido</span>
       </div>
       <div>Horario (HH:MM):</div>
       <div>
-        <input type="text" class="form-control" placeholder="--:--" aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <input type="time" class="form-control" placeholder="--:--" aria-label="Recipient's username" aria-describedby="basic-addon2" autocomplete="off"
+        formControlName="time" mask="00:00" [showMaskTyped]="true">
+        <span class="text-danger" *ngIf="valForm.controls['time'].hasError('required') && (valForm.controls['time'].dirty || valForm.controls['time'].touched)">Este
+            campo es requerido</span>
       </div>
       <div>Capacidad maxima del evento:</div>
       <div>
         <input type="text" class="form-control" placeholder="Capacidad" aria-label="Recipient's username"
-          aria-describedby="basic-addon2">
+          formControlName="max_capacity" >
+          <span class="text-danger" *ngIf="valForm.controls['max_capacity'].hasError('required') && (valForm.controls['max_capacity'].dirty || valForm.controls['max_capacity'].touched)">Este
+              campo es requerido</span>
       </div>
     </div>
     <div class="col-sm-4">
       <div>Fecha del Evento:</div>
       <div>
         <input type="text" class="form-control" placeholder="correo electronico" aria-label="Recipient's username"
-          aria-describedby="basic-addon2">
+          aria-describedby="basic-addon2"  autocomplete="off"
+          formControlName="date" mask="00/00/0000" [showMaskTyped]="true">
+          <span class="text-danger" *ngIf="valForm.controls['date'].hasError('required') && (valForm.controls['date'].dirty || valForm.controls['date'].touched)">Este
+              campo es requerido</span>
       </div>
       <br>
       <div>Descripción:</div>
       <div>
-        <textarea name="" id="" cols="30" rows="3" placeholder="Inserte una descripcion"></textarea>
+        <textarea name="" id="" cols="30" rows="3" placeholder="Inserte una descripcion"  autocomplete="off" formControlName="description"></textarea>
+        <span class="text-danger" *ngIf="valForm.controls['description'].hasError('required') && (valForm.controls['description'].dirty || valForm.controls['description'].touched)">Este
+            campo es requerido</span>
       </div>
       <div>Sede:</div>
       <div>
@@ -55,6 +68,7 @@
         <button type="button" class="btn btn-primary">Cargar</button>
       </div>
     </div>
+  </form>
   </div>
   <div>Estilo de planilla</div>
   <div class="hr-sect"></div>
@@ -76,22 +90,22 @@
               <div class="col-sm-3">
                 <div class="text">Banner:1500 x 289</div>
 
-                <button type="button" class="btn btn-primary">Cargar</button>
+                <button type="button" class="btn btn-primary">Subir foto</button>
               </div>
               <div class="col-sm-3">
                 <div class="text">Tabla de precios: 1500 x 481</div>
 
-                <button type="button" class="btn btn-primary">Cargar</button>
+                <button type="button" class="btn btn-primary">Subir foto</button>
               </div>
               <div class="col-sm-3">
                 <div class="text">(Px)Patrocinadores:1500 x</div>
 
-                <button type="button" class="btn btn-primary">Cargar</button>
+                <button type="button" class="btn btn-primary">Subir Foto</button>
               </div>
               <div class="col-sm-3">
                 <div class="text">Fondo:(1800 x 2800Px )</div>
 
-                <button type="button" class="btn btn-primary">Cargar</button>
+                <button type="button" class="btn btn-primary">Subir Foto</button>
               </div>
             </div>
             <div>
@@ -112,7 +126,7 @@
           <div class="col-sm-9">
             <button type="button" class="btn btn-primary vista gray">Limpiar</button>
             <button type="button" class="btn btn-primary vista orange">Previsualizar</button>
-            <button type="button" class="btn btn-primary vista green">Guardar</button>
+            <button type="button" class="btn btn-primary vista green" >Guardar</button>
           </div>
         </div>
       </div>
@@ -217,8 +231,3 @@
     </div>
   </div>
 </div>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
-
-<app-list-user-c-d></app-list-user-c-d>

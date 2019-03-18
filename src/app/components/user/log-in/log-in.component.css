@@ -2,7 +2,7 @@
     width: 100%;
     height: 550px;
     margin: 0;
-    background-image: url('../../../../assets/Background.png');
+    background-image: url('../../../../assets/vrds.jpg');
 
 }
 .font {
@@ -11,19 +11,23 @@
 
 .form{
     
-    background:#FBFBEF;
+    background:rgb(243, 243, 235);
     width: 35%;
-    height: 400px;
+    height: 320px;
     border-radius: 30px;
     margin-left: 20%;
     margin-top: 5%;
     float: left;
+    opacity: .9;
+}
+.form-group{
+    padding: 1%;
 }
 
 .capaciagro{
     font-size: 50px; 
-    color: #000000;
     margin-bottom: 20px;
+
 }
 .sesion{
     font-size: 20px;
@@ -33,8 +37,9 @@
     font-size: 15px;
 }
 .correo{
-    width: 90%;
+    width: 100%;
     border-radius: 10px;
+    border: 1px solid #afa8a8;
 }
 .btn{
     background: #2c5e23fa;
@@ -48,7 +53,7 @@
     margin: 2% 0% 2% 30%;
 }
 .recuperar{
-    margin: 0% 0% 50% 15%;
+width: 100%;
 }
 .logo{
     width: 35px;
@@ -65,10 +70,10 @@
     margin-left: 15%;
 }
 .recomendacion{
-    width: 13%;
-    height: 400px;
+    width: 15%;
+    height: 320px;
     float: right;
-    margin-right: 30%;
+    margin-right: 28%;
     margin-top: 5%;
     background: #085205;
     border-radius: 25px;
@@ -99,10 +104,11 @@
     .recomendacion{
         width: 30%;
         margin-left: 0%;
-        margin-right: 5%;
-        height: 400px;
+        margin-right: 11%;
+
     }
 }
 .img-fluid{
     color: #000000;
 }
+/**/
