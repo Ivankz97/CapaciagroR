@@ -1,3 +1,4 @@
+import { ExcelService } from './services/ExportExcel';
 import { EventService } from './services/event.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -27,6 +28,9 @@ import { DatosFacturacionComponent } from './components/datos-facturacion/datos-
 import { EditUserComponent } from './components/users/edit-user/edit-user.component';
 import { FinishProfileComponent } from './components/modals/finish-profile/finish-profile.component';
 import { VerConfirmacionPreinscripcionComponent } from './components/modals/ver-confirmacion-preinscripcion/ver-confirmacion-preinscripcion.component';
+import { CodeDescComponent } from './components/code-desc/code-desc/code-desc.component';
+import { EventRegistrationComponent } from './components/events/event-registration/event-registration.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +50,10 @@ import { VerConfirmacionPreinscripcionComponent } from './components/modals/ver-
     DatosFacturacionComponent,
     EditUserComponent,
     FinishProfileComponent,
-    VerConfirmacionPreinscripcionComponent
+    VerConfirmacionPreinscripcionComponent,
+    CodeDescComponent,
+    EventRegistrationComponent,
+    MenuComponent
   ],
   imports: [
     HttpModule,
@@ -57,7 +64,7 @@ import { VerConfirmacionPreinscripcionComponent } from './components/modals/ver-
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [AuthenticationService, UserService, EventService, ToasterService],
+  providers: [AuthenticationService, UserService, EventService, ToasterService, ExcelService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
