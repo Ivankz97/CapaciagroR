@@ -1,3 +1,137 @@
-<p>
-  code-desc works!
-</p>
+<app-menu></app-menu>
+<div class="text">Alta código de descuentos</div>
+<div class="hr-sect"></div>
+<div class="row">
+  <form  [formGroup]="valForm" role="form" name="loginForm" novalidate="" (submit)="save($event)">
+  <div class="col-sm-4">
+
+    <div>
+      <div>Nombre del código:</div>
+      <div><input type="text" class="form-control" name="name" placeholder="Nombre del codigo"  autocomplete="off"
+        formControlName="name">
+        <span class="text-danger" *ngIf="valForm.controls['name'].hasError('required') && (valForm.controls['name'].dirty || valForm.controls['name'].touched)">Este
+            campo es requerido</span></div>
+    </div>
+    <div>
+      <div>Precio neto:</div>
+      <div><input type="text" class="form-control" placeholder="Precio neto" aria-label="Recipient's username"
+          aria-describedby="basic-addon2"></div>
+    </div>
+    <div>
+      <div>Uso maximo del código:</div>
+      <div><input type="text" class="form-control" placeholder="Uso máximo del código" aria-label="Recipient's username"
+          aria-describedby="basic-addon2"></div>
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <div>
+      <div>
+        <div>Precio neto:</div>
+        <div><input type="text" class="form-control" placeholder="Precio neto" aria-label="Recipient's username"
+            aria-describedby="basic-addon2"></div>
+      </div>
+      <div>
+        <div>Precio neto:</div>
+        <div><input type="text" class="form-control" placeholder="Precio neto" aria-label="Recipient's username"
+            aria-describedby="basic-addon2"></div>
+      </div>
+      <div class="buttons">
+        <button type="button" class="btn btn-secondary">Limpiar</button>
+        <button type="button" class="btn btn-success">Guardar</button>
+      </div>
+    </div>
+
+
+  </div>
+  </form>
+</div>
+<div class="row">
+    <div class="col-sm-12 ddd">
+      <div>Códigos de descuentos creados</div>
+      <div class="hr-sect"></div>
+      <div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <td>Nombre del paquete:</td>
+              <td>Precio neto</td>
+              <td>Evento</td>
+              <td>Uso maximo del código</td>
+              <td>Caducidad del código</td>
+              <td>Cantidad utolizada</td>
+              <td>Acciones</td>
+              <td>Editar</td>
+              <td>Eliminar</td>
+            </tr>
+          </thead>
+         
+          <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><i class="fas fa-user"></i></td>
+                  <td><i class="fas fa-eraser"></i></td>
+              <td><i class="fas fa-times"></i></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><i class="fas fa-user"></i></td>
+                <td><i class="fas fa-eraser"></i></td>
+                <td><i class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><i class="fas fa-user"></i></td>
+                  <td><i class="fas fa-eraser"></i></td>
+                  <td><i class="fas fa-times"></i></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><i class="fas fa-user"></i></td>
+                    <td><i class="fas fa-eraser"></i></td>
+                    <td><i class="fas fa-times"></i></td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td><i class="fas fa-user"></i></td>
+                      <td><i class="fas fa-eraser"></i></td>
+                      <td><i class="fas fa-times"></i></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><i class="fas fa-user"></i></td>
+                        <td><i class="fas fa-eraser"></i></td>
+                        <td><i class="fas fa-times"></i></td>
+                      </tr>
+        </table>
+      </div>
+    </div>
+  </div>

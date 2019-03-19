@@ -1,18 +1,22 @@
-import { Component, OnInit,  ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { UserService } from '../../../services/user.service';
+import { CropperSettings, ImageCropperComponent, Bounds } from 'ng2-img-cropper';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
-import { UserService } from '../../services/user.service';
-import { ExelserviceService } from '../../services/exelservice.service';
 import Swal from 'sweetalert2';
+import { AuthServiceService } from '../../../services/auth-service.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AuthServiceService } from '../../services/auth-service.service';
+import { CustomValidators } from 'ng2-validation';
+import { error } from 'selenium-webdriver';
 import { ToasterConfig, ToasterService } from 'angular2-toaster';
 @Component({
-  selector: 'app-new-admin',
-  templateUrl: './new-admin.component.html',
-  styleUrls: ['./new-admin.component.css']
+  selector: 'app-create-user',
+  templateUrl: './create-user.component.html',
+  styleUrls: ['./create-user.component.css']
 })
-export class NewAdminComponent implements OnInit {
+export class CreateUserComponent implements OnInit {
+
   public model: any = {};
   public valForm: FormGroup;
   public valFormUser: FormGroup;
@@ -41,16 +45,14 @@ export class NewAdminComponent implements OnInit {
     });
     this.valFormUser = fb.group({
       "id": [null],
-      "user":[null,Validators.compose([Validators.required])],//
-      "email": [null],//
-      "name": [null, Validators.compose([Validators.required])],//
-      "lastnameP": [null, Validators.compose([Validators.required])],//
-      "lastnameM": [null, Validators.compose([Validators.required])],//
-      //"phone": [null],
-      "admin": [true],
-      //"avatar": [null],
-      "password": [null, Validators.compose([Validators.required])],//
-      "password_confirmation": [null, Validators.compose([Validators.required])]//
+      "email": [null],
+      "name": [null, Validators.compose([Validators.required])],
+      "lastname": [null, Validators.compose([Validators.required])],
+      "phone": [null],
+      "admin": [false],
+      "avatar": [null],
+      "password": [null, Validators.compose([Validators.required])],
+      "password_confirmation": [null, Validators.compose([Validators.required])]
     });
   }
 

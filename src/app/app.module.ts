@@ -84,6 +84,9 @@ import { ToasterService } from 'angular2-toaster';
 
 import { AuthServiceService } from './services/auth-service.service';
 import { from } from 'rxjs';
+import { DetailsEventComponent } from './components/events/details-event/details-event.component';
+import { CreateUserComponent } from './components/user/create-user/create-user.component';
+
 /*
 import { MyPurchasesComponent } from './components/users/my-purchases/my-purchases.component';
 import { AuthenticationService } from './services/auth.service';
@@ -107,7 +110,9 @@ import { VerConfirmacionPreinscripcionComponent } from './components/modals/ver-
     CodeDescComponent,
     ListUserComponent,
     HomeComponent,
-    EventRegistrationComponent
+    EventRegistrationComponent,
+    DetailsEventComponent,
+    CreateUserComponent
     //RegisterUserComponent,
     //LogInComponent,
     //NavbarUserComponent,

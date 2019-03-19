@@ -1,4 +1,4 @@
-.contenedor{
+/*.contenedor{
     width: 100%;
     height: 1250px;
     background-image: url('../../../assets/Background.png');
@@ -124,4 +124,30 @@
     .table-register{
         width: 80%;
     }
+}
+*/
+.image{
+    background-image: url('../../../assets/Background.png');
+}
+.hr-sect {
+	display: flex;
+	flex-basis: 80%;
+	align-items: center;
+    color: #000000;
+    margin: 8px 0px;
+    
+}
+.hr-sect::after {
+	content: "";
+	flex-grow: 1;
+	background: #000000;
+	height: 1px;
+	font-size: 0px;
+	line-height: 0px;
+	margin: 0px 8px;
+}
+
+.contenedor{
+    width: 100%;
+    background-image: url('../../../assets/Background.png');
 }

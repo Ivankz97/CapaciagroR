@@ -18,6 +18,9 @@ import { AuthServiceService } from 'src/app/services/auth-service.service';
   styleUrls: ['./event-registration.component.css']
 })
 export class EventRegistrationComponent implements OnInit {
+  constructor(){}
+  ngOnInit(){}
+  /*
   public data: any = [];
   public valForm: FormGroup;
   public valFormPrice: FormGroup;
@@ -144,7 +147,7 @@ export class EventRegistrationComponent implements OnInit {
 
   fileChangeEvent(event: any): void {
     var file = event.dataTransfer ? event.dataTransfer.files[0] : event.target.files[0];
-    var pattern = /image-*/;
+    var pattern = /image-/;
     var reader = new FileReader();
     if (!file.type.match(pattern)) {
       alert('invalid format');
@@ -161,7 +164,7 @@ export class EventRegistrationComponent implements OnInit {
   }
   fileChangeEvent2(event: any): void {
     var file = event.dataTransfer ? event.dataTransfer.files[0] : event.target.files[0];
-    var pattern = /image-*/;
+    var pattern = /image-;
     var reader = new FileReader();
     if (!file.type.match(pattern)) {
       alert('invalid format');
@@ -177,7 +180,7 @@ export class EventRegistrationComponent implements OnInit {
   }
   fileChangeEvent3(event: any): void {
     var file = event.dataTransfer ? event.dataTransfer.files[0] : event.target.files[0];
-    var pattern = /image-*/;
+    var pattern = /image-/;
     var reader = new FileReader();
     if (!file.type.match(pattern)) {
       alert('invalid format');
@@ -193,7 +196,7 @@ export class EventRegistrationComponent implements OnInit {
   }
   fileChangeEvent4(event: any): void {
     var file = event.dataTransfer ? event.dataTransfer.files[0] : event.target.files[0];
-    var pattern = /image-*/;
+    var pattern = /image-/;
     var reader = new FileReader();
     if (!file.type.match(pattern)) {
       alert('invalid format');
@@ -574,4 +577,6 @@ export class Usuario {
   id: number
   name: string
   email: string
+}
+*/
 }
