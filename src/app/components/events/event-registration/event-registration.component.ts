@@ -6,11 +6,10 @@ import { ImageCroppedEvent } from 'ngx-image-cropper';
 import { EventService } from '../../../services/event.service';
 import { Uris } from '../../../services/Uris';
 import { isNull } from 'util';
-import { ExelserviceService } from '../../../services/exelservice.service';
 import Swal from 'sweetalert2';
 import { ToasterConfig, ToasterService } from 'angular2-toaster';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AuthServiceService } from 'src/app/services/auth-service.service';
+import { ExcelService } from './../../../services/ExportExcel';
 
 @Component({
   selector: 'app-event-registration',
@@ -18,9 +17,6 @@ import { AuthServiceService } from 'src/app/services/auth-service.service';
   styleUrls: ['./event-registration.component.css']
 })
 export class EventRegistrationComponent implements OnInit {
-  constructor(){}
-  ngOnInit(){}
-  /*
   public data: any = [];
   public valForm: FormGroup;
   public valFormPrice: FormGroup;
@@ -55,7 +51,7 @@ export class EventRegistrationComponent implements OnInit {
 
   // public customPatterns = {'0': { pattern: new RegExp('^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$')}};
 
-  constructor(private __eventService: EventService, private formBuilder: FormBuilder, private __userService: UserService, private excelService: ExelserviceService) {
+  constructor(private __eventService: EventService, private formBuilder: FormBuilder, private __userService: UserService, private excelService: ExcelService) {
     this.valForm = formBuilder.group({
       "name": [null, Validators.compose([Validators.required])],
       "description": [null, Validators.compose([Validators.required])],
@@ -147,7 +143,7 @@ export class EventRegistrationComponent implements OnInit {
 
   fileChangeEvent(event: any): void {
     var file = event.dataTransfer ? event.dataTransfer.files[0] : event.target.files[0];
-    var pattern = /image-/;
+    var pattern = /image-*/;
     var reader = new FileReader();
     if (!file.type.match(pattern)) {
       alert('invalid format');
@@ -164,14 +160,14 @@ export class EventRegistrationComponent implements OnInit {
   }
   fileChangeEvent2(event: any): void {
     var file = event.dataTransfer ? event.dataTransfer.files[0] : event.target.files[0];
-    var pattern = /image-;
+    var pattern = /image-*/;
     var reader = new FileReader();
     if (!file.type.match(pattern)) {
       alert('invalid format');
       return;
     }
     getBase64(file).then(data => {
-      console.log("Imagen 1 =>", data)
+      console.log("Imagen 2 =>", data)
       let image = ''
       image = this.cleanBase64(String(data))
       this.valForm.controls['img2'].setValue(image)
@@ -180,7 +176,7 @@ export class EventRegistrationComponent implements OnInit {
   }
   fileChangeEvent3(event: any): void {
     var file = event.dataTransfer ? event.dataTransfer.files[0] : event.target.files[0];
-    var pattern = /image-/;
+    var pattern = /image-*/;
     var reader = new FileReader();
     if (!file.type.match(pattern)) {
       alert('invalid format');
@@ -196,14 +192,14 @@ export class EventRegistrationComponent implements OnInit {
   }
   fileChangeEvent4(event: any): void {
     var file = event.dataTransfer ? event.dataTransfer.files[0] : event.target.files[0];
-    var pattern = /image-/;
+    var pattern = /image-*/;
     var reader = new FileReader();
     if (!file.type.match(pattern)) {
       alert('invalid format');
       return;
     }
     getBase64(file).then(data => {
-      console.log("Imagen 1 =>", data)
+      console.log("Imagen 4 =>", data)
       let image = ''
       image = this.cleanBase64(String(data))
       this.valForm.controls['img4'].setValue(image)
@@ -273,10 +269,9 @@ export class EventRegistrationComponent implements OnInit {
         },
         substitute: this.valFormUser.value
       }).subscribe(data => {
-        let swal;
         console.log("RESPUESTA -->", data)
         if (data.result == "true") {
-          swal({ icon: 'success', title: '', text: 'El cambio de usuario fue realizado exitosamenete.' });
+          Swal.fire({ type: 'success', title: '', text: 'El cambio de usuario fue realizado exitosamenete.' });
           this.showModalChangeUser.hide();
           this.showModal.hide()
           this.valFormUser.reset()
@@ -361,39 +356,39 @@ export class EventRegistrationComponent implements OnInit {
             "max_capacity": this.valForm.value.max_capacity,
           }
         }).subscribe((data) => {
-          let swal;
           console.log("Datos al guardar -->", data);
           if (data.result == "true") {
-            swal({ icon: 'success', title: 'Evento Guardado', text: 'El evento fue creado exitosamenete.' });
+            Swal.fire({ type: 'success', title: 'Evento Guardado', text: 'El evento fue creado exitosamenete.' });
             this.savePrices(data.event.id)
             this.fileChangeEvent = null
             this.fileChangeEvent2 = null
             this.fileChangeEvent3 = null
             this.fileChangeEvent4 = null
+            location.replace('/');
+            this.loading = false;
           } else {
-            swal({ icon: 'error', title: 'Conflictos Al Guardar', text: data.message[0] });
+            Swal.fire({ type: 'error', title: 'Conflictos Al Guardar', text: data.message[0] });
             this.loading = false;
           }
           this.cleanForm();
           this.ngOnInit()
           this.loading = false;
         }, e => {
-          let swal;
-          swal({ icon: 'error', title: 'Conflictos Al Guardar', text: 'Hay problemas para guardar información, intentalo más tarde.' });
+          Swal.fire({ type: 'error', title: 'Conflictos Al Guardar', text: 'Hay problemas para guardar información, intentalo más tarde.' });
           this.loading = false;
         });
       }
     }
   }
+
   public delete(event) {
-let swal;
     console.log("EVENT -->", event);
-    swal({
+    Swal.fire({
       title: '¿Seguro que deseas eliminar este evento?',
-      icon: "warning",
+      type: "warning",
       text: 'Los datos seran eliminados.',
-      buttons: ["Cancelar", "Aceptar"],
-      dangerMode: true,
+      //buttons: ["Cancelar", "Aceptar"],
+      //dangerMode: true,
     }).then((accepted) => {
       if (accepted) {
         this.__eventService.delete({
@@ -401,10 +396,10 @@ let swal;
             id: event.id
           }
         }).subscribe(() => {
-          swal({ icon: 'success', title: 'Evento Eliminado', text: 'El Evento fue eliminado exitosamenete.' });
+          Swal.fire({ type: 'success', title: 'Evento Eliminado', text: 'El Evento fue eliminado exitosamenete.' });
           this.ngOnInit()
         }, e => {
-          swal({ icon: 'error', title: 'Conflictos Al Eliminar', text: 'Hay problemas para eliminar información, intentalo más tarde.' });
+          Swal.fire({ type: 'error', title: 'Conflictos Al Eliminar', text: 'Hay problemas para eliminar información, intentalo más tarde.' });
         })
       }
     });
@@ -441,9 +436,8 @@ let swal;
             "id": this.valForm.value.id
           }
         }).subscribe((data) => {
-          let swal;
           if (data.result === "true") {
-            swal({ icon: 'success', title: 'Evento Actualizado', text: 'El evento fue actualizado exitosamenete.' });
+            Swal.fire({ type: 'success', title: 'Evento Actualizado', text: 'El evento fue actualizado exitosamenete.' });
             this.savePrices(this.valForm.value.id)           
             console.log("Data edit -->", data);
             this.cleanForm();
@@ -451,8 +445,7 @@ let swal;
             this.loading = false;
           }
         }, e => {
-          let swal;
-          swal({ icon: 'error', title: 'Conflictos Al Guardar', text: 'Hay problemas para guardar información, intentalo más tarde.' });
+          Swal.fire({ type: 'error', title: 'Conflictos Al Guardar', text: 'Hay problemas para guardar información, intentalo más tarde.' });
           this.loading = false;
         });
       }
@@ -536,9 +529,8 @@ let swal;
                 this.payments.push(data2.suscriptions[i].payment)
               }
             }
-            let swal;
             console.log("PAGOS UNICOS ->", this.payments)
-            swal({ icon: 'success', title: 'Pago validado', text: '' });
+            Swal.fire({ type: 'success', title: 'Pago validado', text: '' });
             this.paymentsModal.hide()
           }
         })
@@ -577,6 +569,4 @@ export class Usuario {
   id: number
   name: string
   email: string
-}
-*/
 }

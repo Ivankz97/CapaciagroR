@@ -8,7 +8,9 @@ export class Uris {
 
     public static API_LOGIN = `${Uris.API_ENDPOINT}login`;
     public static API_SIGN_UP = `${Uris.API_ENDPOINT}sign_up`;
-    public static FORGOT_PASSWORD = `${Uris.API_ENDPOINT}forgot_password`
+    public static FORGOT_PASSWORD = `${Uris.API_ENDPOINT}forgot_password`;
+    public static API_CREATE_USER = `${Uris.API_ENDPOINT}create_user`;
+    
 
     // public static API_LOGOUT = `${Uris.API_ENDPOINT}/log_out`;
 

@@ -4,8 +4,6 @@ import 'rxjs/add/operator/map';
 import { Uris } from './Uris';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/catch';
-
-
 @Injectable()
 export class UserService {
 

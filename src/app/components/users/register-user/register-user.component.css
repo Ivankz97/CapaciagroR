@@ -1,0 +1,106 @@
+.background{
+    background: "src/assets/CapaciagroImg.png";
+}
+.image{
+    height:40em; background-size:cover; width:auto; height: auto;
+    background-image:url('../../../../assets/CapaciagroImg.png');
+    background-position:50% 50%;
+}
+.white-color{
+    opacity: 0.8;
+    background: #ffffff;
+}
+.green-color{
+    background-color: #07520A;
+    border-radius: 25px;
+    width: 60%;
+    margin: 0 auto;
+    
+}
+.text-color{
+    color: #ffffff;
+    text-align: center;
+    padding-top: 15px;
+    font-weight: bold;
+}
+.text{
+    margin: 0;
+    color: #ffffff;
+    text-align: left;
+    padding-left: 10px;
+}
+#h1 {
+    color: #ffffff;
+}
+.hr-sect {
+	display: flex;
+	flex-basis: 80%;
+	align-items: center;
+	color: #ffffff;
+	margin: 8px 0px;
+}
+.hr-sect::after {
+	content: "";
+	flex-grow: 1;
+	background: #ffffff;
+	height: 1px;
+	font-size: 0px;
+	line-height: 0px;
+	margin: 0px 8px;
+}
+.size {
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 25px
+}
+
+.size-text {
+    font-size: 10px;
+}
+
+.check {
+    margin-top: 10px;
+}
+
+.check-color{
+    background-color: #07520A;
+}
+
+.input-icon{
+    color: #B8BEBF;
+    position: absolute;
+    left: 3px;
+    top: calc(50% - 0.5em); /* Keep icon in center of input, regardless of the input height */
+  }  
+input{
+    padding-left: 17px;
+    border-radius: 10px
+}
+.input-wrapper{
+    position: relative;
+}
+
+.btn-color{
+    background-color: #45811E;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    color: #ffffff;
+    padding-right: 30px;
+    padding-left: 30px;
+    border-radius: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+.text-green{
+    color: #07520A;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 50px;
+    display: block;
+}
+.btn-responsive {
+    white-space: normal !important;
+    word-wrap: break-word;
+}

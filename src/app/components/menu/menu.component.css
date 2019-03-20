@@ -1,7 +1,9 @@
 .menu{
     width: 20%;
+    height: 1200px;
     float: left;
-    background: #797575;
+    background: #727070;
+    opacity: 0.9;
 }
 .rounded{
     width: 90%;

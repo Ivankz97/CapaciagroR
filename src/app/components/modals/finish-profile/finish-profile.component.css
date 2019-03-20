@@ -1,0 +1,210 @@
+body{
+    background-color: rgb(90, 94, 87);
+    background: rgb(90, 94, 87);
+}
+
+.btn-gray{
+    background-color: rgb(90, 94, 87);
+    color: #ffffff;
+    text-align: center;
+    border: none;
+}
+
+.navbar-class{
+    padding: 0rem 1rem;
+    width: 75%;
+    margin: 0 auto;
+    background: rgb(90, 94, 87);
+}
+
+.btn-green{
+    background-color: #07520A;
+    color: #ffffff;
+    text-align: center;
+    /*text-align: right;*/
+    border-color: white;
+    /*padding-top: 11px;
+    padding-right: 30px;
+    padding-left: 30px;*/
+    font-weight: bold;
+}
+.btn-shopping{
+    background-color: #07520A;
+    color: #ffffff;
+    text-align: right;
+    border: none;
+    padding-top: 19px;
+    padding-bottom: 18px;
+    font-weight: bold;
+}
+.icon-col {
+    color: #ffffff;
+  }
+.text-white{
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+.align {
+    padding-top: 25px;
+}
+.text-size{
+    font-size: 10px;
+}
+
+.borderlist {
+    list-style-position:right;
+    border-right: 1px solid rgb(175, 172, 172);
+}
+
+.background{
+    background: "src/assets/CapaciagroImg.png";
+}
+.image{
+    height:40em; background-size:cover; width:auto; height: auto;
+    background-image:url('../../../../assets/CapaciagroImg.png');
+    background-position:50% 50%;
+}
+.white-color{
+    opacity: 0.8;
+    background: #ffffff;
+}
+.green-color{
+    background-color: #07520A;
+    border-radius: 25px;
+    width: 60%;
+    margin: 0 auto;
+    
+}
+.text-color{
+    color: #ffffff;
+    text-align: center;
+    padding-top: 15px;
+    font-weight: bold;
+}
+.text{
+    margin: 0;
+    color: #ffffff;
+    text-align: left;
+    padding-left: 10px;
+}
+#h1 {
+    color: #ffffff;
+}
+.hr-sect {
+	display: flex;
+	flex-basis: 80%;
+	align-items: center;
+	color: rgb(83, 83, 83);;
+    margin: 8px 0px;
+    margin-top: 25px;
+}
+.hr-sect::after {
+	content: "";
+	flex-grow: 1;
+	background: rgb(83, 83, 83);;
+	height: 1px;
+	font-size: 0px;
+	line-height: 0px;
+	margin: 0px 8px;
+}
+.size {
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 25px
+}
+
+.size-text {
+    font-size: 10px;
+}
+
+.check {
+    margin-top: 10px;
+}
+
+.check-color{
+    background-color: #07520A;
+}
+
+.input-icon{
+    color: #B8BEBF;
+    position: absolute;
+    left: 3px;
+    top: calc(50% - 0.5em); /* Keep icon in center of input, regardless of the input height */
+  }  
+input{
+    padding-left: 17px;
+    border-radius: 10px
+}
+.input-wrapper{
+    position: relative;
+}
+
+.btn-color{
+    background-color: #45811E;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    color: #ffffff;
+    padding-right: 30px;
+    padding-left: 30px;
+    border-radius: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.btn-gray-img{
+    background-color: rgb(70, 71, 70);
+    text-align: center;
+    display: inline;
+    border-radius: 10px;
+    margin-left: 3%;
+    margin-right: 40%;
+    color: white;
+    font-weight: bold;
+}
+
+.text-green{
+    color: #07520A;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    /*margin-right: 10px;*/
+    /*margin-left: 50px;*/
+    display: block;
+}
+.text-gray{
+    color: rgb(83, 83, 83);
+    font-weight: bold;
+    text-align: center;
+}
+
+.btn-responsive {
+    white-space: normal !important;
+    word-wrap: break-word;
+}
+
+.btn-enviar{
+    background-color: #07520A;
+    color: #ffffff;
+    text-align: center;
+    /*text-align: right;*/
+    border-color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /*
+    padding-right: 30px;
+    padding-left: 30px;*/
+    font-weight: bold;
+}
+
+.image-upload > input
+{
+    display: none;
+}
+.user-image{
+    height: auto;
+    width: 85%;
+    margin-left: 10%;
+    margin-right: 70%;
+}
+

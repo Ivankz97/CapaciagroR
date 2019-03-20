@@ -1,300 +1,358 @@
-<!--
-
-
-
-
 <app-menu></app-menu>
-<div class="contenedor">
-  <div  >Alta de eventos</div>
-  <div >Dar de alta un evento al sistema</div>
-  <div class="row">
-    <form [formGroup]="valForm" role="form" name="loginForm" novalidate="" (submit)="save($event)">
-    <div class="col-sm-4">
-      <div>Nombre:</div>
-      <div>
-        <input type="text" class="form-control" name="name" placeholder="Nombre del evento" autocomplete="off"
-        formControlName="name">
-        <span class="text-danger" *ngIf="valForm.controls['name'].hasError('required') && (valForm.controls['name'].dirty || valForm.controls['name'].touched)">Este
-            campo es requerido</span>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 *ngIf="!edit" class="panel-title">Alta de Eventos</h3>
+        <div class="hr-sect"></div>
+        <h6 style="color: #07520A; font-weight: bold;">Dar de alta un nuevo evento al sistema</h6>
+        <h3 *ngIf="edit" class="panel-title">Edición de Eventos</h3>
       </div>
-      <div>Precio:</div>
-      <div>
-        <input type="text" class="form-control" placeholder="Precio" autocomplete="off"
-        formControlName="price">
-        <span class="text-danger" *ngIf="valForm.controls['price'].hasError('required') && (valForm.controls['price'].dirty || valForm.controls['price'].touched)">Este
-            campo es requerido</span>
-      </div>
-      <div>Horario (HH:MM):</div>
-      <div>
-        <input type="time" class="form-control" placeholder="--:--" aria-label="Recipient's username" aria-describedby="basic-addon2" autocomplete="off"
-        formControlName="time" mask="00:00" [showMaskTyped]="true">
-        <span class="text-danger" *ngIf="valForm.controls['time'].hasError('required') && (valForm.controls['time'].dirty || valForm.controls['time'].touched)">Este
-            campo es requerido</span>
-      </div>
-      <div>Capacidad maxima del evento:</div>
-      <div>
-        <input type="text" class="form-control" placeholder="Capacidad" aria-label="Recipient's username"
-          formControlName="max_capacity" >
-          <span class="text-danger" *ngIf="valForm.controls['max_capacity'].hasError('required') && (valForm.controls['max_capacity'].dirty || valForm.controls['max_capacity'].touched)">Este
-              campo es requerido</span>
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <div>Fecha del Evento:</div>
-      <div>
-        <input type="text" class="form-control" placeholder="correo electronico" aria-label="Recipient's username"
-          aria-describedby="basic-addon2"  autocomplete="off"
-          formControlName="date" mask="00/00/0000" [showMaskTyped]="true">
-          <span class="text-danger" *ngIf="valForm.controls['date'].hasError('required') && (valForm.controls['date'].dirty || valForm.controls['date'].touched)">Este
-              campo es requerido</span>
-      </div>
-      <br>
-      <div>Descripción:</div>
-      <div>
-        <textarea name="" id="" cols="30" rows="3" placeholder="Inserte una descripcion"  autocomplete="off" formControlName="description"></textarea>
-        <span class="text-danger" *ngIf="valForm.controls['description'].hasError('required') && (valForm.controls['description'].dirty || valForm.controls['description'].touched)">Este
-            campo es requerido</span>
-      </div>
-      <div>Sede:</div>
-      <div>
-        <input type="text" class="form-control" placeholder="Ciudad del evento" aria-label="Recipient's username"
-          aria-describedby="basic-addon2">
-      </div>
-
-    </div>
-    <div class="col-sm-4">
-      <div>Decea que los usuarios visualizen este evento:</div>
-      <div>
-        <input type="radio">Si
-        <input type="radio">No
-      </div>
-      <div>Subir precentaciones:</div>
-      <div>
-        <button type="button" class="btn btn-primary">Cargar</button>
-      </div>
-    </div>
-  </form>
-  </div>
-  <div>Estilo de planilla</div>
-  <div class="hr-sect"></div>
-  <div class="row">
-    <div class="col-sm-4 pricipal">
-      <div class="stylePlantilla">
-        <div class="banner">Banner</div>
-        <div class="patrocinador">Patrocinadores</div>
-        <div class="area">Área de texto</div>
-        <div class="img-Table">Imagen (tabla de precios)</div>
-      </div>
-
-    </div>
-    <div class="col-sm-8">
-      <div>
-        <div class="row">
-          <div class="col-sm-12">
+      <div class="panel-body">
+        <form [formGroup]="valForm" class="form-validate mb-lg" role="form" name="loginForm" novalidate="" (submit)="save($event)">
+          <div class="row">
+            <div *ngIf="edit" class="col-md-6">
+              <label>ID</label>
+              <input class="form-control" type="text" name="id" placeholder="Identificador" autocomplete="off"
+                formControlName="id" disabled />
+            </div>
+            <div class="col-md-4">
+              <div class="col-md-12">
+                <label>Nombre</label>
+                <input class="form-control" type="text" name="name" placeholder="Nombre" autocomplete="off"
+                  formControlName="name" />
+                <span class="text-danger" *ngIf="valForm.controls['name'].hasError('required') && (valForm.controls['name'].dirty || valForm.controls['name'].touched)">Este
+                  campo es requerido</span>
+              </div>
+              <div class="col-md-12">
+                <label>Precio</label>
+                <input class="form-control" type="text" name="name" placeholder="Precio" autocomplete="off"
+                  formControlName="price" />
+                <span class="text-danger" *ngIf="valForm.controls['price'].hasError('required') && (valForm.controls['price'].dirty || valForm.controls['price'].touched)">Este
+                  campo es requerido</span>
+              </div>
+              <div class="col-md-12">
+                <label>Hora <small>(HH:MM)</small></label>
+                <input class="form-control" type="time" name="name" placeholder="Hora" autocomplete="off"
+                  formControlName="time" mask="00:00" />
+                <span class="text-danger" *ngIf="valForm.controls['time'].hasError('required') && (valForm.controls['time'].dirty || valForm.controls['time'].touched)">Este
+                  campo es requerido</span>
+              </div>
+              <div class="col-md-12">
+                <label>Capacidad máxima del evento</label>
+                <input class="form-control" type="text" name="name" placeholder="Capacidad maxima del evento"
+                  formControlName="max_capacity" />
+                <span class="text-danger" *ngIf="valForm.controls['max_capacity'].hasError('required') && (valForm.controls['max_capacity'].dirty || valForm.controls['max_capacity'].touched)">Este
+                  campo es requerido</span>
+              </div>
+              
+            </div>
+            <div class="col-md-4">
+              <div class="col-md-12">
+                <label>Fecha del evento <small>(DD/MM/YYYY)</small></label>
+                <input class="form-control" type="date" name="date" placeholder="Fecha del evento" autocomplete="off"
+                  formControlName="date" mask="00/00/0000" />
+                <span class="text-danger" *ngIf="valForm.controls['date'].hasError('required') && (valForm.controls['date'].dirty || valForm.controls['date'].touched)">Este
+                  campo es requerido</span>
+              </div>
+              <div class="col-md-12">
+                <label>Descripcion</label>
+                <textarea class="form-control" rows="5" placeholder="Descripción" autocomplete="off" formControlName="description"></textarea>
+                <span class="text-danger" *ngIf="valForm.controls['description'].hasError('required') && (valForm.controls['description'].dirty || valForm.controls['description'].touched)">Este
+                  campo es requerido</span>
+              </div>
+              <div class="col-md-12">
+                <label>Texto adicional</label>
+                <input class="form-control" type="text" name="name" placeholder="Texto adicional" autocomplete="off"
+                  formControlName="ad_text" />
+                <span class="text-danger" *ngIf="valForm.controls['ad_text'].hasError('required') && (valForm.controls['ad_text'].dirty || valForm.controls['ad_text'].touched)">Este
+                  campo es requerido</span>
+              </div>
+              <div class="col-md-6" style="display:inline-block;">
+                <label for="styles">Estilos</label>
+                <br>
+                <input type="radio" name="style" id="sad" class="input-hidden" value="1" formControlName="style" checked/>Happy
+                <input type="radio" name="style" id="happy" class="input-hidden" value="2" formControlName="style" checked/>Sad
+              </div>
+            </div>
+            <div class="col-md-4" style="display: inline-block;">
+              <div>Desea que los usuarios visualicen este evento:</div>
+              <div>
+                <input type="radio" checked>Si
+                <input type="radio">No
+              </div>
+              <br>
+              <div style="display: inline-block;">
+                <label for="presentaciones">Subir presentaciones:</label>
+                <a class="btn btn-primary btn-block" style="color: white;">Cargar</a>
+              </div>
+            </div>
+          </div> <br><br>
+          <!-------------------------------------------------------------------------------->
+          
+          <div class="row">
+            <h3>Estilo de Plantilla</h3>
+            <div class="col-md-12" style="display:inline-block;">
+            <div class="hr-sect"></div>
             <div class="row">
-              <div class="col-sm-3">
-                <div class="text">Banner:1500 x 289</div>
-
-                <button type="button" class="btn btn-primary">Subir foto</button>
+              <div class="col-md-3">
+                <div class="col-md-12 pricipal">
+                <div class="stylePlantilla">
+                  <div class="banner">Banner</div>
+                  <div class="patrocinador">Patrocinadores</div>
+                  <div class="area">Área de texto</div>
+                  <div class="img-Table">Imagen (tabla de precios)</div>
+                </div>
               </div>
-              <div class="col-sm-3">
-                <div class="text">Tabla de precios: 1500 x 481</div>
-
-                <button type="button" class="btn btn-primary">Subir foto</button>
               </div>
-              <div class="col-sm-3">
-                <div class="text">(Px)Patrocinadores:1500 x</div>
-
-                <button type="button" class="btn btn-primary">Subir Foto</button>
-              </div>
-              <div class="col-sm-3">
-                <div class="text">Fondo:(1800 x 2800Px )</div>
-
-                <button type="button" class="btn btn-primary">Subir Foto</button>
+              <div class="col-md-9">
+                  <div class="col-md-3" style="display: inline-block;">
+                      <div class="col-md-12" style="display: inline-block;">
+                        <label>Banner: 1500 x 289</label> <br>
+                        <div class="col-md-12">
+                          <div class="col-md-12">
+                            <label for="image-input" class="file-upload">
+                              <button class="btn btn-primary btn-block">Subir foto</button>
+                              <input id="image-input" type="file" (change)="fileChangeEvent($event)">
+                            </label>
+                          </div>
+                          <div class="col-md-6">
+                            <img [src]="imageChangedEvent" alt="" style="width: 80%; height:80%">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3" style="display: inline-block;">
+                      <div class="col-md-12" style="display: inline-block;">
+                        <label>Tabla de precios: 1500 x 481 (Px)</label> <br>
+                        <div class="col-md-12" style="display: inline-block">
+                          <div class="col-md-12">
+                            <label for="image-input" class="file-upload">
+                              <button class="btn btn-primary btn-block">Subir foto</button>
+                              <input id="image-input" type="file" (change)="fileChangeEvent2($event)">
+                            </label>
+                          </div>
+                          <div class="col-md-6">
+                            <img [src]="imageChangedEvent2" alt="" style="width: 80%; height:80%">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+      
+                    <div class="col-md-3" style="display: inline-block;">
+                      <div class="col-md-12" style="display: inline-block;">
+                        <label>Patrocinadores: 1500x</label> <br>
+                        <div class="col-md-12" style="display: inline-block">
+                          <div class="col-md-12">
+                            <label for="image-input" class="file-upload">
+                              <button class="btn btn-primary btn-block">Subir foto</button>
+                              <input id="image-input" type="file" (change)="fileChangeEvent3($event)">
+                            </label>
+                          </div>
+                          <div class="col-md-6">
+                            <img [src]="imageChangedEvent3" alt="" style="width: 80%; height:80%">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+      
+                    <div class="col-md-3" style="display: inline-block;">
+                      <div class="col-md-12">
+                        <label>Fondo: (1800 x 2800 Px)</label> <br>
+                        <div class="col-md-12" style="display: inline-block">
+                          <div class="col-md-12">
+                            <label for="image-input" class="file-upload">
+                              <button class="btn btn-primary btn-block">Subir foto</button>
+                              <input id="image-input" type="file" (change)="fileChangeEvent4($event)">
+                            </label>
+                          </div>
+                          <div class="col-md-6">
+                            <img [src]="imageChangedEvent4" alt="" style="width: 80%; height:80%">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
               </div>
             </div>
-            <div>
+            </div>
+          </div><br><br>
+          <div class="row">
+            <div class="col-md-3">
+              <button type="button" class="btn btn-primary precios">Alta de precios</button>
+            </div>
+            <div class="col-md-6">
+              <button *ngIf="!edit" class="btn btn-primary vista gray" type="button" (click)="cleanForm()">Limpiar</button>
+              <button type="button" class="btn btn-primary vista orange">Previsualizar</button>
+              <button class="btn btn-primary vista green" type="submit">Guardar</button>
             </div>
           </div>
-        </div>
-
+        </form>
       </div>
     </div>
   </div>
-  <div class="bottom">
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="row">
-          <div class="col-sm-3 ">
-            <button type="button" class="btn btn-primary precios">alta precios</button>
-          </div>
-          <div class="col-sm-9">
-            <button type="button" class="btn btn-primary vista gray">Limpiar</button>
-            <button type="button" class="btn btn-primary vista orange">Previsualizar</button>
-            <button type="button" class="btn btn-primary vista green" >Guardar</button>
-          </div>
+</div> <br>
+<div class="row">
+    <div class="col-md-12 card">
+      <div class="row">
+        <div class="col-md-8" style="margin-top:2%;">
+          <button class="btn btn-info margin-top-btn" style="color: white" (click)="exportToExcel(data)">
+            Exportar
+          </button>
         </div>
-      </div>
-    </div>
-
-    <div>Eventos creados</div>
-    <div class="hr-sect"></div>
-    <div class="row">
-      <div class="col-sm-12">
-
-      
+        <div class="col-md-4"> <br>
+          <input class="form-control" type="text" placeholder="Buscar ..." [(ngModel)]="filter">
+        </div>
+      </div> <br>
+  
       <table class="table table-striped">
-          <thead>
-        <tr>
-          <td>#</td>
-          <td>Nombre</td>
-          <td>Fecha del evento</td>
-          <td>Hora</td>
-          <td>Precio</td>
-          <td>Capacidad del evento</td>
-          <td>Numero de incripciones</td>
-          <td>Visualizar</td>
-          <td>Usuarios y acciones</td>
-          <td>Editar</td>
-          <td>Exportar</td>
-          <td>Eliminar</td>
-        </tr>
-        </thead>
-     
-          <tr>
-              <td>41</td>
-              <td>Simposio de Nem</td>
-              <td>8/03/2019</td>
-              <td>8:00</td>
-              <td>$5343</td>
-              <td>120</td>
-              <td>15</td>
-              <td>Si</td>
-              <td><i class="fas fa-user"></i></td>
-              <td><i class="fas fa-eraser"></i></td>
-              <td><i class="fas fa-download"></i></td>
-              <td><i class="fas fa-times"></i></td>
-            </tr>
+        <thead>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><i class="fas fa-user"></i></td>
-                <td><i class="fas fa-eraser"></i></td>
-                <td><i class="fas fa-download"></i></td>
-                <td><i class="fas fa-times"></i></td>
-              </tr>  
-        <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><i class="fas fa-user"></i></td>
-              <td><i class="fas fa-eraser"></i></td>
-              <td><i class="fas fa-download"></i></td>
-              <td><i class="fas fa-times"></i></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><i class="fas fa-user"></i></td>
-                <td><i class="fas fa-eraser"></i></td>
-                <td><i class="fas fa-download"></i></td>
-                <td><i class="fas fa-times"></i></td>
+                <td>#</td>
+                <td>Nombre</td>
+                <td>Fecha del evento</td>
+                <td>Hora</td>
+                <td>Precio</td>
+                <td>Capacidad del evento</td>
+                <td>Numero de incripciones</td>
+                <td>Visualizar</td>
+                <td>Usuarios y acciones</td>
+                <td>Editar</td>
+                <td>Exportar</td>
+                <td>Eliminar</td>
               </tr>
-              <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td><i class="fas fa-user"></i></td>
-                  <td><i class="fas fa-eraser"></i></td>
-                  <td><i class="fas fa-download"></i></td>
-                  <td><i class="fas fa-times"></i></td>
-                </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let d of data">
+            <td>{{d.id}}</td>
+            <td>{{d.name}}</td>
+            <td>{{d.date}}</td>
+            <td>{{d.time}}</td>
+            <td>{{d.price}}</td>
+            <td>{{d.max_capacity}}</td>
+            <td>{{d.inscriptions_count}}</td>
+            <td></td>
+            <td><i class="fas fa-user"></i></td>
+            <td><i class="fas fa-eraser"></i></td>
+            <td><i class="fas fa-download"></i></td>
+            <td><i class="fas fa-times"></i></td>
+            <!--
+              <td style="text-align:center">
+              <button style="margin-left: 2%" class="btn btn-danger" [disabled]="disabled" type="button" (click)="delete(data)">
+                <i class="icon-trash"></i>
+              </button>
+              <button style="color:white; margin-left: 2%" class="btn btn-info" [disabled]="disabled" type="button"
+                (click)="show(data.id)">
+                <i class="icon-user"></i>
+              </button>
+              <button style="color:white; margin-left: 2%" class="btn btn-warning" [disabled]="disabled" type="button"
+                (click)="editF(data.id)">
+                <i class="icon-pencil"></i>
+              </button>
+              <a class="btn btn-primary" style="color: white; margin-left: 2%" (click)="paymentsShow(data);">
+                <i class="fa fa-money-bill"></i>
+              </a>
+            </td>
+            -->
+            
+          </tr>
+        </tbody>
       </table>
     </div>
-    </div>
   </div>
-</div>
--->
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-
-
+<!--
 <app-menu></app-menu>
-<div class="contenedor">
+<div class="container">
   <div>Alta de eventos</div>
   <div>Dar de alta un evento al sistema</div>
   <div class="row">
-    <div class="col-sm-4">
-      <div>Nombre:</div>
-      <div>
-        <input type="text" class="form-control" placeholder="Nombre del evento" aria-label="Recipient's username"
-          aria-describedby="basic-addon2">
+    <form [formGroup]="valForm" class="form-validate mb-lg" role="form" name="loginForm" novalidate="" (submit)="save($event)">
+      <div class="col-sm-4">
+        <div>Nombre:</div>
+        <div>
+          <input type="text" class="form-control" name="name" placeholder="Nombre del evento" autocomplete="off"
+            formControlName="name">
+          <span class="text-danger" *ngIf="valForm.controls['name'].hasError('required') && (valForm.controls['name'].dirty || valForm.controls['name'].touched)">Este
+            campo es requerido</span>
+        </div>
+        <div>Precio:</div>
+        <div>
+          <input type="text" class="form-control" placeholder="Precio" autocomplete="off" formControlName="price">
+          <span class="text-danger" *ngIf="valForm.controls['price'].hasError('required') && (valForm.controls['price'].dirty || valForm.controls['price'].touched)">Este
+            campo es requerido</span>
+        </div>
+        <div>Horario (HH:MM):</div>
+        <div>
+          <input type="time" class="form-control" placeholder="--:--" aria-label="Recipient's username"
+            aria-describedby="basic-addon2" autocomplete="off" formControlName="time" mask="00:00">
+          <span class="text-danger" *ngIf="valForm.controls['time'].hasError('required') && (valForm.controls['time'].dirty || valForm.controls['time'].touched)">Este
+            campo es requerido</span>
+        </div>
+        <div>Capacidad maxima del evento:</div>
+        <div>
+          <input type="text" class="form-control" placeholder="Capacidad" aria-label="Recipient's username"
+            formControlName="max_capacity">
+          <span class="text-danger" *ngIf="valForm.controls['max_capacity'].hasError('required') && (valForm.controls['max_capacity'].dirty || valForm.controls['max_capacity'].touched)">Este
+            campo es requerido</span>
+        </div>
       </div>
-      <div>Precio:</div>
-      <div>
-        <input type="text" class="form-control" placeholder="Precio" aria-label="Recipient's username" aria-describedby="basic-addon2">
-      </div>
-      <div>Horario (HH:MM):</div>
-      <div>
-        <input type="text" class="form-control" placeholder="--:--" aria-label="Recipient's username" aria-describedby="basic-addon2">
-      </div>
-      <div>Capacidad maxima del evento:</div>
-      <div>
-        <input type="text" class="form-control" placeholder="Capacidad" aria-label="Recipient's username"
-          aria-describedby="basic-addon2">
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <div>Fecha del Evento:</div>
-      <div>
-        <input type="text" class="form-control" placeholder="correo electronico" aria-label="Recipient's username"
-          aria-describedby="basic-addon2">
-      </div>
-      <br>
-      <div>Descripción:</div>
-      <div>
-        <textarea name="" id="" cols="30" rows="3" placeholder="Inserte una descripcion"></textarea>
-      </div>
-      <div>Sede:</div>
-      <div>
-        <input type="text" class="form-control" placeholder="Ciudad del evento" aria-label="Recipient's username"
-          aria-describedby="basic-addon2">
-      </div>
+      <div class="col-sm-4">
+        <div>Fecha del Evento:</div>
+        <div>
+          <input type="date" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2"
+            autocomplete="off" formControlName="date" mask="00/00/0000">
+          <span class="text-danger" *ngIf="valForm.controls['date'].hasError('required') && (valForm.controls['date'].dirty || valForm.controls['date'].touched)">Este
+            campo es requerido</span>
+        </div>
+        <br>
+        <div>Descripción:</div>
+        <div>
+          <textarea name="" id="" cols="30" rows="3" placeholder="Inserte una descripcion" autocomplete="off"
+            formControlName="description"></textarea>
+          <span class="text-danger" *ngIf="valForm.controls['description'].hasError('required') && (valForm.controls['description'].dirty || valForm.controls['description'].touched)">Este
+            campo es requerido</span>
+        </div>
+        <div>Sede:</div>
+        <div>
+          <input type="text" class="form-control" placeholder="Ciudad del evento" aria-label="Recipient's username"
+            aria-describedby="basic-addon2">
+        </div>
+        <div class="col-md-6">
+          <label>Estilo del diseño</label> <br>
+          <input type="radio" name="style" id="sad" class="input-hidden" value="1" formControlName="style" />
+          <label for="sad" style="margin-right: 5%;">
+            <img src="assets/img/cap1.png" alt="I'm sad" />
+          </label>
+          <input type="radio" name="style" id="happy" class="input-hidden" value="2" formControlName="style" />
+          <label for="happy">
+            <img src="assets/img/cap2.png" alt="I'm happy" />
+          </label>
+        </div>
 
-    </div>
-    <div class="col-sm-4">
-      <div>Decea que los usuarios visualizen este evento:</div>
-      <div>
-        <input type="radio">Si
-        <input type="radio">No
       </div>
-      <div>Subir precentaciones:</div>
-      <div>
-        <button type="button" class="btn btn-primary">Cargar</button>
+      <div class="col-md-12">
+        <label>Texto adicional</label>
+        <input class="form-control" type="text" name="name" placeholder="Texto adicional" autocomplete="off"
+          formControlName="ad_text" />
+        <span class="text-danger" *ngIf="valForm.controls['ad_text'].hasError('required') && (valForm.controls['ad_text'].dirty || valForm.controls['ad_text'].touched)">Este
+          campo es requerido</span>
       </div>
-    </div>
+      <div class="col-sm-4">
+        <div>Decea que los usuarios visualizen este evento:</div>
+        <div>
+          <input type="radio">Si
+          <input type="radio">No
+        </div>
+        <div>Subir precentaciones:</div>
+        <div>
+          <button type="button" class="btn btn-primary">Cargar</button>
+        </div>
+      </div>
+      <div class="col-sm-9">
+        <button *ngIf="!edit" type="button" class="btn btn-primary vista gray" (click)="cleanForm()">Limpiar</button>
+        <button type="button" class="btn btn-primary vista orange">Previsualizar</button>
+        <button type="submit" id="submit" class="btn btn-primary vista green" (submit)="save($event)">Guardar</button>
+      </div>
+    </form>
   </div>
   <div>Estilo de planilla</div>
   <div class="hr-sect"></div>
@@ -316,22 +374,26 @@
               <div class="col-sm-3">
                 <div class="text">Banner:1500 x 289</div>
 
-                <button type="button" class="btn btn-primary">Cargar</button>
+                <button type="button" class="btn btn-primary">Subir foto</button>
+                <input id="image-input" type="file" (change)="fileChangeEvent($event)">
               </div>
               <div class="col-sm-3">
                 <div class="text">Tabla de precios: 1500 x 481</div>
 
-                <button type="button" class="btn btn-primary">Cargar</button>
+                <button type="button" class="btn btn-primary">Subir foto</button>
+                <input id="image-input" type="file" (change)="fileChangeEvent2($event)">
               </div>
               <div class="col-sm-3">
                 <div class="text">(Px)Patrocinadores:1500 x</div>
 
-                <button type="button" class="btn btn-primary">Cargar</button>
+                <button type="button" class="btn btn-primary">Subir Foto</button>
+                <input id="image-input" type="file" (change)="fileChangeEvent3($event)">
               </div>
               <div class="col-sm-3">
                 <div class="text">Fondo:(1800 x 2800Px )</div>
 
-                <button type="button" class="btn btn-primary">Cargar</button>
+                <button type="button" class="btn btn-primary">Subir Foto</button>
+                <input id="image-input" type="file" (change)="fileChangeEvent4($event)">
               </div>
             </div>
             <div>
@@ -350,9 +412,9 @@
             <button type="button" class="btn btn-primary precios">alta precios</button>
           </div>
           <div class="col-sm-9">
-            <button type="button" class="btn btn-primary vista gray">Limpiar</button>
+            <button *ngIf="!edit" type="button" class="btn btn-primary vista gray" (click)="cleanForm()">Limpiar</button>
             <button type="button" class="btn btn-primary vista orange">Previsualizar</button>
-            <button type="button" class="btn btn-primary vista green">Guardar</button>
+            <button type="submit" class="btn btn-primary vista green">Guardar</button>
           </div>
         </div>
       </div>
@@ -363,100 +425,279 @@
     <div class="row">
       <div class="col-sm-12">
 
-      
-      <table class="table table-striped">
+
+        <table class="table table-striped">
           <thead>
-        <tr>
-          <td>#</td>
-          <td>Nombre</td>
-          <td>Fecha del evento</td>
-          <td>Hora</td>
-          <td>Precio</td>
-          <td>Capacidad del evento</td>
-          <td>Numero de incripciones</td>
-          <td>Visualizar</td>
-          <td>Usuarios y acciones</td>
-          <td>Editar</td>
-          <td>Exportar</td>
-          <td>Eliminar</td>
-        </tr>
-        </thead>
-     
+            <tr>
+              <td>#</td>
+              <td>Nombre</td>
+              <td>Fecha del evento</td>
+              <td>Hora</td>
+              <td>Precio</td>
+              <td>Capacidad del evento</td>
+              <td>Numero de incripciones</td>
+              <td>Visualizar</td>
+              <td>Usuarios y acciones</td>
+              <td>Editar</td>
+              <td>Exportar</td>
+              <td>Eliminar</td>
+            </tr>
+          </thead>
+
           <tr>
-              <td>41</td>
-              <td>Simposio de Nem</td>
-              <td>8/03/2019</td>
-              <td>8:00</td>
-              <td>$5343</td>
-              <td>120</td>
-              <td>15</td>
-              <td>Si</td>
-              <td><i class="fas fa-user"></i></td>
-              <td><i class="fas fa-eraser"></i></td>
-              <td><i class="fas fa-download"></i></td>
-              <td><i class="fas fa-times"></i></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><i class="fas fa-user"></i></td>
-                <td><i class="fas fa-eraser"></i></td>
-                <td><i class="fas fa-download"></i></td>
-                <td><i class="fas fa-times"></i></td>
-              </tr>  
-        <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><i class="fas fa-user"></i></td>
-              <td><i class="fas fa-eraser"></i></td>
-              <td><i class="fas fa-download"></i></td>
-              <td><i class="fas fa-times"></i></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><i class="fas fa-user"></i></td>
-                <td><i class="fas fa-eraser"></i></td>
-                <td><i class="fas fa-download"></i></td>
-                <td><i class="fas fa-times"></i></td>
-              </tr>
-              <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td><i class="fas fa-user"></i></td>
-                  <td><i class="fas fa-eraser"></i></td>
-                  <td><i class="fas fa-download"></i></td>
-                  <td><i class="fas fa-times"></i></td>
-                </tr>
-      </table>
-    </div>
+            <td>41</td>
+            <td>Simposio de Nem</td>
+            <td>8/03/2019</td>
+            <td>8:00</td>
+            <td>$5343</td>
+            <td>120</td>
+            <td>15</td>
+            <td>Si</td>
+            <td><i class="fas fa-user"></i></td>
+            <td><i class="fas fa-eraser"></i></td>
+            <td><i class="fas fa-download"></i></td>
+            <td><i class="fas fa-times"></i></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><i class="fas fa-user"></i></td>
+            <td><i class="fas fa-eraser"></i></td>
+            <td><i class="fas fa-download"></i></td>
+            <td><i class="fas fa-times"></i></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><i class="fas fa-user"></i></td>
+            <td><i class="fas fa-eraser"></i></td>
+            <td><i class="fas fa-download"></i></td>
+            <td><i class="fas fa-times"></i></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><i class="fas fa-user"></i></td>
+            <td><i class="fas fa-eraser"></i></td>
+            <td><i class="fas fa-download"></i></td>
+            <td><i class="fas fa-times"></i></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><i class="fas fa-user"></i></td>
+            <td><i class="fas fa-eraser"></i></td>
+            <td><i class="fas fa-download"></i></td>
+            <td><i class="fas fa-times"></i></td>
+          </tr>
+        </table>
+      </div>
     </div>
   </div>
-</div>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
+-->
+
+
+  <!--
+  <div class="content-heading">Eventos</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 *ngIf="!edit" class="panel-title">Alta de Eventos</h3>
+        <h3 *ngIf="edit" class="panel-title">Edición de Eventos</h3>
+      </div>
+      <div class="panel-body">
+        <form [formGroup]="valForm" class="form-validate mb-lg" role="form" name="loginForm" novalidate="" (submit)="save($event)">
+          <div class="row">
+            <div *ngIf="edit" class="col-md-6">
+                <label>ID</label>
+                <input class="form-control" type="text" name="id" placeholder="Identificador" autocomplete="off"
+                  formControlName="id" disabled />
+              </div> 
+              <div class="col-md-6">
+                  <div class="col-md-12">
+                    <label>Nombre</label>
+                    <input class="form-control" type="text" name="name" placeholder="Nombre" autocomplete="off"
+                      formControlName="name" />
+                    <span class="text-danger" *ngIf="valForm.controls['name'].hasError('required') && (valForm.controls['name'].dirty || valForm.controls['name'].touched)">Este
+                      campo es requerido</span>
+                  </div>
+                  <div class="col-md-12">
+                    <label>Precio</label>
+                    <input class="form-control" type="text" name="name" placeholder="Precio" autocomplete="off"
+                      formControlName="price" />
+                    <span class="text-danger" *ngIf="valForm.controls['price'].hasError('required') && (valForm.controls['price'].dirty || valForm.controls['price'].touched)">Este
+                      campo es requerido</span>
+                  </div>
+                  <div class="col-md-12">
+                    <label>Capacidad maxima del evento</label>
+                    <input class="form-control" type="text" name="name" placeholder="Capacidad maxima del evento"
+                      formControlName="max_capacity" />
+                    <span class="text-danger" *ngIf="valForm.controls['max_capacity'].hasError('required') && (valForm.controls['max_capacity'].dirty || valForm.controls['max_capacity'].touched)">Este
+                      campo es requerido</span>
+    
+                  </div>
+                  <div class="col-md-12">
+                    <label>Descripcion</label>
+                    <textarea class="form-control" rows="5" placeholder="Descripción" autocomplete="off" formControlName="description"></textarea>
+                    <span class="text-danger" *ngIf="valForm.controls['description'].hasError('required') && (valForm.controls['description'].dirty || valForm.controls['description'].touched)">Este
+                      campo es requerido</span>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="col-md-12">
+                    <label>Fecha del evento <small>(DD/MM/YYYY)</small></label>
+                    <input class="form-control" type="text" name="name" placeholder="Fecha del evento" autocomplete="off"
+                      formControlName="date" mask="00/00/0000" />
+                    <span class="text-danger" *ngIf="valForm.controls['date'].hasError('required') && (valForm.controls['date'].dirty || valForm.controls['date'].touched)">Este
+                      campo es requerido</span>
+                  </div>
+                  <div class="col-md-12">
+                    <label>Hora <small>(HH:MM)</small></label>
+                    <input class="form-control" type="text" name="name" placeholder="Hora" autocomplete="off"
+                      formControlName="time" mask="00:00" />
+                    <span class="text-danger" *ngIf="valForm.controls['time'].hasError('required') && (valForm.controls['time'].dirty || valForm.controls['time'].touched)">Este
+                      campo es requerido</span>
+                  </div>
+                  <div class="col-md-12">
+                    <label>Texto adicional</label>
+                    <input class="form-control" type="text" name="name" placeholder="Texto adicional" autocomplete="off"
+                      formControlName="ad_text" />
+                    <span class="text-danger" *ngIf="valForm.controls['ad_text'].hasError('required') && (valForm.controls['ad_text'].dirty || valForm.controls['ad_text'].touched)">Este
+                      campo es requerido</span>
+                  </div>
+                  <div class="col-md-6" style="display:inline-block;">
+                    <label>Estilo del diseño</label> <br>
+                    <input type="radio" name="style" id="sad" class="input-hidden" value="1" formControlName="style" />
+                    <label for="sad" style="margin-right: 5%;">
+                      <img src="assets/img/cap1.png" alt="I'm sad" />
+                    </label>
+                    <input type="radio" name="style" id="happy" class="input-hidden" value="2" formControlName="style" />
+                    <label for="happy">
+                      <img src="assets/img/cap2.png" alt="I'm happy" />
+                    </label>
+                  </div>
+                  <div class="col-md-6" style="display: inline-block;">
+                    <a class="btn btn-info btn-block" style="color: white;" (click)="priceModal.show()">Alta de precios</a>
+                  </div>
+                </div>
+              </div> <br><br>
+              <div class="row">
+                <div class="col-md-12" style="display:inline-block;">
+         
+                  <div class="col-md-3" style="display: inline-block;">
+                    <div class="col-md-12" style="display: inline-block;">
+                      <label>Banner</label> <br>
+                      <div class="col-md-12" style="display: inline-block">
+                        <div class="col-md-12">
+                          <b>1600px x 700px</b>
+                          <label for="image-input" class="file-upload">
+                            <button class="btn btn-default btn-block">Seleccionar Imágen</button>
+                            <input id="image-input" type="file" (change)="fileChangeEvent($event)">
+                          </label>
+                        </div>
+                        <div class="col-md-6">
+                          <img [src]="imageChangedEvent" alt="" style="width: 80%; height:80%">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+    
+                  <div class="col-md-3" style="display: inline-block;">
+                    <div class="col-md-12" style="display: inline-block;">
+                      <label>Imagen</label> <br>
+                      <div class="col-md-12" style="display: inline-block">
+                        <div class="col-md-12">
+                          <b>1000px x 1000px</b>
+                          <label for="image-input" class="file-upload">
+                            <button class="btn btn-default btn-block">Seleccionar Imágen</button>
+                            <input id="image-input" type="file" (change)="fileChangeEvent2($event)">
+                          </label>
+                        </div>
+                        <div class="col-md-6">
+                          <img [src]="imageChangedEvent2" alt="" style="width: 80%; height:80%">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+     
+                  <div class="col-md-3" style="display: inline-block;">
+                    <div class="col-md-12" style="display: inline-block;">
+                      <label>Patrocinadores</label> <br>
+                      <div class="col-md-12" style="display: inline-block">
+                        <div class="col-md-12">
+                          <b>1600px x 480px</b>
+                          <label for="image-input" class="file-upload">
+                            <button class="btn btn-default btn-block">Seleccionar Imágen</button>
+                            <input id="image-input" type="file" (change)="fileChangeEvent3($event)">
+                          </label>
+                        </div>
+                        <div class="col-md-6">
+                          <img [src]="imageChangedEvent3" alt="" style="width: 80%; height:80%">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-3" style="display: inline-block;">
+                    <div class="col-md-12" style="display: inline-block;">
+                      <label>Fondo</label> <br>
+                      <div class="col-md-12" style="display: inline-block">
+                        <div class="col-md-12">
+                          <b>1800px x 2398px</b>
+                          <label for="image-input" class="file-upload">
+                            <button class="btn btn-default btn-block">Seleccionar Imágen</button>
+                            <input id="image-input" type="file" (change)="fileChangeEvent4($event)">
+                          </label>
+                        </div>
+                        <div class="col-md-6">
+                          <img [src]="imageChangedEvent4" alt="" style="width: 80%; height:80%">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div><br><br>
+              <div class="row ">
+                <div class="col-md-6">
+                  <div class="col-md-12">
+                    <button *ngIf="!edit" class="btn btn-default mt-lg" type="button" (click)="cleanForm()">Limpiar</button>
+                    <button *ngIf="edit" class="btn btn-default mt-lg" type="button" (click)="cancel()">Cancelar</button>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="col-md-12">
+                    <button class="btn btn-primary mt-lg" style="float: right" type="submit">Guardar</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div> <br>
+-->

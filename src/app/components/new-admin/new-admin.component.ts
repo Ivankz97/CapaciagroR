@@ -2,17 +2,19 @@ import { Component, OnInit,  ViewChild } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
 import { UserService } from '../../services/user.service';
-import { ExelserviceService } from '../../services/exelservice.service';
+import { ExcelService } from '../../services/ExportExcel';
 import Swal from 'sweetalert2';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AuthServiceService } from '../../services/auth-service.service';
+import { AuthenticationService } from '../../services/auth.service';
 import { ToasterConfig, ToasterService } from 'angular2-toaster';
+
 @Component({
   selector: 'app-new-admin',
   templateUrl: './new-admin.component.html',
   styleUrls: ['./new-admin.component.css']
 })
 export class NewAdminComponent implements OnInit {
+
   public model: any = {};
   public valForm: FormGroup;
   public valFormUser: FormGroup;
@@ -33,7 +35,7 @@ export class NewAdminComponent implements OnInit {
   @ViewChild('forgotPassword') 
   forgotPassword: any;
 
-  constructor(public toasterService: ToasterService, fb: FormBuilder, private route: ActivatedRoute, private router: Router, private authenticationService: AuthServiceService) {
+  constructor(public toasterService: ToasterService, fb: FormBuilder, private route: ActivatedRoute, private router: Router, private authenticationService: AuthenticationService) {
     
     this.valForm = fb.group({
       'email': [null, Validators.compose([Validators.required])],
@@ -88,13 +90,13 @@ export class NewAdminComponent implements OnInit {
     if (this.valFormUser.valid) {
       this.loading = true;
       console.log("Form -->", this.valFormUser.value);
-      this.authenticationService.sign_up({
+      this.authenticationService.create_user({
         user: this.valFormUser.value
       }).subscribe((data) => {
         console.log("Datos al guardar -->", data);
         if (data.result === true) {
           Swal.fire({ type: 'success', title: 'Usuario Guardado', text: 'El usuario fue creado exitosamenete.' });
-          localStorage.setItem('currentUser', JSON.stringify(data));
+          //localStorage.setItem('currentUser', JSON.stringify(data));
           location.replace('/');
           this.loading = false;
         } else {

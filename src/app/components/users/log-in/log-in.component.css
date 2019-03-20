@@ -91,6 +91,55 @@
     font-size: 12px;
 }
 
+.text-green{
+    color: #07520A;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 50px;
+    display: block;
+}
+
+.text{
+    margin: 0;
+    margin-top: 15px;
+    margin-left: 35px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.input-icon{
+    color: #B8BEBF;
+    position: absolute;
+    left: 47px;
+    top: calc(50% - 0.5em); /* Keep icon in center of input, regardless of the input height */
+}  
+input{
+    padding-left: 17px;
+    border-radius: 10px
+}
+.input-wrapper{
+    position: relative;
+    padding-left: 43px;
+}
+
+.a-right{
+    padding-left: 450px;
+}
+
+.btn-color{
+    background-color: #45811E;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    color: #ffffff;
+    padding-right: 30px;
+    padding-left: 30px;
+    border-radius: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
 @media all and (max-width:900px){
     .form{
         width: 50%;
