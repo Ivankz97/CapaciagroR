@@ -130,7 +130,7 @@ export class LogInComponent implements OnInit {
         } else {
           localStorage.setItem('currentUser', JSON.stringify(data));
           // this.router.navigate([this.returnUrl]);
-          location.replace('/');
+          location.replace('/all-events');
           this.loading = false;
         }
       }, err => {
