@@ -17,7 +17,7 @@ const routes: Routes = [
   {path: "all-events", component: AllEventsComponent},
   {path: "detail-event", component: DetailsEventComponent},
   {path: "my-events", component: MyEventsComponent},
-  {path: "register-event", component: EventRegistrationComponent },
+  {path: "eventos", component: EventRegistrationComponent },
   {path: "my-purchases", component: MyPurchasesComponent},
   {path: "descargar-factura", component: DescargaFacturaComponent},
   {path: "datos-facturacion", component: DatosFacturacionComponent},

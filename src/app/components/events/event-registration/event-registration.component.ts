@@ -350,8 +350,8 @@ export class EventRegistrationComponent implements OnInit {
             "img4": this.valForm.value.img4,
             "price": this.valForm.value.price,
             "style": this.valForm.value.style,
-            "date": date,
-            "time": time,
+            "date": this.valForm.value.date,
+            "time": this.valForm.value.time,
             "ad_text": this.valForm.value.ad_text,
             "max_capacity": this.valForm.value.max_capacity,
           }
@@ -364,7 +364,7 @@ export class EventRegistrationComponent implements OnInit {
             this.fileChangeEvent2 = null
             this.fileChangeEvent3 = null
             this.fileChangeEvent4 = null
-            location.replace('/');
+            location.replace('/eventos');
             this.loading = false;
           } else {
             Swal.fire({ type: 'error', title: 'Conflictos Al Guardar', text: data.message[0] });
