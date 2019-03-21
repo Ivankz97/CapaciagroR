@@ -18,28 +18,28 @@
             </div>
             <div class="col-md-4">
               <div class="col-md-12">
-                <label>Nombre</label>
+                <label>Nombre:</label>
                 <input class="form-control" type="text" name="name" placeholder="Nombre" autocomplete="off"
                   formControlName="name" />
                 <span class="text-danger" *ngIf="valForm.controls['name'].hasError('required') && (valForm.controls['name'].dirty || valForm.controls['name'].touched)">Este
                   campo es requerido</span>
               </div>
               <div class="col-md-12">
-                <label>Precio</label>
+                <label>Precio:</label>
                 <input class="form-control" type="text" name="name" placeholder="Precio" autocomplete="off"
                   formControlName="price" />
                 <span class="text-danger" *ngIf="valForm.controls['price'].hasError('required') && (valForm.controls['price'].dirty || valForm.controls['price'].touched)">Este
                   campo es requerido</span>
               </div>
               <div class="col-md-12">
-                <label>Hora <small>(HH:MM)</small></label>
+                <label>Hora <small>(HH:MM):</small></label>
                 <input class="form-control" type="time" name="name" placeholder="Hora" autocomplete="off"
                   formControlName="time" mask="00:00" />
                 <span class="text-danger" *ngIf="valForm.controls['time'].hasError('required') && (valForm.controls['time'].dirty || valForm.controls['time'].touched)">Este
                   campo es requerido</span>
               </div>
               <div class="col-md-12">
-                <label>Capacidad máxima del evento</label>
+                <label>Capacidad máxima del evento:</label>
                 <input class="form-control" type="text" name="name" placeholder="Capacidad maxima del evento"
                   formControlName="max_capacity" />
                 <span class="text-danger" *ngIf="valForm.controls['max_capacity'].hasError('required') && (valForm.controls['max_capacity'].dirty || valForm.controls['max_capacity'].touched)">Este
@@ -49,37 +49,32 @@
             </div>
             <div class="col-md-4">
               <div class="col-md-12">
-                <label>Fecha del evento <small>(DD/MM/YYYY)</small></label>
+                <label>Fecha del evento:<small>(DD/MM/YYYY)</small></label>
                 <input class="form-control" type="date" name="date" placeholder="Fecha del evento" autocomplete="off"
                   formControlName="date" mask="00/00/0000" />
                 <span class="text-danger" *ngIf="valForm.controls['date'].hasError('required') && (valForm.controls['date'].dirty || valForm.controls['date'].touched)">Este
                   campo es requerido</span>
               </div>
               <div class="col-md-12">
-                <label>Descripcion</label>
+                <label>Descripcion:</label>
                 <textarea class="form-control" rows="5" placeholder="Descripción" autocomplete="off" formControlName="description"></textarea>
                 <span class="text-danger" *ngIf="valForm.controls['description'].hasError('required') && (valForm.controls['description'].dirty || valForm.controls['description'].touched)">Este
                   campo es requerido</span>
               </div>
               <div class="col-md-12">
-                <label>Texto adicional</label>
-                <input class="form-control" type="text" name="name" placeholder="Texto adicional" autocomplete="off"
-                  formControlName="ad_text" />
-                <span class="text-danger" *ngIf="valForm.controls['ad_text'].hasError('required') && (valForm.controls['ad_text'].dirty || valForm.controls['ad_text'].touched)">Este
+                <label>Sede:</label>
+                <input class="form-control" type="text" name="venue" placeholder="Ciudad del evento" autocomplete="off"
+                  formControlName="venue" />
+                <span class="text-danger" *ngIf="valForm.controls['venue'].hasError('required') && (valForm.controls['venue'].dirty || valForm.controls['venue'].touched)">Este
                   campo es requerido</span>
-              </div>
-              <div class="col-md-6" style="display:inline-block;">
-                <label for="styles">Estilos</label>
-                <br>
-                <input type="radio" name="style" id="sad" class="input-hidden" value="1" formControlName="style" checked/>Happy
-                <input type="radio" name="style" id="happy" class="input-hidden" value="2" formControlName="style" checked/>Sad
               </div>
             </div>
             <div class="col-md-4" style="display: inline-block;">
-              <div>Desea que los usuarios visualicen este evento:</div>
-              <div>
-                <input type="radio" checked>Si
-                <input type="radio">No
+              <div class="col-md-6">
+                <label for="styles">Desea que los usuarios visualicen este evento:</label>
+                <br>
+                <input type="radio" name="enabled" id="sad" class="input-hidden" value="1" formControlName="enabled" checked/>Sí
+                <input type="radio" name="enabled" id="happy" class="input-hidden" value="2" formControlName="enabled" checked/>No
               </div>
               <br>
               <div style="display: inline-block;">
