@@ -1,13 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Injectable, } from '@angular/core';
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
-import 'rxjs/add/operator/map'
-import { Uris } from './Uris';
+import { Uris } from '../services/Uris';
+import Swal from 'sweetalert2';
 import { Observable } from '../../../node_modules/rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class HarvestService {
-
+export class CouponService {
+  /*
   private userToken: String;
   private user: any;
   constructor(public http: Http) {
@@ -55,4 +55,6 @@ export class HarvestService {
       }
   }
 
-} 
+}
+*/
+}

@@ -60,10 +60,10 @@ export class EventRegistrationComponent implements OnInit {
       "img3": [''],
       "img4": [''],
       "price": [null, Validators.compose([Validators.required])],
-      "style": [null, Validators.compose([Validators.required])],
+      "enabled": [null, Validators.compose([Validators.required])],
       "date": [null, Validators.compose([Validators.required])],
       "time": [null, Validators.compose([Validators.required])],
-      "ad_text": [null, Validators.compose([Validators.required])],
+      "venue": [null, Validators.compose([Validators.required])],
       "max_capacity": [null],
       "id": [null]
     });
@@ -349,10 +349,10 @@ export class EventRegistrationComponent implements OnInit {
             "img3": this.valForm.value.img3,
             "img4": this.valForm.value.img4,
             "price": this.valForm.value.price,
-            "style": this.valForm.value.style,
-            "date": date,
-            "time": time,
-            "ad_text": this.valForm.value.ad_text,
+            "enabled": this.valForm.value.enabled,
+            "date": this.valForm.value.date,
+            "time": this.valForm.value.time,
+            "venue": this.valForm.value.venue,
             "max_capacity": this.valForm.value.max_capacity,
           }
         }).subscribe((data) => {
@@ -364,7 +364,7 @@ export class EventRegistrationComponent implements OnInit {
             this.fileChangeEvent2 = null
             this.fileChangeEvent3 = null
             this.fileChangeEvent4 = null
-            location.replace('/');
+            location.replace('/eventos');
             this.loading = false;
           } else {
             Swal.fire({ type: 'error', title: 'Conflictos Al Guardar', text: data.message[0] });
@@ -428,10 +428,10 @@ export class EventRegistrationComponent implements OnInit {
             "img3": this.valForm.value.img3,
             "img4": this.valForm.value.img4,
             "price": this.valForm.value.price,
-            "style": this.valForm.value.style,
+            "enabled": this.valForm.value.enabled,
             "date": date,
             "time": time,
-            "ad_text": this.valForm.value.ad_text,
+            "venue": this.valForm.value.venue,
             "max_capacity": this.valForm.value.max_capacity,
             "id": this.valForm.value.id
           }
@@ -463,10 +463,10 @@ export class EventRegistrationComponent implements OnInit {
         this.valForm.controls['img3'].setValue(data.event.img3)
         this.valForm.controls['img4'].setValue(data.event.img4)
         this.valForm.controls['price'].setValue(data.event.price)
-        this.valForm.controls['style'].setValue(data.event.style)
+        this.valForm.controls['enabled'].setValue(data.event.enabled)
         this.valForm.controls['date'].setValue(data.event.date)
         this.valForm.controls['time'].setValue(data.event.time)
-        this.valForm.controls['ad_text'].setValue(data.event.ad_text)
+        this.valForm.controls['venue'].setValue(data.event.venue)
         this.valForm.controls['max_capacity'].setValue(data.event.max_capacity)
         this.valForm.controls['id'].setValue(data.event.id)
         this.arrayPrices = data.event.special_prices

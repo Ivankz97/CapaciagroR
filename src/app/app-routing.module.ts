@@ -12,7 +12,8 @@ import { MyPurchasesComponent } from './components/users/my-purchases/my-purchas
 import {EventRegistrationComponent} from './components/events/event-registration/event-registration.component';
 import {  NewAdminComponent } from '../app/components/new-admin/new-admin.component';
 import { MenuComponent } from './components/menu/menu.component';
-
+import { CodeDescComponent } from './components/code-desc/code-desc/code-desc.component';
+import { from } from 'rxjs';
 const routes: Routes = [
   {path: "register-user", component: RegisterUserComponent},
   {path: "log-in", component: LogInComponent},
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path: "datos-facturacion", component: DatosFacturacionComponent},
   {path: "edit-profile", component: EditUserComponent},
   {path: "nuevoadministrador", component: NewAdminComponent},
-  {path: "menu", component: MenuComponent}
+  {path: "menu", component: MenuComponent},
+  {path:"codigo-descuento", component: CodeDescComponent}
 ];
 
 @NgModule({

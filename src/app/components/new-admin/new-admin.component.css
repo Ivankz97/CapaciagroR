@@ -1,18 +1,21 @@
+
 .upload-image{
 	margin-bottom: 5%;
 	
 }
 .topic{
+	width: 80%;
 	margin-top: 5%;
 	font-size: 20px;
+	font-weight: 600;
 }
 .btn-submit{
-	margin-top: 5%;
+	margin-top: 10%;
 }
 .image{
     background-image: url('../../../assets/Background.png');
 }
-h4{
+h4, h5{
 	color: #1c8d0d;
 	font-weight: 500;
 	padding-left: 10%;
@@ -34,7 +37,6 @@ h4{
 	line-height: 0px;
 	margin: 0px 8px;
 }
-
 .contenedor{
     width: 100%;
 	background-image: url('../../../assets/Background.png');
@@ -42,7 +44,7 @@ h4{
 	
 }
 form{
-	padding: 3% 3% 30% 20%;
+	padding: 0% 10% 0% 20%;
 }
 input{
     padding-left: 17px;

@@ -3,7 +3,7 @@
 <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
 <app-menu></app-menu>
 <div class="contenedor">
-  <form [formGroup]="valFormUser" class="form-validate mb-lg" role="form" name="loginForm" novalidate="" (submit)="save($event)" style="background: #ffffff;">
+  <form [formGroup]="valForm" class="form-validate mb-lg" role="form" novalidate="" (submit)="save($event)" style="background: #ffffff;">
     <h1>Crear administrador</h1>
     <div class="hr-sect "></div>
     <h4>Crea un nuvo usuario y añadelo a este sitio.</h4>
@@ -28,22 +28,22 @@
           <label for="name" class="fa fa-user input-icon"></label>
         </div>
         <div>
-          <label class="text" for="last_nameP">Apellido paterno:</label>
+          <label class="text" for="last_name">Apellido paterno:</label>
         </div>
         <div class="input-wrapper">
-          <input type="text" class="form-control" formControlName="lastnameP" placeholder="   Apellido paterno">
+          <input type="text" class="form-control" formControlName="lastname" placeholder="   Apellido paterno">
           <!--<span class="text-danger" *ngIf="valForm.controls['lastname'].hasError('required') && (valForm.controls['lastname'].dirty || valForm.controls['lastname'].touched)">Este
               campo es requerido</span>-->
-          <label for="last_nameP" class="fa fa-user input-icon"></label>
+          <label for="last_name" class="fa fa-user input-icon"></label>
         </div>
         <div>
-          <label class="text" for="last_nameM">Apellido materno:</label>
+          <label class="text" for="last_name">Apellido materno:</label>
         </div>
         <div class="input-wrapper">
-          <input type="text" class="form-control" formControlName="lastnameM" placeholder="  Apellido materno">
+          <input type="text" class="form-control" formControlName="lastname" placeholder="  Apellido materno">
           <!--<span class="text-danger" *ngIf="valForm.controls['lastname'].hasError('required') && (valForm.controls['lastname'].dirty || valForm.controls['lastname'].touched)">Este
               campo es requerido</span>-->
-          <label for="last_nameM" class="fa fa-user input-icon"></label>
+          <label for="last_name" class="fa fa-user input-icon"></label>
         </div>
 
       </div>
@@ -65,134 +65,77 @@
           <label for="password" class="fa fa-unlock-alt input-icon"></label>
         </div>
         <div>
-          <label class="text" for="c_password">Confirmar contraseña:</label>
+          <label class="text" for="password_confirmation">Confirmar contraseña:</label>
         </div>
         <div class="input-wrapper">
-          <input type="password" id="c_password" class="form-control" formControlName="password_confirmation"
+          <input type="password" id="password_confirmation" class="form-control" formControlName="password_confirmation"
             placeholder="   Confirmar contraseña">
 
-          <label for="c_password" class="fa fa-unlock-alt input-icon"></label>
+          <label for="password_confirmation" class="fa fa-unlock-alt input-icon"></label>
         </div>
-        
+
 
 
         <!--End green div-->
       </div>
-     
 
     </div>
-    <div class="row">
-      <div class="col-sm-12">
-          <div class="topic">Subir imagen</div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-2">
-    
+<div class="row">
+ 
+      <div class="col-sm-2 perfil-image">
+            <div class="topic">Subir imagen</div>
         <br>
         <img style="float: left;" src="../../../assets/user-image.png" class="img-thumbnail">
       </div>
     
-    
-    <div class="col-sm-2 btn-submit">
-      <div style="float: right; margin-top: 10%;">
-        <button class="upload-image btn btn-secondary" type="/file">Subir foto</button>
-        <button class="upload-image" type="submit" id="submit" class="btn btn-primary btn-color" (submit)="save($event)">Registrarte</button>
+
+
+      <div class="col-sm-2 btn-submit">
+        <div style="float: right; margin-top: 10%;">
+          <button class="upload-image btn btn-secondary" type="/file">Subir foto</button>
+          <button class="upload-image" type="submit" id="submit" class="btn btn-primary btn-color" (submit)="save($event)">Registrarte</button>
+        </div>
       </div>
     </div>
-  </div>
   </form>
-  <div class="row" >
+  <div class="row">
     <div class="col-sm-12" style="background: #ffffff;">
-<div class="L-admin">
-      <div class="color-text">Lista de administradores</div>
-      <div class="hr-sect "></div>
-      <div class="color-text-2">Visualizar administradores registrados</div>
-      <table class="table table-striped">
-        <thead>
-        <tr>
-          <td >#</td>
-          <td>Usuario</td>
-          <td>Nombre (s)</td>
-          <td>Apellido Paterno</td>
-          <td>Apellido Materno</td>
-          <td>Facultades</td>
-          <td>Visualizar</td>
-          <td>Editar</td>
-          <td>Eliminar</td>
-        </tr>
-      </thead>
-      <tbody>
-          <tr>
-            <th scope="row"></th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><i class="fas fa-times"></i></td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><i class="fas fa-times"></i></td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><i class="fas fa-times"></i></td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><i class="fas fa-times"></i></td>
-          </tr>
-          <tr>
+      <div class="L-admin">
+        <h1>Lista de administradores</h1>
+        <div class="hr-sect "></div>
+        <h5>Visualizar administradores registrados</h5>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <td>#</td>
+              <td>Usuario</td>
+              <td>Nombre (s)</td>
+              <td>Apellido Paterno</td>
+             <!-- <td>Apellido Materno</td>-->
+              <td>Facultades</td>
+              <td>Visualizar</td>
+              <td>Editar</td>
+              <td>Eliminar</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let d of data">
               <th scope="row"></th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td> {{d.id}} </td>
+              <td> {{d.name}} </td>
+              <td> {{d.lastname}} </td>
+              <!--<td> {{  }}  </td>-->
+              <!--<td> {{  }}  </td>-->
+              <td>  </td>
               <td></td>
               <td></td>
               <td><i class="fas fa-times"></i></td>
             </tr>
-            <tr>
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><i class="fas fa-times"></i></td>
-              </tr>
-        </tbody>
-      </table>
+           
+          </tbody>
+        </table>
+      </div>
+
     </div>
-  
+  </div>
 </div>
-  </div>
-  </div>
