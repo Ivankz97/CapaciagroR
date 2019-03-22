@@ -14,10 +14,15 @@ import {  NewAdminComponent } from '../app/components/new-admin/new-admin.compon
 import { MenuComponent } from './components/menu/menu.component';
 import { CodeDescComponent } from './components/code-desc/code-desc/code-desc.component';
 import { from } from 'rxjs';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
+ 
 const routes: Routes = [
+  //{path: "**", redirectTo: "log-in", component: LogInComponent},
+  {path: "", component: LogInComponent},
   {path: "register-user", component: RegisterUserComponent},
-  {path: "log-in", component: LogInComponent},
-  {path: "all-events", component: AllEventsComponent},
+  {path: "log-in",pathMatch:'full', component: LogInComponent},
+  {path: "all-events",pathMatch: 'full' , component: AllEventsComponent},
   {path: "detail-event", component: DetailsEventComponent},
   {path: "my-events", component: MyEventsComponent},
   {path: "register-event", component: EventRegistrationComponent },
@@ -31,7 +36,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes) ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

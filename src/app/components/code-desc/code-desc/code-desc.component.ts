@@ -3,7 +3,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { UserService } from '../../../services/user.service';
 import { CropperSettings, ImageCropperComponent, Bounds } from 'ng2-img-cropper';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
-import { CouponService } from '../../../services/harvest.service';
+//import { CouponService } from '../../../services/harvest.service';
 import Swal from 'sweetalert2';
 @Component({
   selector: 'app-code-desc',
@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class CodeDescComponent implements OnInit {
   ngOnInit(){
-    
+
   }
   /*
   public data: any;
@@ -192,7 +192,6 @@ export class Usuario {
   id: number
   name: string
   email: string
-
 }
 */
 }

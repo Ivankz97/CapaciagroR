@@ -7,6 +7,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Uris } from './../../../services/Uris';
 import { UserService } from './../../../services/user.service';
 
+
 @Component({
   selector: 'app-all-events',
   templateUrl: './all-events.component.html',

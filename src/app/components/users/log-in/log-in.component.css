@@ -1,58 +1,39 @@
 
 .contenedor{
-    width: 100%;
-    height: 635px;
-    margin: 0;
-    background-image: url('../../../../assets/CapaciagroImg.png');
-    padding: 7% 0% 0% 20%;
-
-
-
+    height:40em; background-size:cover; width:auto; height: 700px;
+    background-image:url('../../../../assets/CapaciagroImg.png');
+    background-position:50% 50%;
 }
 .logo{
       
     width: 100%;
-    font-size: 100px;
-}
-.form-control{
-    width: 90%;
-    border-radius: 20px;
+    font-size: 200px;
 }
 .form-group{
     background: #f5f0f0;
-    width: 50%;
+    width: 90%;
     border-radius: 20px;
-    padding: 2%;
-    float: left;
     opacity: .9;
+    padding: 2%;
+    margin-left: 20%;
+    margin-top: 10%;
+   
+    
 }
 .btn-success{
-  margin: 5% 0% 5% 30%;
-  width: 40%;
-  border-radius: 10px;
-  background: #096209;
-}
-.recomendacion{
-    width: 20%;
-    height: 425px;
-    float: right;
-    margin-right: 27%;
-    background: #085205;
-    border-radius: 25px;
-    padding: 2%;
-}
+    margin: 5% 0% 5% 30%;
+    width: 40%;
+    border-radius: 10px;
+    background: #096209;
+  }
+  .form-control{
+    width: 90%;
+    border-radius: 20px;
 
-
-.question{
-    margin: 5% 5% 5% 5%;
-    color: #ffffff;
-    font-size: 18px;
-    font-weight: 800;
-    text-align: center;
 }
 .registrar{
     width: 100%;
-    height: 40px;
+    height: 50px;
     color: #ffffff;
     background: #088d03;
     border: 0;
@@ -61,14 +42,43 @@
     margin-bottom: 15%;
     
 }
+.recomendacion{
+    width: 60%;
+    height: 420px;
+    background: #085205;
+    border-radius: 25px;
+    margin-top: 20%;
+    margin-right: 20%;
+    float: right;
+    padding: 4%;
+}
 li{
     color: #ffffff;
     padding-bottom: 10%;
-    
+    padding-left: 3%;
+    padding-right: 3%;    
 }
-.recuperar{
-    margin: 0% 0% 0% 15%;
+.question{
+    margin: 5% 5% 5% 5%;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 800;
+    text-align: center;
 }
-h6{
-    padding-top: 2%;
+.btn-success{
+    margin: 5% 0% 5% 30%;
+    width: 40%;
+    border-radius: 10px;
+    background: #096209;
+  }
+@media screen and (max-width:700px){
+   .contenedor{
+       height: 1000px;
+   }
+   .col-md-4{
+       width: 100%;
+   }
+   .recomendacion{
+    margin-left: 10%;
+   }
 }

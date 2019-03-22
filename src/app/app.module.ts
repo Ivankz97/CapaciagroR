@@ -33,6 +33,7 @@ import { EventRegistrationComponent } from './components/events/event-registrati
 import { MenuComponent } from './components/menu/menu.component';
 
 import { NewAdminComponent } from './components/new-admin/new-admin.component';
+import {LocationStrategy, HashLocationStrategy, CommonModule } from '@angular/common';
 //import { ShareReplayConfig } from 'rxjs/internal-compatibility';
 
 @NgModule({
@@ -57,9 +58,11 @@ import { NewAdminComponent } from './components/new-admin/new-admin.component';
     CodeDescComponent,
     EventRegistrationComponent,
     MenuComponent,
-    NewAdminComponent
+    NewAdminComponent,
+    
   ],
   imports: [
+    CommonModule,
     HttpModule,
     HttpClientModule,
     BrowserModule,
@@ -68,7 +71,7 @@ import { NewAdminComponent } from './components/new-admin/new-admin.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [AuthenticationService, UserService, EventService, ToasterService, ExcelService],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy },HashLocationStrategy ,AuthenticationService, UserService, EventService, ToasterService, ExcelService],
   bootstrap: [AppComponent]
 })
 export class AppModule {  }

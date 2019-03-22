@@ -1,131 +1,50 @@
-<!--
-
-
 <div class="contenedor">
+  <div class="container row">
+    <div class="col-md-8">
+      <form class="form  " [formGroup]="valForm" class="form-validate mb-lg" role="form" name="loginForm"
+        novalidate="" (submit)="submitForm($event)">
 
-<form class="form" [formGroup]="valForm" class="form-validate mb-lg" role="form" name="loginForm" novalidate=""
-  (submit)="submitForm($event)">
+          <div class="form-group ">
+            <div class="font capaciagro">
+              <img class="logo" src="../../../../assets/Header-03.png" />
+            </div>
+            <h3>Iniciar sesión</h3>
+            <h6>Correo electronico;</h6>
+            <div class="password">
+              <input class="correo form-control" type="text" id="" formControlName="email" required="" placeholder="Ingresa tu correo electronico">
+            </div>
+            <h6>Contraseña:</h6>
+            <div class="password ">
+              <input type="password" class="correo form-control " formControlName="password" required="" id="password"
+                placeholder="Contraseña">
+            </div>
+            <div class="iniciar">
+              <button class="btn btn-success" type="submit">Iniciar Sesión</button>
 
-  <div class="font capaciagro">
-    <img class="logo" src="https://1.bp.blogspot.com/-RHnJJzK3uoU/XHy-goox9pI/AAAAAAAAAJI/tvsuZr3tJ00Hy38iTdeF4QBwHlNveL5fwCLcBGAs/s320/Isotipo.jpg" />
-    Capaciagro
-  </div>
-  <div class="font sesion">
-    Iniciar Sesión
-  </div>
-  <div class="font email">
-    correo Electronico
-  </div>
-
-
-  <div class="password">
-    <input class="correo" type="text" id="" formControlName="email" required="" placeholder="Ingresa tu correo electronico">
-  </div>
-
-  <div class="font email ">
-    contraseña
-  </div>
-  <div class="password ">
-    <input type="password" class="correo " formControlName="password" required="" id="password" placeholder="Contraseña">
-
-  </div>
-  <div class="iniciar">
-    <button class="btn btn-large btn-color-green btn-block text-color" type="submit">Iniciar Sesión</button>
-
-  </div>
-  <div class="recuperar">
-    ¿Olvidaste tu contraseña? | <a data-toggle="modal" data-target="#recoverEmail"> recuperar contraseña</a>
-  </div>
-
-</form>
-  <div class="recomendacion">
-    <div class="no"> a un no eres usuario</div>
-    <div class="registrate">
-      <button class="registrar no" type="submit">Registrate</button>
-    </div>
-    <div class="ul">
-      <div class="ul li no">
-        <ul>
-          <li>Sigue los eventos que te interesen.</li>
-        </ul>
-        <ul class="no">
-          <li>Enterate de que esta hablando la gente.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  </div>
-
--->
-
-<div class="contenedor">
-  <form class="form" [formGroup]="valForm" class="form-validate mb-lg" role="form" name="loginForm" novalidate=""
-    (submit)="submitForm($event)">
-    <div class="form-group">
-      <div class="font capaciagro">
-        <img class="logo" src="../../../../assets/Header-03.png" />
-      </div>
-      <h3>Iniciar sesión</h3>
-      <h6>Correo electronico;</h6>
-      <div class="password">
-        <input class="correo form-control" type="text" id="" formControlName="email" required="" placeholder="Ingresa tu correo electronico">
-      </div>
-      <h6>Contraseña:</h6>
-      <div class="password ">
-        <input type="password" class="correo form-control " formControlName="password" required="" id="password" placeholder="Contraseña">
-      </div>
-      <div class="iniciar">
-        <button class="btn btn-success" type="submit">Iniciar Sesión</button>
-    
-      </div>
-      <div class="recuperar">
-        ¿Olvidaste tu contraseña? | <a data-toggle="modal" data-target="#recoverEmail"> recuperar contraseña</a>
-      </div>
-    </div>
-  </form>
-  <div class="recomendacion">
-    <div class="question"> ¿A un no eres usuario?</div>
-    <div class="registrate">
-      <button class="registrar" routerLink="/register-user/" type="submit">Registrate</button>
-    </div>
-
-      <div class="">
-        <div class="li"><li>Sigue los eventos que te interesen.</li></div>
+            </div>
+            <div class="recuperar">
+              ¿Olvidaste tu contraseña? | <a data-toggle="modal" data-target="#recoverEmail"> recuperar contraseña</a>
+            </div>
+          </div>
+      </form>
       
-      <li>Enterate de que esta hablando la gente.</li>
-
-      </div>
-
-  </div>
-
-</div>
-
-
-
-
-
-<!-- Modal 
-
-<div class="modal fade" id="recoverEmail" tabindex="-1" role="dialog" aria-labelledby="recoverEmail" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <button type="button" class="close a-right" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-      <div>
-        <h5 class="modal-title text-green" id="exampleModalLabel">Recuperar contraseña</h5>
-      </div>
-      <div>
-        <label class="text" for="email">Correo electrónico:</label>
-      </div>
-      <div class="input-wrapper">
-        <input type="email" id="email" placeholder="Correo electrónico">
-        <label for="email" class="fa fa-envelope input-icon"></label>
-      </div>
-      <div>
-        <button type="button" class="btn btn-primary">Enviar</button>
-      </div>
-
     </div>
+    <div class="col-md-4">
+        <div class="recomendacion ">
+          <div class="question"> ¿A un no eres usuario?</div>
+          <div class="registrate">
+            <button class="registrar" routerLink="/register-user" type="submit">Registrate</button>
+          </div>
+  
+          <div class="">
+            <div class="li">
+              <li>Sigue los eventos que te interesen.</li>
+            </div>
+  
+            <li>Enterate de que esta hablando la gente.</li>
+  
+          </div>
+        </div>
+      </div>
   </div>
-</div>-->
+</div>
