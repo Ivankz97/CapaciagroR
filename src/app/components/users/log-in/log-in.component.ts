@@ -122,26 +122,35 @@ export class LogInComponent implements OnInit {
           email: this.valForm.get('email').value,
           password: this.valForm.get('password').value
         }
-        
       ).subscribe(data => {
         console.log("DatosUser --> ", data);
         if (data.result === false) {
           this.errored = true;
           this.loading = false;
+          Swal.fire({ type: 'error', title: 'Error al iniciar sesión', text: 'El correo electrónico o la contraseña son inválidos.' });
         } else {
-          localStorage.setItem('currentUser', JSON.stringify(data));
-          // this.router.navigate([this.returnUrl]);
+          if(data.user.admin===true){
+            localStorage.setItem('currentUser', JSON.stringify(data));
+            //this.router.navigate(["/all-events"]);
+            location.replace('#/eventos');
+            this.loading = false;
+          }else{
+            localStorage.setItem('currentUser', JSON.stringify(data));
+            //this.router.navigate(["/all-events"]);
+            location.replace('#/all-events');
+            this.loading = false;
+          }
+          /*localStorage.setItem('currentUser', JSON.stringify(data));
+          //this.router.navigate(["/all-events"]);
           location.replace('#/all-events');
-          this.loading = false;
+          this.loading = false;*/
         }
-
-
       }, err => {
         this.errored = true;
         this.loading = false;
+        
       });
     }
-    
   }
 
 

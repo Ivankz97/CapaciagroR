@@ -18,14 +18,14 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
  
 const routes: Routes = [
-  //{path: "**", redirectTo: "log-in", component: LogInComponent},
+  //{path: "**", redirectTo: "", component: LogInComponent},
   {path: "", component: LogInComponent},
   {path: "register-user", component: RegisterUserComponent},
   {path: "log-in",pathMatch:'full', component: LogInComponent},
   {path: "all-events",pathMatch: 'full' , component: AllEventsComponent},
   {path: "detail-event", component: DetailsEventComponent},
   {path: "my-events", component: MyEventsComponent},
-  {path: "register-event", component: EventRegistrationComponent },
+  {path: "eventos", component: EventRegistrationComponent },
   {path: "my-purchases", component: MyPurchasesComponent},
   {path: "descargar-factura", component: DescargaFacturaComponent},
   {path: "datos-facturacion", component: DatosFacturacionComponent},
