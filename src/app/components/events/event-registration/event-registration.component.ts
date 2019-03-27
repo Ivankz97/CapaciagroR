@@ -364,7 +364,7 @@ export class EventRegistrationComponent implements OnInit {
             this.fileChangeEvent2 = null
             this.fileChangeEvent3 = null
             this.fileChangeEvent4 = null
-            location.replace('/eventos');
+            location.replace('#/eventos');
             this.loading = false;
           } else {
             Swal.fire({ type: 'error', title: 'Conflictos Al Guardar', text: data.message[0] });

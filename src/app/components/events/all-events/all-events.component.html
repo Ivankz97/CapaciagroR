@@ -8,10 +8,11 @@
           <div class="row container">
             <div *ngFor="let d of data" class="col-sm-4 col-xl-6">
               <div>
-                <!--<img class="img center" src="{{url}}{{d.img2}}" alt="">-->
-                <img class="img center" src="../../../../assets/Nematodos2.jpeg" alt="">
+                <img class="img center" src="{{url}}{{d.img1}}" alt="">
+                <!--<img class="img center" src="../../../../assets/Nematodos2.jpeg" alt="">-->
+                
                 <p class="text-gray">{{d.name}}</p>
-                <div class="fas fa-map-marker-alt text-gray-low">Sede: Guadalajara, Jalisco, México</div>
+                <div class="fas fa-map-marker-alt text-gray-low">Sede: {{d.venue}}</div>
                 <br>
                 <div class="fa fa-calendar text-gray-low">{{d.date}}</div>
                 <br>
@@ -21,13 +22,13 @@
                 <div class="row">
                   <div class="col-sm-2 col-xl-6 form-group">
                     <div>
-                      <button class="btn btn-block green-color" routerLink="/detail-event">Ver más</button>
+                      <button class="btn btn-block green-color" routerLink="/detail-event/{{d.id}}">Ver más</button>
                     </div>
                   </div>
                   <div class="col-sm-2 col-xl-6 form-group">
                     <div>
-                      <a class="btn btn-block gray-color" style="color: white" data-toggle="modal" data-target="#addAsistentes">Añadir
-                        al carrito</a>
+                      <!--<a class="btn btn-block gray-color" style="color: white" (click)="eventModal.show()">Añadir
+                        al carrito {{d.id}}</a>-->
                       <!--<button class="btn btn-block gray-color"> Añadir al carrito</button>-->
                     </div>
                   </div>
@@ -50,99 +51,53 @@
         </div>
       </div>
     </div>
-    
   </form>
-</body>
 
 <!-- Modal -->
--<div class="modal fade" id="addAsistentes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" bsModal #eventModal="bs-modal" *ngFor="let d of data" id="addAsistentes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
-      <div class="text-green text-center">
-        <label for="perfil">
-          <h3 class="text-green text-center">Añadir asistentes</h3>
-        </label>
-      </div>
-      <div class="text-center text-gray-strong">
-        <h2 class="text-gray-strong">Preinscripción de asistentes</h2>
-      </div>
-      <div class="hr-sect"></div>
-      <div class="row">
-        <div class="col-sm-6">
-          <div style="margin-left: 10%;">
-            <div>
-              <label class="text" for="cPreinscripcion">Cantidad de personas a preinscribir:</label>
-            </div>
-            <div class="input-wrapper">
-              <input type="text" class="form-control" id="cPreinscripcion" placeholder="Cantidad">
-              <label for="cPreinscripcion" class="fas fa-user input-icon2"></label>
+      <form [formGroup]="insForm" class="form-validate mb-lg" role="form" name="loginForm" novalidate=""
+      (submit)="insFormSave($event)">
+        <div class="text-green text-center">
+          <label for="perfil">
+            <h3 class="text-green text-center">Añadir asistentes</h3>
+          </label>
+        </div>
+        <div class="text-center text-gray-strong">
+          <h2 class="text-gray-strong">Preinscripción de asistentes</h2>
+          <h2 class="text-gray-strong">{{d.id}}</h2>
+        </div>
+        <div class="hr-sect"></div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div style="margin-left: 10%;">
+              <div>
+                <label class="text" for="cPreinscripcion">Cantidad de personas a preinscribir:</label>
+              </div>
+              <div class="input-wrapper">
+                <input type="text" class="form-control" id="cPreinscripcion" formControlName="numberPeople" required="" placeholder="Cantidad">
+                <label for="cPreinscripcion" class="fas fa-user input-icon2"></label>
+              </div>
             </div>
           </div>
+          <div class="col-sm-6">
+            <button class="btn btn-block green-color" style="margin-top: 5%;" (click)="confirmPersons();">Confirmar</button>
+          </div>
         </div>
-        <div class="col-sm-6">
-          <button class="btn btn-block green-color" style="margin-top: 5%;">Confirmar</button>
-        </div>
-      </div>
-      <!--End-Row-->
-      <div>
-        <h6 class="subr" style="text-align: left; margin-top: 5%;">REGISTRO 1</h6>
-        <div class="div-border">
-          <table>
-            <td>
-              <label class="text" for="name">Nombre(s):</label>
-            </td>
-            <td>
-              <label class="text" for="last_nameF">Apellido paterno:</label>
-            </td>
-            <td>
-              <label class="text" for="last_nameM">Apellido materno:</label>
-            </td>
-            <td>
-              <label class="text" for="email">Correo electrónico:</label>
-            </td>
-            <td>
-              <label class="text" for="phone">Teléfono celular:</label>
-            </td>
-            <tr>
-              <td>
-                <input type="text" id="name" class="form-control" placeholder="Nombres">
-                <label for="name"></label>
-              </td>
-              <td>
-                <input type="text" id="last_nameF" class="form-control" placeholder="Apellido paterno">
-                <label for="last_nameF"></label>
-              </td>
-
-              <td>
-                <input type="text" id="last_nameM" class="form-control" placeholder="Apellido materno">
-                <label for="last_nameM"></label>
-              </td>
-              <td>
-                <input type="email" id="email" class="form-control" placeholder="Correo electrónico">
-                <label for="email"></label>
-              </td>
-              <td>
-                <input type="number" id="phone" class="form-control" placeholder="Teléfono celular">
-                <label for="phone"></label>
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div>
-          <h6 class="subr" style="text-align: left; margin-top: 5%;">REGISTRO 2</h6>
+        <!--End-Row-->
+        <div *ngFor="let item of arrayUsers; let i = index;">
+          <h6 class="subr" style="text-align: left; margin-top: 5%;">REGISTRO {{i+1}}</h6>
           <div class="div-border">
             <table>
               <td>
                 <label class="text" for="name">Nombre(s):</label>
               </td>
               <td>
-                <label class="text" for="last_nameF">Apellido paterno:</label>
-              </td>
-              <td>
-                <label class="text" for="last_nameM">Apellido materno:</label>
+                <label class="text" for="last_nameF">Apellidos:</label>
               </td>
               <td>
                 <label class="text" for="email">Correo electrónico:</label>
@@ -152,56 +107,126 @@
               </td>
               <tr>
                 <td>
-                  <input type="text" id="name" class="form-control" placeholder="Nombres">
-                  <label for="name"></label>
+                  <input class="form-control" type="text" formControlName="name" name="name" placeholder="Nombres"
+                  autocomplete="off" #item.name (change)="valuechangeName($event, i)" required="" />
                 </td>
                 <td>
-                  <input type="text" id="last_nameF" class="form-control" placeholder="Apellido paterno">
-                  <label for="last_nameF"></label>
-                </td>
-
-                <td>
-                  <input type="text" id="last_nameM" class="form-control" placeholder="Apellido materno">
-                  <label for="last_nameM"></label>
+                  <input class="form-control" type="text" formControlName="lastname" name="lastname" placeholder="Apellidos"
+                  autocomplete="off" #item.lastname (change)="valuechangeLastname($event, i)" required="" />
                 </td>
                 <td>
-                  <input type="email" id="email" class="form-control" placeholder="Correo electrónico">
-                  <label for="email"></label>
+                  <input class="form-control" type="text" formControlName="email" name="email" placeholder="Correo electrónico"
+                  autocomplete="off" #item.email (change)="valuechangeEmail($event, i)" required="" />
                 </td>
                 <td>
-                  <input type="number" id="phone" class="form-control" placeholder="Teléfono celular">
-                  <label for="phone"></label>
+                    <input class="form-control" type="number" formControlName="phone" name="phone" placeholder="Teléfono celular"
+                    autocomplete="off" #item.phone (change)="valuechangePhone($event, i)" required="" />
                 </td>
               </tr>
             </table>
           </div>
+          <!--End Div-Registers-->
         </div>
-        <!--End Div-Registers-->
         <div class="row" style="margin-top: 5%; margin-left: 10%;">
           <div class="col-sm-6">
             <div>
               <label for="">Método de pago:</label>
             </div>
             <div>
-              <select name="paidmethod" class="form-control" id="paidmethod">
-                <option value="">Paypal</option>
-                <option value="">Depósito</option>
+              <select name="paidmethod" class="form-control" id="paidmethod" [(ngModel)]="metodoPago" [ngModelOptions]="{standalone: true}">
+                <option value="paypal">Paypal</option>
+                <option value="no">Depósito</option>
               </select>
             </div>
             <div style="margin-top: 3%; margin-bottom: 3%;">
-              <button class="btn btn-block gray-color">Limpiar</button>
+              <button class="btn btn-block gray-color" (click)="cleanForm()">Limpiar</button>
             </div>
           </div>
           <div class="col-sm-6">
             <label for="code">Código de descuento</label>
-            <input type="text" class="form-control" placeholder="Código">
+            <input type="text" class="form-control" placeholder="Código" [(ngModel)]="cupon" [ngModelOptions]="{standalone: true}">
             <div style="margin-top: 3%; margin-bottom: 3%;">
-              <button class="btn btn-block green-color">Guardar</button>
+              <button class="btn btn-block green-color" [disabled]="loading==true" (click)="saveSuscription(d.id);">Guardar</button>
             </div>
           </div>
 
         </div>
-      </div>
+      </form>
     </div>
   </div>
 </div>
+
+
+
+<!-- modal -->
+<div class="modal fade" bsModal #eventModall="bs-modal" id="addAsistentess" *ngFor="let d of data" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">Suscripcion al evento: {{d.name}}</h4>
+      <button type="button" class="close" aria-label="Close" (click)="eventModal.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="insForm" class="form-validate mb-lg" role="form" name="loginForm" novalidate=""
+        (submit)="insFormSave($event)">
+        <div class="form-group has-feedback">
+          <input formControlName="id" hidden />
+          <div class="row">
+            <div class="col-md-12" style="display:inline-block;">
+              <label>Numero de personas</label>
+              <input class="form-control" type="number" name="name" placeholder="Numero de personas"
+                autocomplete="off" formControlName="numberPeople" required="" style="width: 90%; display: inline-block;" />
+              <a class="btn btn-primary" style="color:white; width: 10%;" (click)="confirmPersons();">
+                <small>Confirmar</small><br>
+                <!-- <em class="fas fa-check"></em> -->
+              </a>
+              <span class="text-danger" *ngIf="insForm.controls['numberPeople'].hasError('required') && (insForm.controls['numberPeople'].dirty || insForm.controls['numberPeople'].touched)">Este
+                campo es requerido</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12" style="display:inline-block; margin: 10px 0 10px 0" *ngFor="let item of arrayUsers; let i = index;">
+              <div class="col-md-4" style="display: inline-block;">Numero de persona {{i+1}}</div>
+              <div class="col-md-4" style="display: inline-block;">
+                <input class="form-control" type="text" formControlName="name" name="name" placeholder="Nombre Completo"
+                  autocomplete="off" #item.name (change)="valuechangeName($event, i)" required="" />
+                <!-- <span>{{arrayUsers[i].name}}</span> -->
+              </div>
+              <div class="col-md-4" style="display: inline-block;">
+                <input class="form-control" type="text" formControlName="email" name="name" placeholder="Correo Electronico"
+                  autocomplete="off" #item.email (change)="valuechangeEmail($event, i)" required="" />
+              </div>
+              <!-- <a routerLinkActive="active">Crisis Center</a> -->
+              <!-- <div class="col-md-2" style="display: inline-block;">
+                    <button class="btn btn-primary mt-lg" (click)="saveSuscription(item.email.value);"><small>Confirmar</small></button>
+                  </div> -->
+            </div>
+            <div class="col-md-12">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6" style="float: left;">
+          <label>Metodo de pago</label>
+          <select class="form-control" [(ngModel)]="metodoPago" [ngModelOptions]="{standalone: true}">
+            <option value="paypal">Paypal</option>
+            <option value="No">Deposito</option>
+          </select>
+        </div>
+        <div class="col-md-6" style="float: right;">
+          <label>Cupon</label>
+          <input type="text" class="form-control" [(ngModel)]="cupon" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="clearBoth"></div>
+        <div class="col-md-12" style="margin-top: 5%;">
+          <button class="btn btn-default mt-lg" type="button" (click)="cleanForm()">Limpiar</button>
+          <button class="btn btn-primary mt-lg" [disabled]="loading==true" (click)="saveSuscription(d.id);">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+
