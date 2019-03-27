@@ -1,20 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { UserService } from '../../../services/user.service';
 import { CropperSettings, ImageCropperComponent, Bounds } from 'ng2-img-cropper';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
-//import { CouponService } from '../../../services/harvest.service';
+import { CouponService } from '../../../services/harvest.service';
 import Swal from 'sweetalert2';
+import { Uris } from '../../../services/Uris';
+
 @Component({
   selector: 'app-code-desc',
   templateUrl: './code-desc.component.html',
   styleUrls: ['./code-desc.component.css']
 })
-export class CodeDescComponent implements OnInit {
-  ngOnInit(){
 
-  }
-  /*
+export class CodeDescComponent implements OnInit {
+/*
   public data: any;
   public valForm: FormGroup;
   public loading: Boolean = false;
@@ -112,6 +112,7 @@ export class CodeDescComponent implements OnInit {
       }
     }
   }
+  
   public delete(event) {
     console.log("EVENT -->", event);
     Swal.fire({
@@ -194,4 +195,7 @@ export class Usuario {
   email: string
 }
 */
+ngOnInit(){
+  
+}
 }

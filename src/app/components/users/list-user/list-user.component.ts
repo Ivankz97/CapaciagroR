@@ -1,21 +1,24 @@
-
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { UserService } from '../../services/user.service';
+import { UserService } from '../../../services/user.service';
 import { CropperSettings, ImageCropperComponent, Bounds } from 'ng2-img-cropper';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
-import { ExcelService } from '../../services/ExportExcel';
-import { ToasterConfig, ToasterService } from 'angular2-toaster';
 import Swal from 'sweetalert2';
+import { AuthenticationService } from '../../../services/auth.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { CustomValidators } from 'ng2-validation';
+import { error } from 'selenium-webdriver';
+import { ToasterConfig, ToasterService } from 'angular2-toaster';
+import { ExcelService } from 'src/app/services/ExportExcel';
 
 @Component({
-  selector: 'app-new-admin',
-  templateUrl: './new-admin.component.html',
-  styleUrls: ['./new-admin.component.css']
+  selector: 'app-list-user',
+  templateUrl: './list-user.component.html',
+  styleUrls: ['./list-user.component.css']
 })
 
-export class NewAdminComponent implements OnInit {
 
+export class ListUserComponent implements OnInit {
   public data: any;
   public valForm: FormGroup;
   public loading: Boolean = false;
@@ -133,7 +136,7 @@ export class NewAdminComponent implements OnInit {
       title: '¿Seguro que deseas eliminar este patronato?',
       type: "warning",
       text: 'Los datos seran eliminados.',
-
+      //buttons: ["Cancelar", "Aceptar"],
       //dangerMode: true,
     }).then((accepted) => {
       if (accepted) {
@@ -141,10 +144,12 @@ export class NewAdminComponent implements OnInit {
           user: {
             id: event.id
           }
-        }).subscribe(() => {
+        }).subscribe(result => {
+          console.log(result);
           Swal.fire({ type: 'success', title: 'Usuario Eliminado', text: 'El Usuario fue eliminado exitosamenete.' });
           this.ngOnInit()
         }, e => {
+          console.log(e);
           Swal.fire({ type: 'error', title: 'Conflictos Al Eliminar', text: 'Hay problemas para eliminar información, intentalo más tarde.' });
         })
       }

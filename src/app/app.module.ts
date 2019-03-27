@@ -31,7 +31,7 @@ import { VerConfirmacionPreinscripcionComponent } from './components/modals/ver-
 import { CodeDescComponent } from './components/code-desc/code-desc/code-desc.component';
 import { EventRegistrationComponent } from './components/events/event-registration/event-registration.component';
 import { MenuComponent } from './components/menu/menu.component';
-
+import { ListUserComponent } from './components/users/list-user/list-user.component';
 import { NewAdminComponent } from './components/new-admin/new-admin.component';
 import {LocationStrategy, HashLocationStrategy, CommonModule } from '@angular/common';
 //import { ShareReplayConfig } from 'rxjs/internal-compatibility';
@@ -59,6 +59,7 @@ import {LocationStrategy, HashLocationStrategy, CommonModule } from '@angular/co
     EventRegistrationComponent,
     MenuComponent,
     NewAdminComponent,
+    ListUserComponent
     
   ],
   imports: [
@@ -71,6 +72,7 @@ import {LocationStrategy, HashLocationStrategy, CommonModule } from '@angular/co
     FormsModule,
     ReactiveFormsModule
   ],
+  
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy },HashLocationStrategy ,AuthenticationService, UserService, EventService, ToasterService, ExcelService],
   bootstrap: [AppComponent]
 })

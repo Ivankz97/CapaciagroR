@@ -13,14 +13,17 @@ import {EventRegistrationComponent} from './components/events/event-registration
 import {  NewAdminComponent } from '../app/components/new-admin/new-admin.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { CodeDescComponent } from './components/code-desc/code-desc/code-desc.component';
+import { ListUserComponent } from './components/users/list-user/list-user.component';
 import { from } from 'rxjs';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
  
 const routes: Routes = [
+  
   //{path: "**", redirectTo: "", component: LogInComponent},
   {path: "", component: LogInComponent},
   {path: "register-user", component: RegisterUserComponent},
+  {path: "codigo-descuento", component: CodeDescComponent},
   {path: "log-in",pathMatch:'full', component: LogInComponent},
   {path: "all-events",pathMatch: 'full' , component: AllEventsComponent},
   {path: "detail-event", component: DetailsEventComponent},
@@ -32,7 +35,8 @@ const routes: Routes = [
   {path: "edit-profile", component: EditUserComponent},
   {path: "nuevoadministrador", component: NewAdminComponent},
   {path: "menu", component: MenuComponent},
-  {path:"codigo-descuento", component: CodeDescComponent}
+  {path:"ListaUsuarios",component:ListUserComponent}, 
+  {path: "registrar-evento", component:EventRegistrationComponent} 
 ];
 
 @NgModule({

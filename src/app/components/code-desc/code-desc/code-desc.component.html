@@ -10,32 +10,31 @@
   <div class="col-sm-4">
     <div>
       <label>Nombre del código:</label>
-                <input class="form-control" type="text" name="name" placeholder="Nombre" autocomplete="off"
-                  formControlName="name" />
+                <input class="form-control" type="text" placeholder="Nombre" formControlName="name" />
+                <!--
                 <span class="text-danger" *ngIf="valForm.controls['name'].hasError('required') && (valForm.controls['name'].dirty || valForm.controls['name'].touched)">Este
-                  campo es requerido</span>
+                  campo es requerido</span>--
     </div>
     <div>
       <label>Precio neto:</label>
-                <input class="form-control" type="text" name="name" placeholder="Valor del cupon" autocomplete="off"
-                  formControlName="value" />
+                <input class="form-control" type="text" placeholder="Valor del cupon" formControlName="value" />
+                <!--
                 <span class="text-danger" *ngIf="valForm.controls['value'].hasError('required') && (valForm.controls['value'].dirty || valForm.controls['value'].touched)">Este
-                  campo es requerido</span>
+                  campo es requerido</span>--
     </div>
     <div>
       <label>Uso maximo del código:</label>
-      <input class="form-control" type="text" name="name" placeholder="Usos del cupon" autocomplete="off"
-        formControlName="times_usable" />
+      <input class="form-control" type="text" placeholder="Usos del cupon" formControlName="times_usable" />
     </div>
   </div>
   <div class="col-sm-8">
     <div>
       <div>
         <label>Caducidad del código <small>(DD/MM/YYYY)</small></label>
-        <input class="form-control" type="text" name="name" placeholder="Fecha del evento" autocomplete="off"
-          formControlName="expires_at" mask="00/00/0000" [showMaskTyped]="true" />
+        <input class="form-control" type="text" placeholder="Fecha del evento" formControlName="expires_at" />
+       <!--
         <span class="text-danger" *ngIf="valForm.controls['expires_at'].hasError('required') && (valForm.controls['expires_at'].dirty || valForm.controls['expires_at'].touched)">Este
-          campo es requerido</span>
+          campo es requerido</span>-->
       <!--
       <div>
         <div>Precio neto:</div>
@@ -54,7 +53,7 @@
   
 </div>
 
-<div class="row">
+<div class="row"> 
     <div class="col-sm-12 ddd">
       <div>Códigos de descuentos creados</div>
       <div class="hr-sect"></div>
