@@ -120,6 +120,7 @@ export class DatosFacturacionComponent implements OnInit {
         console.log("Datos al guardar -->", data);
         if (data.result == "true") {
           Swal.fire({ type: 'success', title: 'Dato de facturación', text: 'Fue creado exitosamenete.' });
+          this.ngOnInit()
         } else {
           Swal.fire({ type: 'error', title: 'Conflictos Al Guardar', text: data.message[0] });
           this.loading = false;

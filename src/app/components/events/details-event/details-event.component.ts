@@ -119,7 +119,8 @@ export class DetailsEventComponent implements OnInit {
         //this.eventModal.hide()
         //location.replace("#/all-events");
         if (this.metodoPago == "paypal") {
-          this.__router.navigate([`checkoutEvent/${id}`]);
+          //this.__router.navigate([`checkoutEvent/${id}`]);
+          location.replace("#/all-events");
         } else {
           this.arrayUsers = [],
             this.metodoPago = null
