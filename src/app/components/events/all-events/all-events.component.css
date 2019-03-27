@@ -10,7 +10,7 @@ h3 {
 
 .image{
     padding-top: 15px;
-    height:40em; background-size:cover;
+    height:40em; background-size:cover; width:auto; height: auto;
     background-image:url('../../../../assets/Background.png');
     background-position:100% 100%;
     width: auto;

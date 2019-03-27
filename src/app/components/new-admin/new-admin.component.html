@@ -1,0 +1,141 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+  crossorigin="anonymous">
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+<app-menu></app-menu>
+<div class="contenedor">
+  <form [formGroup]="valForm" class="form-validate mb-lg" role="form" novalidate="" (submit)="save($event)" style="background: #ffffff;">
+    <h1>Crear administrador</h1>
+    <div class="hr-sect "></div>
+    <h4>Crea un nuvo usuario y añadelo a este sitio.</h4>
+    <div class="row">
+      <div class="col-sm-4 " style="float: left;">
+        <div>
+          <label class="text" for="user">User:</label>
+        </div>
+        <div class="input-wrapper">
+          <input type="text" class="form-control" formControlName="user" placeholder="  Ingrese su nombre">
+          <!--<span class="text-danger" *ngIf="valFormUser.controls['name'].hasError('required') && (valFormUser.controls['name'].dirty || valFormUser.controls['name'].touched)">Este
+                campo es requerido</span>-->
+          <label for="user" class="fa fa-user input-icon"></label>
+        </div>
+        <div>
+          <label class="text" for="name">Nombre(s):</label>
+        </div>
+        <div class="input-wrapper">
+          <input type="text" class="form-control" formControlName="name" placeholder="    Ingrese su nombre">
+          <!--<span class="text-danger" *ngIf="valFormUser.controls['name'].hasError('required') && (valFormUser.controls['name'].dirty || valFormUser.controls['name'].touched)">Este
+              campo es requerido</span>-->
+          <label for="name" class="fa fa-user input-icon"></label>
+        </div>
+        <div>
+          <label class="text" for="last_name">Apellido paterno:</label>
+        </div>
+        <div class="input-wrapper">
+          <input type="text" class="form-control" formControlName="lastname" placeholder="   Apellido paterno">
+          <!--<span class="text-danger" *ngIf="valForm.controls['lastname'].hasError('required') && (valForm.controls['lastname'].dirty || valForm.controls['lastname'].touched)">Este
+              campo es requerido</span>-->
+          <label for="last_name" class="fa fa-user input-icon"></label>
+        </div>
+        <div>
+          <label class="text" for="last_name">Apellido materno:</label>
+        </div>
+        <div class="input-wrapper">
+          <input type="text" class="form-control" formControlName="lastname" placeholder="  Apellido materno">
+          <!--<span class="text-danger" *ngIf="valForm.controls['lastname'].hasError('required') && (valForm.controls['lastname'].dirty || valForm.controls['lastname'].touched)">Este
+              campo es requerido</span>-->
+          <label for="last_name" class="fa fa-user input-icon"></label>
+        </div>
+
+      </div>
+      <div class="col-sm-4" style="float: right;">
+        <div>
+          <label class="text" for="email">Correo electrónico:</label>
+        </div>
+        <div class="input-wrapper">
+          <input type="email" class="form-control" formControlName="email" placeholder="  Correo electrónico">
+          <label for="email" class="fa fa-envelope input-icon"></label>
+        </div>
+        <div>
+          <label class="text" for="password">Contraseña:</label>
+        </div>
+        <div class="input-wrapper">
+          <input type="password" id="password" class="form-control" formControlName="password" placeholder="  Contraseña">
+          <!--<span class="text-danger" *ngIf="valForm.controls['password'].hasError('required') && (valForm.controls['password'].dirty || valForm.controls['password'].touched)">Este
+                campo es requerido</span>-->
+          <label for="password" class="fa fa-unlock-alt input-icon"></label>
+        </div>
+        <div>
+          <label class="text" for="password_confirmation">Confirmar contraseña:</label>
+        </div>
+        <div class="input-wrapper">
+          <input type="password" id="password_confirmation" class="form-control" formControlName="password_confirmation"
+            placeholder="   Confirmar contraseña">
+
+          <label for="password_confirmation" class="fa fa-unlock-alt input-icon"></label>
+        </div>
+
+
+
+        <!--End green div-->
+      </div>
+
+    </div>
+<div class="row">
+ 
+      <div class="col-sm-2 perfil-image">
+            <div class="topic">Subir imagen</div>
+        <br>
+        <img style="float: left;" src="../../../assets/user-image.png" class="img-thumbnail">
+      </div>
+    
+
+
+      <div class="col-sm-2 btn-submit">
+        <div style="float: right; margin-top: 10%;">
+          <button class="upload-image btn btn-secondary" type="/file">Subir foto</button>
+          <button class="upload-image" type="submit" id="submit" class="btn btn-primary btn-color" (submit)="save($event)">Registrarte</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="row">
+    <div class="col-sm-12" style="background: #ffffff;">
+      <div class="L-admin">
+        <h1>Lista de administradores</h1>
+        <div class="hr-sect "></div>
+        <h5>Visualizar administradores registrados</h5>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <td>#</td>
+              <td>Usuario</td>
+              <td>Nombre (s)</td>
+              <td>Apellido Paterno</td>
+             <!-- <td>Apellido Materno</td>-->
+              <td>Facultades</td>
+              <td>Visualizar</td>
+              <td>Editar</td>
+              <td>Eliminar</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let d of data">
+              <th scope="row"></th>
+              <td> {{d.id}} </td>
+              <td> {{d.name}} </td>
+              <td> {{d.lastname}} </td>
+              <!--<td> {{  }}  </td>-->
+              <!--<td> {{  }}  </td>-->
+              <td>  </td>
+              <td></td>
+              <td></td>
+              <td><i class="fas fa-times"></i></td>
+            </tr>
+           
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>

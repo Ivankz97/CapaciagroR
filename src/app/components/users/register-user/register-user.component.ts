@@ -47,10 +47,10 @@ export class RegisterUserComponent implements OnInit {
     });
     this.valFormUser = fb.group({
       "id": [null],
-      "email": [null],
+      "email": [null, Validators.compose([Validators.required])],
       "name": [null, Validators.compose([Validators.required])],
       "lastname": [null, Validators.compose([Validators.required])],
-      "phone": [null],
+      "phone": [null, Validators.compose([Validators.required])],
       "admin": [false],
       "avatar": [null],
       "password": [null, Validators.compose([Validators.required])],
@@ -99,7 +99,7 @@ export class RegisterUserComponent implements OnInit {
         if (data.result === true) {
           Swal.fire({ type: 'success', title: 'Usuario Guardado', text: 'El usuario fue creado exitosamenete.' });
           localStorage.setItem('currentUser', JSON.stringify(data));
-          location.replace('/');
+          location.replace('#/all-events');
           this.loading = false;
         } else {
           Swal.fire({ type: 'error', title: 'Conflictos Al Guardar', text: 'Error' });

@@ -6,7 +6,10 @@
 h3 {
     text-align: center;
 }
-
+.none{
+    background: none;
+    border: 0;
+}
 .image{
     padding-top: 15px;
     height:40em; background-size:cover;

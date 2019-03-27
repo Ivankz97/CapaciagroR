@@ -2,7 +2,7 @@ import { ExcelService } from './services/ExportExcel';
 import { EventService } from './services/event.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
@@ -31,6 +31,15 @@ import { VerConfirmacionPreinscripcionComponent } from './components/modals/ver-
 import { CodeDescComponent } from './components/code-desc/code-desc/code-desc.component';
 import { EventRegistrationComponent } from './components/events/event-registration/event-registration.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { Page404Component } from './components/page404/page404.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { ComponentLoaderFactory } from 'ngx-bootstrap/component-loader';
+import { PositioningService } from 'ngx-bootstrap/positioning';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { CarritoComponent } from './components/modals/carrito/carrito.component';
+import { ListUserComponent } from './components/users/list-user/list-user.component';
+import { NewAdminComponent } from './components/new-admin/new-admin.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +62,11 @@ import { MenuComponent } from './components/menu/menu.component';
     VerConfirmacionPreinscripcionComponent,
     CodeDescComponent,
     EventRegistrationComponent,
-    MenuComponent
+    MenuComponent,
+    Page404Component,
+    CarritoComponent,
+    ListUserComponent,
+    NewAdminComponent
   ],
   imports: [
     HttpModule,
@@ -62,9 +75,12 @@ import { MenuComponent } from './components/menu/menu.component';
     AppRoutingModule,
     NgbModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModalModule,
+    ModalModule.forRoot()
   ],
-  providers: [AuthenticationService, UserService, EventService, ToasterService, ExcelService],
-  bootstrap: [AppComponent]
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, PositioningService, ComponentLoaderFactory, BsModalRef, BsModalService, AuthenticationService, UserService, EventService, ToasterService, ExcelService],
+  bootstrap: [AppComponent],
+  entryComponents:[AllEventsComponent]
 })
 export class AppModule { }

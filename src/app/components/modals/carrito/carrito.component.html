@@ -1,0 +1,104 @@
+<!-- Modal -->
+<!--
+  <div class="modal fade" *ngFor="let d of data" id="addCarrito" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <form [formGroup]="insForm" class="form-validate mb-lg" role="form" name="loginForm" novalidate="" (submit)="insFormSave($event)">
+        <div class="text-green text-center">
+          <label for="perfil">
+            <h3 class="text-green text-center">Añadir asistentes</h3>
+          </label>
+        </div>
+        <div class="text-center text-gray-strong">
+          <h2 class="text-gray-strong">Preinscripción de asistentes</h2>
+          <h2 class="text-gray-strong">{{d.id}}</h2>
+        </div>
+        <div class="hr-sect"></div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div style="margin-left: 10%;">
+              <div>
+                <label class="text" for="cPreinscripcion">Cantidad de personas a preinscribir:</label>
+              </div>
+              <div class="input-wrapper">
+                <input type="text" class="form-control" id="cPreinscripcion" formControlName="numberPeople" required=""
+                  placeholder="Cantidad">
+                <label for="cPreinscripcion" class="fas fa-user input-icon2"></label>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <button class="btn btn-block green-color" style="margin-top: 5%;" (click)="confirmPersons();">Confirmar</button>
+          </div>
+        </div>
+        <div *ngFor="let item of arrayUsers; let i = index;">
+          <h6 class="subr" style="text-align: left; margin-top: 5%;">REGISTRO {{i+1}}</h6>
+          <div class="div-border">
+            <table>
+              <td>
+                <label class="text" for="name">Nombre(s):</label>
+              </td>
+              <td>
+                <label class="text" for="last_nameF">Apellidos:</label>
+              </td>
+              <td>
+                <label class="text" for="email">Correo electrónico:</label>
+              </td>
+              <td>
+                <label class="text" for="phone">Teléfono celular:</label>
+              </td>
+              <tr>
+                <td>
+                  <input class="form-control" type="text" formControlName="name" name="name" placeholder="Nombres"
+                    autocomplete="off" #item.name (change)="valuechangeName($event, i)" required="" />
+                </td>
+                <td>
+                  <input class="form-control" type="text" formControlName="lastname" name="lastname" placeholder="Apellidos"
+                    autocomplete="off" #item.lastname (change)="valuechangeLastname($event, i)" required="" />
+                </td>
+                <td>
+                  <input class="form-control" type="text" formControlName="email" name="email" placeholder="Correo electrónico"
+                    autocomplete="off" #item.email (change)="valuechangeEmail($event, i)" required="" />
+                </td>
+                <td>
+                  <input class="form-control" type="number" formControlName="phone" name="phone" placeholder="Teléfono celular"
+                    autocomplete="off" #item.phone (change)="valuechangePhone($event, i)" required="" />
+                </td>
+              </tr>
+            </table>
+          </div>
+
+        </div>
+        <div class="row" style="margin-top: 5%; margin-left: 10%;">
+          <div class="col-sm-6">
+            <div>
+              <label for="">Método de pago:</label>
+            </div>
+            <div>
+              <select name="paidmethod" class="form-control" id="paidmethod" [(ngModel)]="metodoPago" [ngModelOptions]="{standalone: true}">
+                <option value="paypal">Paypal</option>
+                <option value="no">Depósito</option>
+              </select>
+            </div>
+            <div style="margin-top: 3%; margin-bottom: 3%;">
+              <button class="btn btn-block gray-color" (click)="cleanForm()">Limpiar</button>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <label for="code">Código de descuento</label>
+            <input type="text" class="form-control" placeholder="Código" [(ngModel)]="cupon" [ngModelOptions]="{standalone: true}">
+            <div style="margin-top: 3%; margin-bottom: 3%;">
+              <button class="btn btn-block green-color" [disabled]="loading==true" (click)="saveSuscription(d.id);">Guardar</button>
+            </div>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+-->

@@ -1,0 +1,91 @@
+<app-menu></app-menu>
+<div class="contenedor">
+  <div class="font">
+
+
+  <div class="topic">Lista de usuarios</div>
+  <div class="hr-sect"></div>
+  <div class="user">Visalizar usuarios registrados</div>
+  <table class="table table-striped">
+      <thead>
+      <tr>
+        <td >#</td>
+        <td>Nombre (s)</td>
+        <td>Apellidos</td>
+        <td>Correo</td>
+        <td>Visualizar</td>
+        <td>Editar</td>
+        <td>Eliminar</td>
+      </tr>
+  <div class="hr-sect"></div>
+        <tr *ngFor="let d of data">
+          <td> {{d.id}} </td>
+          <td> {{d.name}}  </td>
+          <td> {{d.lastname}} </td>
+          <td> {{d.email }} </td>
+          <td><i class="fas fa-search"></i></td>
+          <td><i class="fas fa-eraser"></i></td>
+          <td><button class="drop" (click)="delete(d)"><i class="fas fa-times drop-x " ></i></button></td>
+        </tr>
+      </thead>
+  </table>
+  </div>
+</div>
+        <!--
+        <tr>
+          <th scope="row"></th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><i class="fas fa-times"></i></td>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><i class="fas fa-times"></i></td>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><i class="fas fa-times"></i></td>
+        </tr>
+        <tr>
+            <th scope="row"></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><i class="fas fa-times"></i></td>
+          </tr>
+          <tr>
+              <th scope="row"></th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><i class="fas fa-times"></i></td>
+            </tr>
+          -->
+     

@@ -1,155 +1,84 @@
-.pricipal{
-    margin-top: 0;
-    background-image: url("https://3.bp.blogspot.com/-YlGgIZRsxEY/XGc5xygot6I/AAAAAAAAAGk/z3RamNgKagEjyH97uJb_tlspPhpCYoWqwCLcBGAs/s640/arif-riyanto-974674-unsplash.jpg");
-    box-sizing: border-box;
-    width: 100%;
-     height: 100%;
-   
-}
-.font {
-    color: #cccccc;
-}
-.form{
-    background: rgb(246, 246, 246);
-    width: 35%;
-    border-radius: 30px;
-    margin-left: 20%;
-    margin-top: 5%;
-    float: left;
-}
+
 .contenedor{
-    width: 100%;
-    margin: 0% 5% 5% 5%;
-}
-.capaciagro{
-    font-size: 50px; 
-    color: #000000;
-    margin-bottom: 20px;
-}
-.sesion{
-    font-size: 20px;
-    color: #888888;
-}
-.email{
-    font-size: 15px;
-}
-.correo{
-    width: 90%;
-    border-radius: 10px;
-    border: 1px solid plum;
-}
-.btn{
-    background: #2c5e23fa;
-    color: #ffffff;
-    width: 30%;
-    height: 30px;
-    border: 0;
-    border-radius: 10px;
-    font-size: 15px;
-    font-weight: 800;
-    margin: 2% 0% 2% 30%;
-}
-.recuperar{
-    margin: 0% 0% 50% 15%;
+    height:40em; background-size:cover; width:auto; height: 700px;
+    background-image:url('../../../../assets/CapaciagroImg.png');
+    background-position:50% 50%;
 }
 .logo{
-    width: 35px;
-    height: 35px;
-    margin-left: 5%;
+      
+    width: 100%;
+    font-size: 200px;
 }
-.uno{
-    width: 80%;
-    margin-left: 10%;
-}
-.dos{
-    width: 60%;
+.form-group{
+    background: #f5f0f0;
+    width: 90%;
+    border-radius: 20px;
+    opacity: .9;
+    padding: 2%;
+    margin-left: 20%;
+    margin-top: 10%;
    
-    margin-left: 15%;
+    
+}
+.btn-success{
+    margin: 5% 0% 5% 30%;
+    width: 40%;
+    border-radius: 10px;
+    background: #096209;
+  }
+  .form-control{
+    width: 90%;
+    border-radius: 20px;
+
+}
+.registrar{
+    width: 100%;
+    height: 50px;
+    color: #ffffff;
+    background: #088d03;
+    border: 0;
+    border-radius: 10px;
+    font-size: 20px;
+    margin-bottom: 15%;
+    
 }
 .recomendacion{
-    width: 13%;
-    height: 300px;
-    float: right;
-    margin-right: 30%;
-    margin-top: 5%;
+    width: 60%;
+    height: 420px;
     background: #085205;
     border-radius: 25px;
+    margin-top: 20%;
+    margin-right: 20%;
+    float: right;
+    padding: 4%;
 }
-.no{
+li{
+    color: #ffffff;
+    padding-bottom: 10%;
+    padding-left: 3%;
+    padding-right: 3%;    
+}
+.question{
     margin: 5% 5% 5% 5%;
     color: #ffffff;
     font-size: 18px;
     font-weight: 800;
-}
-.registrar{
-    color: #ffffff;
-    background: #088d03;
-    border: 0;
-    border-radius: 5px;
-    height: 30px;
-}.ul ul li{
-    font-size: 12px;
-}
-
-.text-green{
-    color: #07520A;
-    font-weight: bold;
-    text-align: left;
-    margin-top: 10px;
-    margin-right: 10px;
-    margin-left: 50px;
-    display: block;
-}
-
-.text{
-    margin: 0;
-    margin-top: 15px;
-    margin-left: 35px;
-    text-align: left;
-    padding-left: 10px;
-}
-
-.input-icon{
-    color: #B8BEBF;
-    position: absolute;
-    left: 47px;
-    top: calc(50% - 0.5em); /* Keep icon in center of input, regardless of the input height */
-}  
-input{
-    padding-left: 17px;
-    border-radius: 10px
-}
-.input-wrapper{
-    position: relative;
-    padding-left: 43px;
-}
-
-.a-right{
-    padding-left: 450px;
-}
-
-.btn-color{
-    background-color: #45811E;
-    margin-bottom: 20px;
-    margin-top: 10px;
-    color: #ffffff;
-    padding-right: 30px;
-    padding-left: 30px;
-    border-radius: 10px;
-    font-weight: bold;
     text-align: center;
 }
-
-@media all and (max-width:900px){
-    .form{
-        width: 50%;
-        margin-left: 5%;
-        margin-right: 5%;
-
-    }
-    .recomendacion{
-        width: 20%;
-        margin-left: 10%;
-        margin-right: 10%;
-    }
+.btn-success{
+    margin: 5% 0% 5% 30%;
+    width: 40%;
+    border-radius: 10px;
+    background: #096209;
+  }
+@media screen and (max-width:700px){
+   .contenedor{
+       height: 1000px;
+   }
+   .col-md-4{
+       width: 100%;
+   }
+   .recomendacion{
+    margin-left: 10%;
+   }
 }
