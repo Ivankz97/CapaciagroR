@@ -1,3 +1,4 @@
+import { ConfirmacionInscripcionComponent } from './components/modals/confirmacion-inscripcion/confirmacion-inscripcion.component';
 import { CodeDescComponent } from './components/code-desc/code-desc/code-desc.component';
 import { EditUserComponent } from './components/users/edit-user/edit-user.component';
 import { DatosFacturacionComponent } from './components/datos-facturacion/datos-facturacion.component';
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path: "detail-event/:id", component: DetailsEventComponent},
   {path: "my-events", component: MyEventsComponent},
   //{path: "nuevoAdministrador", component:}
+  {path: "modalInscripcion/:id", component: ConfirmacionInscripcionComponent},
   {path: "ListaUsuarios",component:ListUserComponent},
   {path: "eventos", component: EventRegistrationComponent },
   {path: "my-purchases", component: MyPurchasesComponent},

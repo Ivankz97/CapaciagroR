@@ -1,5 +1,6 @@
+<app-navbar-user></app-navbar-user>
 <!-- Modal Ficha-->
--<div class="modal fade" id="confirmacion_inscripcion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade confirmacion_inscripcion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -23,11 +24,11 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>AYUW3OK1</td>
-              <td>Pendiente</td>
-              <td class="text-center">1</td>
-              <td>$ 3543</td>
+            <tr *ngFor="let d of data">
+              <td>{{d.payment.folio}}</td>
+              <td>{{d.payment.status}}</td>
+              <td class="text-center">{{d.payment.users_count}}</td>
+              <td>${{d.payment.total}}</td>
               <td>
                 <button class="btn btn-block green-color2" data-toggle="modal" data-target="#ver_confirmacion_inscripcion">Ver confirmación</button>
               </td>
