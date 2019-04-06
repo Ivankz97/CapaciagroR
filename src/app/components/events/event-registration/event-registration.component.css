@@ -102,3 +102,8 @@ width: 100%;
     background: #03460c;
     border-radius: 20px;
 }
+.btn-primary{
+background: none;
+border: 0;
+color: #000000;
+}

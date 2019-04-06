@@ -1,0 +1,86 @@
+<!--
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-xl">Extra large modal</button>
+-->
+<app-menu></app-menu>
+<div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div>Usuarios y acciones</div>
+      <div class="hr-sect"></div>
+      <div>Simposio de Nematodos, Hongos y Bacterias en Frutas y Hortalizas</div>
+      <div>
+        <table class="table topic">
+          <thead class="thead">
+            <tr>
+              <th scope="col">Folio</th>
+              <th scope="col">Nombres</th>
+              <th scope="col">Apellidos</th>
+              <th scope="col">Correo</th>
+              <th scope="col">Estatus</th>
+              <th scope="col">Número de inscripciones</th>
+              <th scope="col">Importe</th>
+              <th scope="col">Visualizar recibo de pago</th>
+              <th scope="col">Validar y confirmar</th>
+              <th scope="col">Facturar a razon social</th>
+              <th scope="col">Subir PDF</th>
+              <th scope="col">Subir XML</th>
+              <th scope="col">Editar</th>
+              <th scope="col">Eliminar</th>
+            </tr>
+          </thead>
+          <tr *ngFor="let d of data">
+                <td scope="col"> {{d.payment.folio}} </td>
+                <td scope="col"> {{d.user.name}} </td>
+                <td scope="col"> {{d.user.lastname}} </td>
+                <td scope="col">{{d.user.email}}</td>
+                <td scope="col">{{d.payment.status}} </td>
+                <td scope="col">{{d.event.inscriptions_count}} </td>
+                <td scope="col">{{d.event.price}} </td>
+                <td scope="col"><button type="button" class="btn btn-light" data-toggle="modal" data-target="#bd-example-modal-lg"><i class="fas fa-eye eye" ></i></button></td>
+                <td scope="col"><button type="button" class="btn btn-light"><i class="far fa-envelope letter"></i></button></td>
+                <td scope="col"><button type="button" class="btn btn-light" ><i class="far fa-newspaper"></i></button></td>
+                <td scope="col"><button type="button" class="btn btn-light" ><i class="fas fa-download"></i></button></td>
+                <td scope="col"><button type="button" class="btn btn-light" ><i class="fas fa-code"></i></button></td>
+                <td scope="col"><button type="button" class="btn btn-light" ><i class="fas fa-eraser"></i></button></td>
+                <td scope="col"><button type="button" class="btn btn-light" (click)="delete(event)"><i class="fas fa-times"></i></button> </td> 
+               
+          </tr>
+        </table>
+      
+      </div>
+    </div>
+    <div class="fa-money-bill"></div>
+  </div>
+</div>
+
+
+
+
+<div class="modal fade bd-example-modal-lg" id="bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Razon social</th>
+              <th scope="col">RFC</th>
+              <th scope="col">Método de pago</th>
+              <th scope="col">Correo electronico para envio de CDFI</th>
+            </tr>
+          </thead>
+          <tr *ngFor="let d of data">
+            <td>{{d.event.venue}} </td>
+            <td>FERNNANDO</td>
+            <td>FERNANDO</td>
+            <td>FERNANDO</td>
+          </tr>
+          
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+

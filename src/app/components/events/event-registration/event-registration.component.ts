@@ -21,6 +21,7 @@ export class EventRegistrationComponent implements OnInit {
   public valForm: FormGroup;
   public valFormPrice: FormGroup;
   public valFormUser: FormGroup;
+
   public loading: Boolean = false;
   public edit: Boolean = false;
   public filter;
@@ -78,6 +79,15 @@ export class EventRegistrationComponent implements OnInit {
       "name": [null, Validators.compose([Validators.required])],
       "email": [null, Validators.compose([Validators.required])]
     });
+    
+ /*
+    this.valFormEvent= formBuilder.group({
+      "status":[null, Validators.compose([Validators.required])],
+      "num_inscription":[null, Validators.compose([Validators.required])],
+
+    })
+   */
+  
     // this.arrayPrices = [{
     //   name: 'hola',
     //   min_people_amount: 'hola',
@@ -101,6 +111,10 @@ export class EventRegistrationComponent implements OnInit {
     }, e => {
       console.log(e);
     });
+
+
+
+
   }
 
   public cleanForm() {
@@ -404,6 +418,10 @@ export class EventRegistrationComponent implements OnInit {
       }
     });
   }
+  ///////////////////////////
+ 
+
+  ///////////////////////////
   public editF(params, $ev) {
     console.log("Evente edit -->", $ev);
     if (this.edit && $ev) {

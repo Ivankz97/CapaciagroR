@@ -40,7 +40,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { CarritoComponent } from './components/modals/carrito/carrito.component';
 import { ListUserComponent } from './components/users/list-user/list-user.component';
 import { NewAdminComponent } from './components/new-admin/new-admin.component';
-
+import {  UserActionComponent  } from './components/modals/user-action/user-action.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +66,8 @@ import { NewAdminComponent } from './components/new-admin/new-admin.component';
     Page404Component,
     CarritoComponent,
     ListUserComponent,
-    NewAdminComponent
+    NewAdminComponent,
+    UserActionComponent 
   ],
   imports: [
     HttpModule,

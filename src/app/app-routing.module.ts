@@ -13,6 +13,7 @@ import { MyEventsComponent } from './components/events/my-events/my-events.compo
 import { MyPurchasesComponent } from './components/users/my-purchases/my-purchases.component';
 import {EventRegistrationComponent} from './components/events/event-registration/event-registration.component';
 import { Page404Component } from './components/page404/page404.component';
+import {  UserActionComponent  } from './components/modals/user-action/user-action.component';
 import { ListUserComponent } from './components/users/list-user/list-user.component';
 import { NewAdminComponent } from './components/new-admin/new-admin.component';
 
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path: "modalInscripcion/:id", component: ConfirmacionInscripcionComponent},
   {path: "ListaUsuarios",component:ListUserComponent},
   {path: "eventos", component: EventRegistrationComponent },
+  {path: "accionde_usuario/:id", component: UserActionComponent},
   {path: "my-purchases", component: MyPurchasesComponent},
   {path: "descargar-factura", component: DescargaFacturaComponent},
   {path: "datos-facturacion", component: DatosFacturacionComponent},
