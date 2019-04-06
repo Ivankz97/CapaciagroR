@@ -16,6 +16,7 @@ import { Page404Component } from './components/page404/page404.component';
 import {  UserActionComponent  } from './components/modals/user-action/user-action.component';
 import { ListUserComponent } from './components/users/list-user/list-user.component';
 import { NewAdminComponent } from './components/new-admin/new-admin.component';
+import { ScomprobantePagoComponent } from './components/modals/scomprobante-pago/scomprobante-pago.component';
 
 const routes: Routes = [
   //{path: "**", redirectTo: "log-in"},
@@ -34,6 +35,7 @@ const routes: Routes = [
   {path: "my-purchases", component: MyPurchasesComponent},
   {path: "descargar-factura", component: DescargaFacturaComponent},
   {path: "datos-facturacion", component: DatosFacturacionComponent},
+  {path: "subir-comprobante-pago/:id", component: ScomprobantePagoComponent},
   {path: "edit-profile", component: EditUserComponent},
   {path: "nuevoadministrador", component: NewAdminComponent},
   {path: "**", component: Page404Component}
