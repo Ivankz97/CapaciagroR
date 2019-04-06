@@ -38,15 +38,17 @@ export class MyEventsComponent implements OnInit {
   noCompleteProfile: any;
   url : string = "http://68.183.18.239/";
 
-  constructor(private modalService: BsModalService, private formBuilder: FormBuilder, private __eventService: EventService, private __router: Router, private activatedRoute: ActivatedRoute, private userService: UserService) { }
+  constructor(private formBuilder: FormBuilder, private __eventService: EventService, private __router: Router, private activatedRoute: ActivatedRoute, private userService: UserService) { }
 
   ngOnInit() {
-    this.__eventService.getAll({}).subscribe((data) => {
+    this.__eventService.myEvents({}).subscribe((data) => {
       console.log("Datos -->", data)
-      this.data = data.events;
+      this.data = data.inscriptions;
     }, e => {
       console.log(e);
     });
   }
+
+
 
 }
