@@ -28,8 +28,9 @@
                   </thead>
                   <tbody>
                     <tr *ngFor="let d of data">
-                      <input type="hidden" name="event_id" formControlName="event_id" value="{{d.event.id}}">
-                      <input type="hidden" name="payment_id" formControlName="payment_id" value="{{d.payment.id}}">
+                      <!--<input type="hidden" name="event_id" formControlName="event_id" value="{{d.event.id}}">
+                      <input type="hidden" name="payment_id" formControlName="payment_id" value="{{d.payment.id}}">-->
+                      
                       <td>{{d.payment.folio}}</td>
                       <td>{{d.payment.status}}</td>
                       <td class="text-center">{{d.payment.users_count}}</td>
@@ -46,7 +47,7 @@
                         </label>
                       </td>
                       <td>
-                        <button type="submit" class="btn btn-primary" (click)="save(d.event.id)">Guardar
+                        <button type="submit" class="btn btn-primary" (click)="save(d.event.id, d.payment.id)">Guardar
                         </button>
                       </td>
                     </tr>

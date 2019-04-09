@@ -30,9 +30,6 @@ export class ScomprobantePagoComponent implements OnInit {
     this.queryParams = this.activatedRoute.snapshot.params.id
     console.log("queryParams -->", this.queryParams);
     this.valForm = formBuilder.group({
-      "id":  [null],
-      "event_id": [null],
-      "payment_id": [null],
       "proof_file": ['']
     });
   }
@@ -46,7 +43,10 @@ export class ScomprobantePagoComponent implements OnInit {
         {
           event: {
             id: this.queryParams
-          }
+          },
+          /*payment: {
+            id: this.queryParams
+          }*/
         }
       ).subscribe((data) => {
         console.log("Datos -->", data)
@@ -74,41 +74,7 @@ export class ScomprobantePagoComponent implements OnInit {
       });*/
     }
   }
-  public save(id) {
-    console.log("Formulario -->", this.valForm.value);
-    console.log("ID -->", this.queryParams);
-      //$ev.preventDefault();
-      for (let c in this.valForm.controls) {
-        this.valForm.controls[c].markAsTouched();
-      }
-      if (this.valForm.valid) {
-        this.loading = true;
-        this.__eventService.uploadProofFile({
-            "event_id": this.valForm.value.event_id,
-            "payment_id": this.valForm.value.payment_id,
-            "proof_file": this.valForm.value.img1,
-            //payment: { id: this.valForm.value.payment_id},
-            //"id": this.queryParams,
-            event: { id: id },
-        }).subscribe((data) => {
-          console.log("Datos al guardar -->", data);
-          if (data.result == "true") {
-            Swal.fire({ type: 'success', title: 'Evento Guardado', text: 'El evento fue creado exitosamenete.' });
-            location.replace('#/eventos');
-            this.loading = false;
-          } else {
-            Swal.fire({ type: 'error', title: 'Conflictos Al Guardar', text: data.message[0] });
-            this.loading = false;
-          }
-          this.cleanForm();
-          this.ngOnInit()
-          this.loading = false;
-        }, e => {
-          Swal.fire({ type: 'error', title: 'Conflictos Al Guardar', text: 'Hay problemas para guardar información, intentalo más tarde.' });
-          this.loading = false;
-        });
-      }
-  }
+  
 
   public valFormSave($ev: any) {
     $ev.preventDefault();
@@ -171,7 +137,7 @@ export class ScomprobantePagoComponent implements OnInit {
   }
 
   saveImage() {
-    console.log("Imagen del formulario", this.valForm.value.img1)
+    console.log("Imagen del formulario", this.valForm.value.proof_file)
     this.isStored = true
   }
   
@@ -179,6 +145,44 @@ export class ScomprobantePagoComponent implements OnInit {
     return (base64) ? base64.replace(/^data:image\/(jpeg|jpg|png);base64,/, "") : base64;
   }
 
+
+  public save(id, id_payment) {
+    console.log("Formulario -->", this.valForm.value);
+    console.log("ID -->", this.queryParams);
+      //$ev.preventDefault();
+      for (let c in this.valForm.controls) {
+        this.valForm.controls[c].markAsTouched();
+      }
+      if (this.valForm.valid) {
+        this.loading = true;
+        this.__eventService.uploadProofFile({
+          
+            //payment: { id: this.valForm.value.payment_id},
+            "proof_file": this.valForm.value.proof_file,
+            event: { id: id, "proof_file": this.valForm.value.proof_file},
+            payment: {id: id_payment,
+              "proof_file": this.valForm.value.proof_file
+            }
+        }).subscribe((data) => {
+          console.log("Datos al guardar -->", data);
+          if (data.result == "true") {
+            //Swal.fire({ type: 'success', title: 'Evento Guardado', text: 'El evento fue creado exitosamenete.' });
+            //location.replace('#/my-events');
+            this.ngOnInit();
+            this.loading = false;
+          } else {
+            Swal.fire({ type: 'error', title: 'Conflictos Al Guardar', text: data.message[0] });
+            this.loading = false;
+          }
+          this.cleanForm();
+          this.ngOnInit()
+          this.loading = false;
+        }, e => {
+          Swal.fire({ type: 'error', title: 'Conflictos Al Guardar', text: 'Hay problemas para guardar información, intentalo más tarde.' });
+          this.loading = false;
+        });
+      }
+  }
 }
 
 function getBase64(file) {
