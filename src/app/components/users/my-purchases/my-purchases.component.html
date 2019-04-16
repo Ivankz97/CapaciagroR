@@ -1,4 +1,5 @@
 <app-navbar-user></app-navbar-user>
+
 <body class="background image">
   <form>
     <div class="container ">
@@ -7,7 +8,7 @@
           <h3 class="text-green">Mis compras realizadas</h3>
           <div class="row container">
             <div *ngFor="let d of data; index as i" class="col-sm-6 col-xl-6">
-              <div>
+              <div *ngIf="d.payment.status=='POR VALIDAR'">
                 <img class="img center" src="{{url}}{{d.event.img1}}" alt="">
                 <p class="text-gray">{{d.event.name}}</p>
                 <div class="fas fa-map-marker-alt text-gray-low">Sede: {{d.event.venue}}</div>
@@ -17,34 +18,37 @@
                 <p class="text-size">
                   {{d.event.description}}
                 </p>
-                  <div class="col-sm-12 col-xl-12 form-group text-center">
-                    <div class="text-center">
-                      <!-- <button class="btn btn-primary btn-center border border-dark" style="font-weight: bold;">Subir pago</button> -->           
-                      <button class="btn brown-color btn-block btn-center border border-dark" style="font-weight: bold; color: white" routerLink="/modalInscripcion/{{d.event.id}}" data-toggle="modal" data-target=".confirmacion_inscripcion">Descargar memoria del evento</button>
+                <div class="col-sm-12 col-xl-12 form-group text-center">
+                  <div class="text-center">
+                    <!-- <button class="btn btn-primary btn-center border border-dark" style="font-weight: bold;">Subir pago</button> -->
+                    <button class="btn brown-color btn-block btn-center border border-dark" style="font-weight: bold; color: white"
+                      routerLink="/modalInscripcion/{{d.event.id}}" data-toggle="modal" data-target=".confirmacion_inscripcion">Descargar
+                      memoria del evento</button>
+                  </div>
+                </div>
+                <div class="space-div"></div>
+                <div class="intense-gray">
+                  <div class="row">
+                    <div class="col-sm-12 col-xl-7">
+                      <!-- <button class="btn btn-block green-color2">Descargar ficha de pago</button> -->
+                      <!--<a class="btn btn-block btn-primary" style="font-weight: bold; color: white; border-radius: 15px;" data-toggle="modal" data-target="#confirmacion_inscripcion">Ver compras</a>-->
+                      <button class="btn btn-block btn-primary" style="font-weight: bold; color:white; border-radius: 15px;"
+                        routerLink="/modalInscripcion/{{d.event.id}}" data-toggle="modal" data-target=".confirmacion_inscripcion">Ver
+                        compras</button>
+
                     </div>
-                  </div>
-              </div>
-              <div class="space-div"></div>
-              <div class="intense-gray">
-                <div class="row">
-                  <div class="col-sm-12 col-xl-7">
-                    <!-- <button class="btn btn-block green-color2">Descargar ficha de pago</button> -->
-                    <!--<a class="btn btn-block btn-primary" style="font-weight: bold; color: white; border-radius: 15px;" data-toggle="modal" data-target="#confirmacion_inscripcion">Ver compras</a>-->
-                    <button class="btn btn-block btn-primary" style="font-weight: bold; color:white; border-radius: 15px;" routerLink="/modalInscripcion/{{d.event.id}}" data-toggle="modal" data-target=".confirmacion_inscripcion">Ver compras</button>
-                    
-                  </div>
-                  <div class="col-sm-12 col-xl-5">
-                    <!--<button class="btn btn-block green-color">Descargar facturas</button>-->
-                      <a class="btn btn-block green-color2" data-toggle="modal" data-target="#downloadFacturas">Descargar facturas</a>
+                    <div class="col-sm-12 col-xl-5">
+                      <!--<button class="btn btn-block green-color">Descargar facturas</button>-->
+                      <a class="btn btn-block green-color2" data-toggle="modal" data-target="#downloadFacturas">Descargar
+                        facturas</a>
+                    </div>
                   </div>
                 </div>
               </div>
               <div class="space-div"></div>
             </div>
-            
           </div>
         </div>
-
       </div>
     </div>
   </form>

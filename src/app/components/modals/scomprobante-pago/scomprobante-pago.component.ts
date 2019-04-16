@@ -115,10 +115,10 @@ export class ScomprobantePagoComponent implements OnInit {
     var file = event.dataTransfer ? event.dataTransfer.files[0] : event.target.files[0];
     var pattern = /image-*/;
     var reader = new FileReader();
-    if (!file.type.match(pattern)) {
+    /*if (!file.type.match(pattern)) {
       alert('invalid format');
       return;
-    }
+    }*/
     getBase64(file).then(data => {
       console.log("Imagen 1 =>", data)
       let image = ''
@@ -142,7 +142,7 @@ export class ScomprobantePagoComponent implements OnInit {
   }
   
   cleanBase64(base64: string): string {
-    return (base64) ? base64.replace(/^data:image\/(jpeg|jpg|png);base64,/, "") : base64;
+    return (base64) ? base64.replace(/^data:image\/(jpeg|jpg|png|pdf);base64,/, "") : base64;
   }
 
 
@@ -166,7 +166,7 @@ export class ScomprobantePagoComponent implements OnInit {
         }).subscribe((data) => {
           console.log("Datos al guardar -->", data);
           if (data.result == "true") {
-            //Swal.fire({ type: 'success', title: 'Evento Guardado', text: 'El evento fue creado exitosamenete.' });
+            Swal.fire({ type: 'success', title: 'Archivo Guardado', text: 'El archivo ha sido subido exitosamente.' });
             //location.replace('#/my-events');
             this.ngOnInit();
             this.loading = false;

@@ -19,6 +19,8 @@ import { template } from '@angular/core/src/render3';
 export class MyPurchasesComponent implements OnInit {
 
   data: any = [];
+  data2: any= [];
+  payments: any = []
   user: any;
   p: any;
   filter: any;
