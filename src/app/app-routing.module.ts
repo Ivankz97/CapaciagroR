@@ -17,7 +17,7 @@ import {  UserActionComponent  } from './components/modals/user-action/user-acti
 import { ListUserComponent } from './components/users/list-user/list-user.component';
 import { NewAdminComponent } from './components/new-admin/new-admin.component';
 import { ScomprobantePagoComponent } from './components/modals/scomprobante-pago/scomprobante-pago.component';
-
+import { EventSearchComponent } from './components/events/event-search/event-search.component';
 const routes: Routes = [
   //{path: "**", redirectTo: "log-in"},
   {path: "", component: LogInComponent},
@@ -38,7 +38,9 @@ const routes: Routes = [
   {path: "subir-comprobante-pago/:id", component: ScomprobantePagoComponent},
   {path: "edit-profile", component: EditUserComponent},
   {path: "nuevoadministrador", component: NewAdminComponent},
+  {path: "buscar-evento", component: EventSearchComponent},
   {path: "**", component: Page404Component}
+
 ];
 
 @NgModule({

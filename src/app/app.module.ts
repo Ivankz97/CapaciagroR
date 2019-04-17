@@ -41,6 +41,7 @@ import { CarritoComponent } from './components/modals/carrito/carrito.component'
 import { ListUserComponent } from './components/users/list-user/list-user.component';
 import { NewAdminComponent } from './components/new-admin/new-admin.component';
 import {  UserActionComponent  } from './components/modals/user-action/user-action.component';
+import { EventSearchComponent } from './components/events/event-search/event-search.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +68,8 @@ import {  UserActionComponent  } from './components/modals/user-action/user-acti
     CarritoComponent,
     ListUserComponent,
     NewAdminComponent,
-    UserActionComponent 
+    UserActionComponent,
+    EventSearchComponent 
   ],
   imports: [
     HttpModule,
