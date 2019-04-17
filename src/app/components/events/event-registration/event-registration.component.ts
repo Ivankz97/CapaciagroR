@@ -395,7 +395,7 @@ export class EventRegistrationComponent implements OnInit {
     }
   }
 
-  public delete(event) {
+  public delete(id) {
     console.log("EVENT -->", event);
     Swal.fire({
       title: '¿Seguro que deseas eliminar este evento?',
@@ -407,7 +407,7 @@ export class EventRegistrationComponent implements OnInit {
       if (accepted) {
         this.__eventService.delete({
           event: {
-            id: event.id
+            id: id
           }
         }).subscribe(() => {
           Swal.fire({ type: 'success', title: 'Evento Eliminado', text: 'El Evento fue eliminado exitosamenete.' });
@@ -447,8 +447,8 @@ export class EventRegistrationComponent implements OnInit {
             "img4": this.valForm.value.img4,
             "price": this.valForm.value.price,
             "enabled": this.valForm.value.enabled,
-            "date": date,
-            "time": time,
+            "date": this.valForm.value.date,
+            "time": this.valForm.value.time,
             "venue": this.valForm.value.venue,
             "max_capacity": this.valForm.value.max_capacity,
             "id": this.valForm.value.id

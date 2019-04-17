@@ -176,9 +176,9 @@
               <button type="button" class="btn btn-primary precios">Alta de precios</button>
             </div>
             <div class="col-md-6">
-              <button *ngIf="!edit" class="btn btn-primary vista gray" type="button" (click)="cleanForm()">Limpiar</button>
-              <button type="button" class="btn btn-primary vista orange">Previsualizar</button>
-              <button class="btn btn-primary vista green" type="submit">Guardar</button>
+              <button *ngIf="!edit" class="btn vista gray" type="button" (click)="cleanForm()">Limpiar</button>
+              <button type="button" class="btn vista orange">Previsualizar</button>
+              <button class="btn vista green" style="color: white;" type="submit">Guardar</button>
             </div>
           </div>
         </form>
@@ -227,9 +227,13 @@
             <td>{{d.inscriptions_count}}</td>
             <td></td>
             <td><i class="fas fa-user"></i></td>
-            <td><i class="fas fa-eraser"></i></td>
+            <td><button class="drop" style="margin-left: 2%" [disabled]="disabled" type="button" (click)="editF(d.id)">
+              <i class="fas fa-eraser"></i>
+            </button></td>
             <td><i class="fas fa-download"></i></td>
-            <td><i class="fas fa-times"></i></td>
+            <td><button class="drop" style="margin-left: 2%" [disabled]="disabled" type="button" (click)="delete(d.id)">
+              <i class="fas fa-times"></i>
+            </button></td>
             <!--
               <td style="text-align:center">
               <button style="margin-left: 2%" class="btn btn-danger" [disabled]="disabled" type="button" (click)="delete(data)">
