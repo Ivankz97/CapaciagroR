@@ -5,6 +5,13 @@
 	color: #000000;
 	margin: 8px 0px;
 }
+.modal-content{
+	padding: 3%;
+}
+.table tr{
+	font-size: 10px;
+
+}
 .hr-sect::after {
 	content: "";
 	flex-grow: 1;
@@ -21,19 +28,27 @@
     font-size: 12px;
 }
 .eye{
-    color:#2571c7;
+	color:#2571c7;
+	font-size: 20px;
+	margin-left: 10%;
 }
 .btn-light{
     background: none;
     border: 0;
 }
 .letter{
-    color: #b8d805;
+	color: #b8d805;
+	font-size: 20px;
+	margin-left: 10%;
 }
 .fa-eraser{
-    color: #d197cc;
+	color: #d197cc;
+	font-size: 20px;
+	margin-left: 10%;
 }
 .fa-times{
     font-size: 20px;
-    color: #e05b5b;
+	color: #e05b5b;
+	font-size: 20px;
+	margin-left: 10%;
 }

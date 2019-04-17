@@ -17,11 +17,21 @@ import { template, query } from '@angular/core/src/render3';
   styleUrls: ['./user-action.component.css']
 })
 export class UserActionComponent implements OnInit {
-  data: any = [];
+   data: any = [];
+   data2: any = [];
+   public valformFacturation: FormGroup;
+  dataFacturation: any=[];
   user: any;
+  evento:any;
   p: any;
+  myEvents: any;
+  myEvents2: any;
+  eventId: any;
+  payments: any = [];
+  archive: any;
   filter: any;
-  prueba: any = ''
+  prueba: any = '';
+  event:any;
   loading: any = false
   ruta: any
   queryParams: any;
@@ -32,20 +42,25 @@ export class UserActionComponent implements OnInit {
   arrayUsers: any = [];
   metodoPago: any
   cupon: any;
-  url : string = "http://68.183.18.239/";
-
-  constructor(private __router: Router, private formBuilder: FormBuilder, private __eventService: EventService, private activatedRoute: ActivatedRoute) { 
+  public valForm: FormGroup;
+  public arrayFacturation: any = []
+  url: string = "http://68.183.18.239/";
+  
+  @ViewChild('facturationModal') private facturationModal: any;
+  @ViewChild('paymentsModal') private paymentsModal: any;
+  
+  constructor(private __router: Router, private formBuilder: FormBuilder, private __eventService: EventService, private activatedRoute: ActivatedRoute) {
     this.ruta = Uris.API_FILES_ENDPOINT
     this.queryParams = this.activatedRoute.snapshot.params.id
-    console.log("queryParams -->",this.queryParams);
+    console.log("queryParams -->", this.queryParams);
     this.ruta = Uris.API_FILES_ENDPOINT
     this.insForm = formBuilder.group({
       "id": [null],
       "numberPeople": [null],
       "name": [null, Validators.compose([Validators.required])],
-      "lastname":[null, Validators.compose([Validators.required])],
+      "lastname": [null, Validators.compose([Validators.required])],
       "email": [null, Validators.compose([Validators.required])],
-      "phone":[null, Validators.compose([Validators.required])],
+      "phone": [null, Validators.compose([Validators.required])],
       "user": [[], Validators.compose([Validators.required])],
       "descripcion": [null, Validators.compose([Validators.required])],
     });
@@ -70,7 +85,88 @@ export class UserActionComponent implements OnInit {
       });
     }
   }
+  public paymentsShow(data2) {
+    console.log("Data2 -->",data2)
+    this.__eventService.eventInscriptions({ event: { id: data2.id } }).subscribe(data => {
+      // console.log("DATOS In-->", data)
+      // let users = []
+      // for (let i = 0; i < data.suscriptions.length; i++) {
+      //   users.push(data.suscriptions[i].user)
+      // }
+      console.log("Datos -->", data)
+      console.log("Pagos -->",this.payments)
+      for (let i = 0; i < data.suscriptions.length; i++) {
+        // this.payments.push(data.inscriptions[0].payment)       
+        let rep = 0
+        console.log("Primer pago -->", data.suscriptions[i].payment)
+        for (let j = 0; j < this.payments.length; j++) {
+          if (data.suscriptions[i].payment ? data.suscriptions[i].payment.id : -2 == this.payments[j] ? this.payments[j].id : -1) {
+            rep += 1
+          }
+        }
+        if (rep == 0) {
+          this.payments.push(data.suscriptions[i].payment)
+        }
+      }
+      console.log("PAGOS UNICOS ->", this.payments)
+      this.paymentsModal.show()
+    })
+    this.eventId = data2.id
+    this.event = data2  
+  }
 
+
+  public validate(id) {
+    this.__eventService.validate({ 
+      event: { id: this.queryParams },
+       payment: { id } 
+      }).subscribe(data => {
+      console.log("DATOS In-->", data)
+      if (data.result === "true") {
+        this.__eventService.eventInscriptions({ event: { id: this.queryParams } }).subscribe(data2 => {
+          console.log("Datos -->", data)
+          if (data2.result == "true") {
+            for (let i = 0; i < data2.suscriptions.length; i++) {
+              // this.payments.push(data.inscriptions[0].payment)       
+              let rep = 0
+              console.log("Primer pago -->", data2.suscriptions[0].payment)
+              for (let j = 0; j < this.payments.length; j++) {
+                if (data2.suscriptions[i].payment ? data2.suscriptions[i].id : -2 == this.payments[j] ? this.payments[j].id : -1) {
+                  rep += 1
+                }
+              }
+              if (rep == 0) {
+                this.payments.push(data2.suscriptions[i].payment)
+              }
+            }
+            console.log("PAGOS UNICOS ->", this.payments)
+            Swal.fire({ type: 'success', title: 'Pago validado', text: '' });
+            //this.paymentsModal.hide()
+          }
+        })
+      }
+    })
+  }
+  
+public facturacion(){
+  if (this.user.admin) {
+    if (this.user.admin) {
+      this.__eventService.myFacturationData(
+        {
+          event: {
+            id: this.queryParams
+          }
+        }
+      ).subscribe((data2) => {
+        console.log("Datos -->", data2)
+        this.data2 = data2.facturation_data
+      }, e => {
+        console.log(e);
+      });
+    }
+  }
+
+}
   public delete(event) {
     console.log("EVENT -->", event);
     Swal.fire({

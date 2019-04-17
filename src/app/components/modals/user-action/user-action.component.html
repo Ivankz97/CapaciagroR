@@ -17,7 +17,7 @@
               <th scope="col">Nombres</th>
               <th scope="col">Apellidos</th>
               <th scope="col">Correo</th>
-              <th scope="col">Estatus</th>
+              <th scope="col">Estado</th>
               <th scope="col">Número de inscripciones</th>
               <th scope="col">Importe</th>
               <th scope="col">Visualizar recibo de pago</th>
@@ -37,9 +37,9 @@
                 <td scope="col">{{d.payment.status}} </td>
                 <td scope="col">{{d.event.inscriptions_count}} </td>
                 <td scope="col">{{d.event.price}} </td>
-                <td scope="col"><button type="button" class="btn btn-light" data-toggle="modal" data-target="#bd-example-modal-lg"><i class="fas fa-eye eye" ></i></button></td>
-                <td scope="col"><button type="button" class="btn btn-light"><i class="far fa-envelope letter"></i></button></td>
-                <td scope="col"><button type="button" class="btn btn-light" ><i class="far fa-newspaper"></i></button></td>
+                <td scope="col"> <a href="http://68.183.18.239/{{d.payment.proof_file}}" target="_blank"><i class="fas fa-eye eye" ></i></a> </td>
+                <td scope="col"><button type="button" class="btn btn-light"><i class="far fa-envelope letter" (click)="validate(d.id)"></i>{{d.event.id}}, {{d.payment.id}} </button></td>
+                <td scope="col"><button type="button" class="btn btn-light" data-toggle="modal" data-target="#bd-example-modal-lg" (click)="facturacion()"><i class="far fa-newspaper" ></i></button></td>
                 <td scope="col"><button type="button" class="btn btn-light" ><i class="fas fa-download"></i></button></td>
                 <td scope="col"><button type="button" class="btn btn-light" ><i class="fas fa-code"></i></button></td>
                 <td scope="col"><button type="button" class="btn btn-light" ><i class="fas fa-eraser"></i></button></td>
@@ -63,18 +63,18 @@
       <div>
         <table class="table">
           <thead>
-            <tr>
+            <tr >
               <th scope="col">Razon social</th>
               <th scope="col">RFC</th>
               <th scope="col">Método de pago</th>
               <th scope="col">Correo electronico para envio de CDFI</th>
             </tr>
           </thead>
-          <tr *ngFor="let d of data">
-            <td>{{d.event.venue}} </td>
-            <td>FERNNANDO</td>
-            <td>FERNANDO</td>
-            <td>FERNANDO</td>
+          <tr *ngFor="let d of data2">
+            <td>{{ d.razon_social }} </td>
+            <td>{{ d.rfc }} </td>
+            <td> {{d.payment_method}} </td>
+            <td>x  </td>
           </tr>
           
         </table>
