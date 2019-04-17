@@ -141,6 +141,7 @@ export class UserActionComponent implements OnInit {
             }
             console.log("PAGOS UNICOS ->", this.payments)
             Swal.fire({ type: 'success', title: 'Pago validado', text: '' });
+            this.ngOnInit()
             //this.paymentsModal.hide()
           }
         })
