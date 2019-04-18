@@ -117,12 +117,27 @@ export class UserActionComponent implements OnInit {
 
 
   public validate(id) {
+    Swal.fire({
+      title: 'Seguro que quieres validar este pago?',
+      text: "",
+      type: 'success',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Aceptar'
+    });
+    this.ngOnInit();
     this.__eventService.validate({ 
+      
       event: { id: this.queryParams },
        payment: { id } 
       }).subscribe(data => {
       console.log("DATOS In-->", data)
+
+     
+    
       if (data.result === "true") {
+    
         this.__eventService.eventInscriptions({ event: { id: this.queryParams } }).subscribe(data2 => {
           console.log("Datos -->", data)
           if (data2.result == "true") {

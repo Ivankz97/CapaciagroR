@@ -1,0 +1,21 @@
+.container{
+    width: 90%;
+    background:#ffffff;
+    border-radius: 10px;
+    
+    
+}
+.contenedor{
+    background-image: url("../../../../assets/Background.png");
+    height: 500px;
+}
+.pad-form{
+    padding: 4% 0% 10% 10%;
+    margin-left: 6%;
+}
+.form-group{
+    padding: 2%;
+}
+.large{
+    width: 60%;
+}
