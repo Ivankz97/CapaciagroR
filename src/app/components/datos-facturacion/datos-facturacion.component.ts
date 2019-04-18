@@ -15,6 +15,8 @@ import { ModalModule } from 'ngx-bootstrap';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 //import { SharedModule } from '../../../shared/shared.module';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { observable } from 'rxjs';
+import 'rxjs/add/operator/filter';
 
 @Component({
   selector: 'app-datos-facturacion',
@@ -24,7 +26,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
 export class DatosFacturacionComponent implements OnInit {
 
   data: any = [];
+  data2: any = [];
   user: any;
+  facturation_data : any;
   public valForm: FormGroup;
   public valformFacturation: FormGroup;
   imageChangedEvent: any = '';
@@ -54,6 +58,7 @@ export class DatosFacturacionComponent implements OnInit {
       "rfc": [null],
       "payment_method": [null],
       "uso_cfdi": [null],
+      "id": [null]
     });
   }
 
@@ -158,6 +163,25 @@ export class DatosFacturacionComponent implements OnInit {
       Swal.fire({ type: 'error', title: 'Conflictos Al Eliminar', text: 'Hay problemas para eliminar información, intentalo más tarde.' });
       this.loading = false;
     });
+    /*Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.value) {
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+      }else{
+        result.value==null;
+      }
+      this.ngOnInit();*/
   }
 
   public cleanForm() {
@@ -168,27 +192,31 @@ export class DatosFacturacionComponent implements OnInit {
   }
   public save($ev: any) {
     if (this.edit) {
-      this.editF(this.valForm.value.id, $ev)
+      this.editF(this.valformFacturation.value.id, $ev)
     } else {
       $ev.preventDefault();
-      for (let c in this.valForm.controls) {
-        this.valForm.controls[c].markAsTouched();
+      for (let c in this.valformFacturation.controls) {
+        this.valformFacturation.controls[c].markAsTouched();
       }
-      if (this.valForm.valid) {
+      if (this.valformFacturation.valid) {
         this.loading = true;
-        console.log("Form -->", this.valForm.value);
-        this.__userService.create({
-          user: this.valForm.value
+        console.log("Form -->", this.valformFacturation.value);
+        this.__eventService.addFacturationData({
+          facturation_data: this.valformFacturation.value
         }).subscribe((data) => {
           console.log("Datos al guardar -->", data);
           if (data.result == "true") {
-            Swal.fire({ type: 'success', title: 'Usuario Guardado', text: 'El usuario fue creado exitosamenete.' });
+            Swal.fire({ type: 'success', title: 'Dato de facturación', text: 'Fue creado exitosamenete.' });
+            this.ngOnInit()
           } else {
             Swal.fire({ type: 'error', title: 'Conflictos Al Guardar', text: data.message[0] });
             this.loading = false;
           }
-          this.cleanForm();
-          this.ngOnInit()
+          this.valformFacturation.reset()
+          this.__eventService.myFacturationData({}).subscribe((data) => {
+            console.log("Datos al guardar -->", data);
+            this.arrayFacturation = data.facturation_data
+          })
           this.loading = false;
         }, e => {
           Swal.fire({ type: 'error', title: 'Conflictos Al Guardar', text: 'Hay problemas para guardar información, intentalo más tarde.' });
@@ -199,22 +227,26 @@ export class DatosFacturacionComponent implements OnInit {
   }
   public editF(params, $ev) {
     console.log("Evente edit -->", $ev);
-    if (this.edit && $ev != 0) {
+    if (this.edit && $ev) {
       $ev.preventDefault();
-      for (let c in this.valForm.controls) {
-        this.valForm.controls[c].markAsTouched();
+      for (let c in this.valformFacturation.controls) {
+        this.valformFacturation.controls[c].markAsTouched();
       }
-      if (this.valForm.valid) {
+      if (this.valformFacturation.valid) {
         this.loading = true;
-        console.log("Form -->", this.valForm.value);
+        console.log("Form -->", this.valformFacturation.value);
 
-        this.__userService.update({
-          user: this.valForm.value
+        this.__eventService.updateFacturationData({
+          facturation_data: {
+            "razon_social": this.valformFacturation.value.razon_social,
+            "rfc": this.valformFacturation.value.rfc,
+            "payment_method": this.valformFacturation.value.payment_method,
+            "uso_cfdi": this.valformFacturation.value.uso_cfdi,
+            "id": this.valformFacturation.value.id
+          }
         }).subscribe((data) => {
-          Swal.fire({ type: 'success', title: 'Perfil Actualizado', text: 'El Perfil fue actualizado exitosamenete.' });
+          Swal.fire({ type: 'success', title: 'Facturación Actualizada', text: 'La facturación fue actualizada exitosamente.' });
           console.log("Data edit -->", data);
-          localStorage.removeItem('currentUser');
-          localStorage.setItem('currentUser', JSON.stringify(data));
           this.cleanForm();
           this.ngOnInit()
           this.loading = false;
@@ -224,19 +256,23 @@ export class DatosFacturacionComponent implements OnInit {
         });
       }
     } else {
-      this.__userService.getOne({
-        user: {
+      this.__eventService.myFacturationData({
           id: params.id
-        }
       }).subscribe((data) => {
-        console.log("edit data params-->", data.user, params);
-        this.valForm.controls['id'].setValue(this.user.id)
-        this.valForm.controls["name"].setValue(data.user.name)
-        this.valForm.controls["lastname"].setValue(data.user.lastname)
-        this.valForm.controls["email"].setValue(data.user.email)
-        this.valForm.controls["phone"].setValue(data.user.phone)
-        this.valForm.controls["avatar"].setValue("")
+        console.log("edit data params-->", data, params);
+        for(let i=0; i<data.facturation_data.length; i++){
+          if(data.facturation_data[i].id==params){
+            this.data2 = data.facturation_data[i];
+            console.log(this.data2);
+          }
+      }
+        this.valformFacturation.controls["razon_social"].setValue(this.data2.razon_social)
+        this.valformFacturation.controls["rfc"].setValue(this.data2.rfc)
+        this.valformFacturation.controls["payment_method"].setValue(this.data2.payment_method)
+        this.valformFacturation.controls["uso_cfdi"].setValue(this.data2.uso_cfdi)
+        this.valformFacturation.controls["id"].setValue(this.data2.id)
         this.edit = true
+        window.scrollTo(0, 0)
       })
     }
   }
