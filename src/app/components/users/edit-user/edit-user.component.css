@@ -3,6 +3,9 @@ body{
     background: rgb(90, 94, 87);
 }
 
+  
+
+
 .btn-gray{
     background-color: rgb(90, 94, 87);
     color: #ffffff;
@@ -157,7 +160,7 @@ input{
     display: inline;
     border-radius: 10px;
     margin-left: 3%;
-    margin-right: 40%;
+    
     color: white;
     font-weight: bold;
 }
@@ -223,3 +226,23 @@ input{
     margin-right: 70%;
 }
 
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+  
+.boton {
+    color: white;
+    background-color: rgb(70, 71, 70);
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 20px;
+}
+
+  .upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }

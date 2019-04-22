@@ -18,6 +18,9 @@ import { template } from '@angular/core/src/render3';
 export class MyEventsComponent implements OnInit {
 
   data: any = [];
+  data2: any = [];
+  data3: any = [];
+  events: any = []
   user: any;
   p: any;
   filter: any;
@@ -44,6 +47,22 @@ export class MyEventsComponent implements OnInit {
     this.__eventService.myEvents({}).subscribe((data) => {
       console.log("Datos -->", data)
       this.data = data.inscriptions;
+      for (let i = 0; i < data.inscriptions.length; i++) {
+        this.data2.push(data.inscriptions[i]);
+        if(data.inscriptions[i].payment.status=='PAGADO'){
+          this.events.push(data.inscriptions[i]);
+        }
+      }
+      //Mostrar los eventos que han sido añadidos al carrito.
+      //Elimina los elementos repetidos.
+      for (let i = 0; i < data.inscriptions.length-1; i++) {
+        if(data.inscriptions[i].event.id!=data.inscriptions[i+1].event.id){
+          data.inscriptions.pop(data.inscriptions[i].event.id);
+          this.data3.push(data.inscriptions[i]);
+        }
+        
+      }
+      console.log(this.data3);
     }, e => {
       console.log(e);
     });
@@ -52,3 +71,18 @@ export class MyEventsComponent implements OnInit {
 
 
 }
+
+
+/*REUTILIZAR 
+for (let i = 0; i < data.inscriptions.length; i++) {
+        if(data.inscriptions[i].payment.status=='PAGADO'){
+          this.data2 = data.inscriptions[i];
+          this.events.push(data.inscriptions[i]);
+        }else{
+          i++;
+        }
+        console.log("Hola",this.data2.event, i);
+      }
+      console.log("PAGOS UNICOS ->", this.events)
+
+*/
