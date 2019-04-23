@@ -1,7 +1,7 @@
 <app-navbar-user></app-navbar-user>
 <!-- Modal -->
 <div>
-    <form [formGroup]="valForm" class="form-validate mb-lg" role="form" name="loginForm" novalidate="">
+  <!--<form [formGroup]="valForm" class="form-validate mb-lg" role="form" name="loginForm" novalidate="">
         <div class="modal fade comprobantePago" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -28,8 +28,8 @@
                   </thead>
                   <tbody>
                     <tr *ngFor="let d of data">
-                      <!--<input type="hidden" name="event_id" formControlName="event_id" value="{{d.event.id}}">
-                      <input type="hidden" name="payment_id" formControlName="payment_id" value="{{d.payment.id}}">-->
+                      <input type="hidden" name="event_id" formControlName="event_id" value="{{d.event.id}}">
+                      <input type="hidden" name="payment_id" formControlName="payment_id" value="{{d.payment.id}}">
                       
                       <td>{{d.payment.folio}}</td>
                       <td>{{d.payment.status}}</td>
@@ -39,7 +39,7 @@
                           <option *ngFor="let facts of data2" value="{{facts.rfc}}">{{facts.razon_social}}</option>
                         </select></td>
                       <td>
-                        <!--<button class="btn btn-block btn-primary">Subir recibo</button>-->
+                        
       
                         <label class="btn btn-primary custom-file-upload">
                           <input type="file" (change)="fileChangeEvent($event)" />
@@ -57,5 +57,53 @@
             </div>
           </div>
         </div>
-      </form>
+      </form>-->
+      <div>
+          <div class="text-green" style="text-align: center;">
+            <label for="perfil" >
+              <h3 class="text-green">Subir comprobantes de pago del evento</h3>
+            </label>
+          </div>
+          <div>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Folio</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col">Cantidad de personas</th>
+                  <th scope="col">Total</th>
+                  <th scope="col">Razón social a facturar</th>
+                  <th scope="col">Subir recibo</th>
+                  <th scope="col">Guardar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let d of data">
+                  <!--<input type="hidden" name="event_id" formControlName="event_id" value="{{d.event.id}}">
+                  <input type="hidden" name="payment_id" formControlName="payment_id" value="{{d.payment.id}}">-->
+                  
+                  <td>{{d.payment.folio}}</td>
+                  <td>{{d.payment.status}}</td>
+                  <td class="text-center">{{d.payment.users_count}}</td>
+                  <td>${{d.payment.total}}</td>
+                  <td><select class="form-control" name="reason" id="reason">
+                      <option *ngFor="let facts of data2" value="{{facts.rfc}}">{{facts.razon_social}}</option>
+                    </select></td>
+                  <td>
+                    <!--<button class="btn btn-block btn-primary">Subir recibo</button>-->
+        
+                    <label class="btn btn-primary custom-file-upload">
+                      <input type="file" (change)="fileChangeEvent($event)" />
+                      Subir recibo
+                    </label>
+                  </td>
+                  <td>
+                    <button type="submit" class="btn btn-primary" (click)="save(d.event.id, d.payment.id)">Guardar
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+        
 </div>

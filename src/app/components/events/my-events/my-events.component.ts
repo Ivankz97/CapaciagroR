@@ -20,6 +20,8 @@ export class MyEventsComponent implements OnInit {
   data: any = [];
   data2: any = [];
   data3: any = [];
+  data4: any = [];
+  data5: any = [];
   events: any = []
   user: any;
   p: any;
@@ -56,13 +58,29 @@ export class MyEventsComponent implements OnInit {
       //Mostrar los eventos que han sido añadidos al carrito.
       //Elimina los elementos repetidos.
       for (let i = 0; i < data.inscriptions.length-1; i++) {
+        //console.log(data.inscriptions[i].event.id);
         if(data.inscriptions[i].event.id!=data.inscriptions[i+1].event.id){
-          data.inscriptions.pop(data.inscriptions[i].event.id);
+          //console.log(data.inscriptions[i].event.id);
+          //data.inscriptions.pop(data.inscriptions[i].event.id);
           this.data3.push(data.inscriptions[i]);
         }
         
       }
-      console.log(this.data3);
+      let contador = 0;
+      let i,j;
+      for(i = 0; i < this.data3.length; i++){
+          for(j=0; j < contador; j++){
+              if(this.data3[i].event.id == this.data4[j].event.id){
+                  break;
+              }
+           }
+          if(j == contador){
+            this.data4.push(this.data3[i]);
+            contador++;
+          }
+      }
+      //console.log("data4",this.data4);
+      //console.log(this.data3);
     }, e => {
       console.log(e);
     });

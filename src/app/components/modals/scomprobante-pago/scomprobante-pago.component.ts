@@ -50,7 +50,15 @@ export class ScomprobantePagoComponent implements OnInit {
         }
       ).subscribe((data) => {
         console.log("Datos -->", data)
-        this.data = data.suscriptions
+        this.data = data.suscriptions;
+        /*for (let i = 0; i < data.suscriptions.length; i++) {
+          //this.data2.push(data.inscriptions[i]);
+          if(data.suscriptions[i].payment.status!='PAGADO'){
+            this.data3.push(data.suscriptions[i]);
+          }
+        }*/
+        console.log("data3", this.data3);
+        
       }, e => {
         console.log(e);
       });
@@ -168,6 +176,7 @@ export class ScomprobantePagoComponent implements OnInit {
           if (data.result == "true") {
             Swal.fire({ type: 'success', title: 'Archivo Guardado', text: 'El archivo ha sido subido exitosamente.' });
             //location.replace('#/my-events');
+            //
             this.ngOnInit();
             this.loading = false;
           } else {
